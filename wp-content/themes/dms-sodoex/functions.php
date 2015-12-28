@@ -94,7 +94,7 @@ function user_autologout(){
 add_action('woocommerce_registration_redirect', 'user_autologout', 2);
 
 function registration_message(){
- //   $not_approved_message = '<p class="registration">Send in your registration application today!<br /> NOTE: Your account will be held for moderation and you will be unable to login until it is approved.</p>';
+
     $not_approved_message = '';
 
     if( isset($_REQUEST['approved']) ){
@@ -126,8 +126,8 @@ function send_user_approve_email($user_id){
     $user_pass  = "As specified during registration";
 
     $blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
-
-    $subject  = apply_filters( 'woocommerce_email_subject_customer_new_account', sprintf( __( 'Your account on %s has been approved!', 'woocommerce'), $blogname ), $user );
+    $blogname_replaced=str_replace('Degreaser','Solvent',$blogname);
+    $subject  = apply_filters( 'woocommerce_email_subject_customer_new_account', sprintf( __( 'Your account on %s has been approved!', 'woocommerce'), $blogname_replaced ), $user );
     $email_heading  = "User $user_login has been approved";
 
     // Buffer
@@ -155,3 +155,19 @@ function send_user_unapprove_email($user_id){
 add_action('wpau_unapprove', 'send_user_unapprove_email', 10, 1);
 
 add_shortcode('url','home_url');
+
+/**
+ * replace 'Degreaser' with 'Solvent' for the welcome email for the new customer
+ */
+
+add_filter('woocommerce_email_subject_customer_new_account', 'new_customer_email_subject', 1, 2);
+
+function new_customer_email_subject( $subject ) {
+    global $woocommerce;
+
+    $blogname = wp_specialchars_decode(get_option('blogname'), ENT_QUOTES);
+    $blogname_replaced=str_replace('Degreaser','Solvent',$blogname);
+    $subject = sprintf(' Your account on %s', $blogname_replaced);
+
+    return $subject;
+}
