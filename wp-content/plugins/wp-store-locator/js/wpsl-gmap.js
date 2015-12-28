@@ -1,14 +1,15 @@
 jQuery( document ).ready( function( $ ) { 
-var geocoder, map, directionsDisplay, directionsService, geolocationLatlng, 
+var geocoder, map, directionsDisplay, directionsService, geolocationLatlng,
 	activeWindowMarkerId, infoWindow, markerClusterer, startMarkerData, startAddress,
 	openInfoWindow = [],
 	markersArray = [],
+	markerSettings = {},
 	directionMarkerPosition = {},
 	mapDefaults = {},
 	resetMap = false,
 	streetViewAvailable = false,
 	autoLoad = ( typeof wpslSettings !== "undefined" ) ? wpslSettings.autoLoad : "";
-	
+
 /** 
  * Set the underscore template settings.
  * 
@@ -29,8 +30,8 @@ _.templateSettings = {
 
 // Only continue if a map is present.
 if ( $( ".wpsl-gmap-canvas" ).length ) {
-	$( "<img />" ).attr( "src", wpslSettings.path + "img/ajax-loader.gif" );
-	
+	$( "<img />" ).attr( "src", wpslSettings.url + "img/ajax-loader.gif" );
+
 	/* 
 	 * The [wpsl] shortcode can only exist once on a page, 
 	 * but the [wpsl_map] shortcode can exist multiple times.
@@ -39,7 +40,7 @@ if ( $( ".wpsl-gmap-canvas" ).length ) {
 	 */
 	$( ".wpsl-gmap-canvas" ).each( function( mapIndex ) {
 		var mapId = $( this ).attr( "id" );
-		
+
 		initializeGmap( mapId, mapIndex );
 	});
 }
@@ -79,7 +80,13 @@ function initializeGmap( mapId, mapIndex ) {
 		}
 	};
 
+	// Get the correct marker path & properties.
+	markerSettings = getMarkerSettings();
+
 	map = new google.maps.Map( document.getElementById( mapId ), mapOptions );
+
+	// Do we need to disable the dragging of the map?
+	maybeDisableMapDrag( map );
 
 	// Check if we need to apply a map style.
 	maybeApplyMapStyle( settings.mapStyle );
@@ -88,17 +95,17 @@ function initializeGmap( mapId, mapIndex ) {
 		bounds		  = new google.maps.LatLngBounds(),
 		mapData       = window[ "wpslMap_" + mapIndex ].locations,
 		locationCount = mapData.length;
-				
+
 		// Loop over the map data, create the infowindow object and add each marker.
 		$.each( mapData, function( index ) {			
 			latLng = new google.maps.LatLng( mapData[index].lat, mapData[index].lng );
 			addMarker( latLng, mapData[index].id, mapData[index], false, infoWindow );
 			bounds.extend( latLng );
 		});
-				
+
 		// Make all the markers fit on the map.
 		map.fitBounds( bounds );
-		
+
 		// Make sure we don't zoom to far.
 		google.maps.event.addListenerOnce( map, "bounds_changed", ( function( currentMap ) {
 			return function() {
@@ -108,10 +115,10 @@ function initializeGmap( mapId, mapIndex ) {
 			};
 		}( map ) ) );
 	}
-		
+
 	// Only run this part if the store locator exist and we don't just have a basic map.
 	if ( $( "#wpsl-gmap" ).length ) {
-		
+
 		/* 
 		 * Not the most optimal solution, but we check the useragent if we should enable the styled dropdowns.
 		 * 
@@ -127,10 +134,12 @@ function initializeGmap( mapId, mapIndex ) {
 		}
 
 		// Check if we need to autolocate the user, or autoload the store locations.
-		if ( wpslSettings.autoLocate == 1 ) {
-			checkGeolocation( settings.startLatLng, infoWindow );
-		} else if ( wpslSettings.autoLoad == 1 ) {
-			showStores( settings.startLatLng, infoWindow );
+		if ( !$( ".wpsl-search" ).hasClass( "wpsl-widget" ) ) {
+			if ( wpslSettings.autoLocate == 1 ) {
+				checkGeolocation( settings.startLatLng, infoWindow );
+			} else if ( wpslSettings.autoLoad == 1 ) {
+				showStores( settings.startLatLng, infoWindow );
+			}
 		}
 
 		// Move the mousecursor to the store search field if the focus option is enabled.
@@ -140,11 +149,14 @@ function initializeGmap( mapId, mapIndex ) {
 
 		// Bind store search button.
 		searchLocationBtn( infoWindow );
-		
+
 		// Add the 'reload' and 'find location' icon to the map.
 		mapControlIcons( settings, map, infoWindow );
+
+		// Check if the user submitted a search through a search widget.
+		checkWidgetSubmit();
 	}
-	
+
 	// Bind the zoom_changed listener.
 	zoomChangedListener();
 }
@@ -276,8 +288,63 @@ function newInfoWindow() {
 	} else {
 		infoWindow = new google.maps.InfoWindow();
 	}
-		
+
 	return infoWindow;
+}
+
+/**
+ * Check if we need to disable dragging on the map.
+ * 
+ * Disabling dragging fixes the problem on mobile devices where 
+ * users are scrolling down a page, but can't get past the map
+ * because the map itself is being dragged instead of the page.
+ * 
+ * @since  2.1.0
+ * @param  {object} map The map object.
+ * @return {void}
+ */
+function maybeDisableMapDrag( map ) {
+	var disableRes = parseInt( wpslSettings.draggable.disableRes ), 
+		mapOption  = {
+			draggable: Boolean( wpslSettings.draggable.enabled )
+		};
+
+	if ( disableRes !== "NaN" && mapOption.draggable ) {
+		mapOption.draggable = $( document ).width() > disableRes ? true : false;
+	}
+
+	map.setOptions( mapOption );
+}
+
+/**
+ * Get the required marker settings.
+ * 
+ * @since  2.1.0
+ * @return {object} settings The marker settings.
+ */
+function getMarkerSettings() {
+	var markerProp,
+		markerProps = wpslSettings.markerIconProps,
+		settings	= {};
+
+	// If no custom marker path is provided, then we stick with the default one.
+	if ( typeof markerProps.url !== "undefined" ) {
+		settings.url = markerProps.url;
+	} else {
+		settings.url = wpslSettings.url + "img/markers/";
+	}
+
+	for ( var key in markerProps ) {
+		if ( markerProps.hasOwnProperty( key ) ) {
+			markerProp = markerProps[key].split( "," );
+
+			if ( markerProp.length == 2 ) {
+				settings[key] = markerProp;
+			}
+		}
+	}
+	
+	return settings;
 }
 
 /**
@@ -914,9 +981,16 @@ function codeAddress( infoWindow ) {
     var latLng, 
 		autoLoad = false,
 		keepStartMarker = false,
-		address = $( "#wpsl-search-input" ).val();
+		request = {
+			'address': $( "#wpsl-search-input" ).val()
+		};
 
-    geocoder.geocode( { 'address': address}, function( response, status ) {
+	// Check if we need to set the geocode component restrictions.
+	if ( typeof wpslSettings.geocodeComponents !== "undefined" && !$.isEmptyObject( wpslSettings.geocodeComponents ) ) {
+		request.componentRestrictions = wpslSettings.geocodeComponents;
+	}
+
+    geocoder.geocode( request, function( response, status ) {
 		if ( status == google.maps.GeocoderStatus.OK ) {
 			latLng = response[0].geometry.location;
 
@@ -1041,7 +1115,7 @@ function makeAjaxRequest( startLatLng, resetMap, autoLoad, infoWindow ) {
 		isMobile   = $( "#wpsl-wrap" ).hasClass( "wpsl-mobile" ),
 		template   = $( "#wpsl-listing-template" ).html(),
 		$storeList = $( "#wpsl-stores ul" ),
-		preloader  = wpslSettings.path + "img/ajax-loader.gif",
+		preloader  = wpslSettings.url + "img/ajax-loader.gif",
 		ajaxData   = {
 			action: "store_search",
 			lat: startLatLng.lat(),
@@ -1089,7 +1163,7 @@ function makeAjaxRequest( startLatLng, resetMap, autoLoad, infoWindow ) {
 				ajaxData.filter = categoryId;
 			}
 		}
-		
+
 		/* @TODO: Look into adding support for extra user defined dropdowns?
 		 * 
 		 * Create a check that will automatically include data from 
@@ -1244,24 +1318,24 @@ function checkMarkerClusters() {
  * @return {void}
  */
 function addMarker( latLng, storeId, infoWindowData, draggable, infoWindow ) {
-	var markerPath, mapIcon, marker,
+	var url, mapIcon, marker,
 		keepStartMarker = true;
 
 	if ( storeId === 0 ) {
 		infoWindowData = {
 			store: wpslLabels.startPoint
 		};
-		
-		markerPath = wpslSettings.path + "img/markers/" + wpslSettings.startMarker;
-	} else {
-		markerPath = wpslSettings.path + "img/markers/" + wpslSettings.storeMarker;
-	}
 
+		url = markerSettings.url + wpslSettings.startMarker;
+	} else {
+		url = markerSettings.url + wpslSettings.storeMarker;
+	}
+	
 	mapIcon = {
-		url: markerPath,
-		scaledSize: new google.maps.Size( 24,35 ), //retina format
-		origin: new google.maps.Point( 0,0 ),
-		anchor: new google.maps.Point( 12,35 )
+		url: url,
+		scaledSize: new google.maps.Size( Number( markerSettings.scaledSize[0] ), Number( markerSettings.scaledSize[1] ) ), //retina format
+		origin: new google.maps.Point( Number( markerSettings.origin[0] ), Number( markerSettings.origin[1] ) ),
+		anchor: new google.maps.Point( Number( markerSettings.anchor[0] ), Number( markerSettings.anchor[1] ) )
 	};
 
     marker = new google.maps.Marker({
@@ -1366,7 +1440,7 @@ if ( typeof wpslSettings.infoWindowStyle !== "undefined" && wpslSettings.infoWin
 								 * it means the info window belongs to a marker that is part of a marker cluster.
 								 * 
 								 * If that is the case then we hide the info window ( the individual marker isn't visible ).
-
+								 *
 								 * The default info window script handles this automatically, but the
 								 * infobox library in combination with the marker clusters doesn't.
 								 */
@@ -1925,7 +1999,7 @@ function createDropdowns() {
  * Close all the dropdowns.
  * 
  * @since	1.2.24
- * @returns void
+ * @returns {void}
  */
 function closeDropdowns() {
 	$( ".wpsl-dropdown" ).removeClass( "wpsl-active" );
@@ -1951,9 +2025,9 @@ function closeDropdowns() {
  * @since 2.0.0
  */
 if ( $( "a[href='#" + wpslSettings.mapTabAnchor + "']" ).length ) {
-	var mapZoom, mapCenter, 
+	var mapZoom, mapCenter,
 		$wpsl_tab = $( "a[href='#" + wpslSettings.mapTabAnchor + "']" );
-	
+
 	$wpsl_tab.on( "click", function() {
 		setTimeout( function() {
 			mapZoom   = map.getZoom();
@@ -1969,6 +2043,19 @@ if ( $( "a[href='#" + wpslSettings.mapTabAnchor + "']" ).length ) {
 
 		return false;
 	});
+}
+
+/**
+ * Check if the user submitted a search through a search widget.
+ *  
+ * @since	2.1.0
+ * @returns {void}
+ */
+function checkWidgetSubmit() {
+	if ( $( ".wpsl-search" ).hasClass( "wpsl-widget" ) ) {
+		$( "#wpsl-search-btn" ).trigger( "click" );
+		$( ".wpsl-search" ).removeClass( "wpsl-widget" );
+	}
 }
 
 });

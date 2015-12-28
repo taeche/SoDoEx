@@ -1,11 +1,11 @@
 ﻿=== WP Store Locator ===
-Plugin URI: http://wpstorelocator.co
+Plugin URI: https://wpstorelocator.co
 Contributors: tijmensmit
 Donate link: https://www.paypal.me/tijmensmit
 Tags: google maps, store locator, business locations, geocoding, stores, geo, zipcode locator, dealer locater, geocode, gmaps, google map, google map plugin, location finder, map tools, shop locator, wp google map
 Requires at least: 3.7
-Tested up to: 4.3
-Stable tag: 2.0.4
+Tested up to: 4.4
+Stable tag: 2.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -36,16 +36,16 @@ the language that is set in the admin panel.
 * Supports [marker clusters](https://developers.google.com/maps/articles/toomanymarkers?hl=en#markerclusterer).
 * Customize map settings like the terrain type, location of the map controls and the default zoom level.
 * Use the Geolocation API to find the current location of the user and show nearby stores.
-* Developer friendly code. It uses custom post types and includes almost 30 different [filters](http://wpstorelocator.co/documentation/filters/) that help you change the look and feel of the store locator.
+* Developer friendly code. It uses custom post types and includes almost 30 different [filters](https://wpstorelocator.co/documentation/filters/) that help you change the look and feel of the store locator.
 
 = Documentation =
 
-Please take a look at the store locator [documentation](http://wpstorelocator.co/documentation/) before making a support request.
+Please take a look at the store locator [documentation](https://wpstorelocator.co/documentation/) before making a support request.
 
-* [Getting Started](http://wpstorelocator.co/documentation/getting-started/)
-* [Troubleshooting](http://wpstorelocator.co/documentation/troubleshooting/)
-* [Customisations](http://wpstorelocator.co/documentation/customisations/)
-* [Filters](http://wpstorelocator.co/documentation/filters/)
+* [Getting Started](https://wpstorelocator.co/documentation/getting-started/)
+* [Troubleshooting](https://wpstorelocator.co/documentation/troubleshooting/)
+* [Customisations](https://wpstorelocator.co/documentation/customisations/)
+* [Filters](https://wpstorelocator.co/documentation/filters/)
 
 = Premium Add-ons =
 
@@ -84,6 +84,10 @@ Make sure you have defined a start point for the map under settings -> Map Setti
 
 If you use a caching plugin, or a service like Cloudflare, then make sure to flush the cache.
 
+= I can't dismiss the pop up asking me to join the mailing list, how do I fix this? =
+
+There is probably a JS error in the WP Admin area that prevents the pop up from being dismissed. Try for a second to switch back to a default WP theme, disable all other plugins, and then try to dismiss the newsletter pop up again.
+
 = Why does it show the location I searched for in the wrong country? =
 
 Some location names exist in more then one country, and Google will guess which one you mean. This can be fixed by setting the correct 'Map Region' on the settings page -> API Settings.
@@ -96,7 +100,7 @@ If you don't use ajax navigation, but do see the number 1 it's probably a confli
 
 If you find a plugin or theme that causes a conflict, please report it on the [support page](http://wordpress.org/support/plugin/wp-store-locator).
 
-> You can find the full documentation [here](http://wpstorelocator.co/documentation/).
+> You can find the full documentation [here](https://wpstorelocator.co/documentation/).
 
 == Screenshots ==
 
@@ -106,6 +110,18 @@ If you find a plugin or theme that causes a conflict, please report it on the [s
 4. The plugin settings
 
 == Changelog ==
+
+= 2.1.0, December 23, 2015 =
+* Added: You can now use the "category" attribute ( use the category slugs as values ) on the [wpsl_map] shortcode to show locations that belong to one or more categories.
+* Added: Support to load the marker images from a [different folder](https://wpstorelocator.co/document/use-custom-markers/).
+* Added: A [wpsl_marker_props](https://wpstorelocator.co/document/wpsl_marker_props) filter that enables you to change the default "anchor", "scaledSize" and "origin" for the [marker image](https://developers.google.com/maps/documentation/javascript/3.exp/reference#Icon).
+* Added: A [wpsl_geocode_components](https://wpstorelocator.co/document/wpsl_geocode_components) filter that enables you to restrict the returned geocode results by administrativeArea, country, locality, postalCode and route.
+* Added: A [wpsl_draggable](https://wpstorelocator.co/document/wpsl_draggable_map) filter that enables you to enable/disable the dragging of the map.
+* Added: Support for the upcoming add-ons.
+* Note: Read [this](https://wpstorelocator.co/version-2-1-released/#widget-support) if you're using a custom template!
+* Changed: If you need to geocode the full address ( new store ), and a value for 'state' is provided it's now included in the geocode request.
+* Changed: If the Geocode API returns a REQUEST_DENIED status, then the returned error message is shown explaining why it failed. 
+* Fixed: In rare cases the SQL query returned duplicate locations with the same post id. To prevent this from happening the results are now by default grouped by post id.
 
 = 2.0.4, November 23, 2015 =
 * Fixed: HTML entity encoding issue in the marker tooltip, via [momo-fr](https://wordpress.org/support/profile/momo-fr) and [js-enigma](https://wordpress.org/support/profile/js-enigma).

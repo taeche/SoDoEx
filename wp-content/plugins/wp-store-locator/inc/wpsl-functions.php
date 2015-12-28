@@ -1,29 +1,36 @@
 <?php
 
 /**
- * Collect all the parameters ( language, key, region ) 
+ * Collect all the parameters ( language, key, region )
  * we need before making a request to the Google Maps API.
  *
  * @since 1.0.0
  * @return string $api_params The api parameters
  */
-function wpsl_get_gmap_api_params() {
+function wpsl_get_gmap_api_params( $geocode_params = false ) {
 
     global $wpsl_settings;
 
     $api_params = '';
     $api_keys   = array( 'language', 'key', 'region' );
 
+    /*
+     * The geocode params are included after the address so we need to 
+     * use a '&' as the first char, but when the maps script is included on 
+     * the front-end it does need to start with a '?'.
+     */
+    $first_sep  = ( $geocode_params ) ? '&' : '?';
+
     foreach ( $api_keys as $api_key ) {
         if ( !empty( $wpsl_settings['api_'.$api_key] ) ) {
-            $api_params .= $api_key . '=' . $wpsl_settings['api_'.$api_key] . '&';	
-        }	
+            $api_params .= $api_key . '=' . $wpsl_settings['api_'.$api_key] . '&';
+        }
     }
-    
+
     if ( $api_params ) {
-        $api_params = '?' . rtrim( $api_params, '&' );
+        $api_params = $first_sep . rtrim( $api_params, '&' );
     }
-    
+
     return apply_filters( 'wpsl_gmap_api_params', $api_params );
 }
 
@@ -39,6 +46,7 @@ function wpsl_get_default_settings() {
         'api_key'                 => '',
         'api_language'            => 'en',
         'api_region'              => '',
+        'api_geocode_component'   => 0,
         'distance_unit'           => 'km',
         'max_results'             => '[25],50,75,100',
         'search_radius'           => '10,25,[50],100,200,500',

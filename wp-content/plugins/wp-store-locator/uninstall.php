@@ -21,11 +21,7 @@ if ( !is_multisite() ) {
     switch_to_blog( $original_blog_id );
 }
 
-/** 
- * Delete the table ( users who upgraded from 1.x only ), options, store locations and taxonomies from the db. 
- * 
- * @todo Make the removal of db data optional through a checkbox on the settings page.
- */
+// Delete the table ( users who upgraded from 1.x only ), options, store locations and taxonomies from the db.
 function wpsl_uninstall() {
 	
 	global $wpdb, $current_user;

@@ -8,7 +8,7 @@ if ( $( "#wpsl-gmap-wrap" ).length ) {
 /**
  * Initialize the map with the correct settings.
  *
- * @since 1.0
+ * @since	1.0.0
  * @returns {void}
  */
 function initializeGmap() {
@@ -39,7 +39,7 @@ function initializeGmap() {
  * If there is an latlng value we add a marker to the map. 
  * This can only happen on the edit store page.
  *
- * @since 1.0
+ * @since	1.0.0
  * @returns {void}
  */
 function checkEditStoreMarker() {
@@ -56,7 +56,7 @@ function checkEditStoreMarker() {
 	}
 }
 
-/* If we have a city/country input field enable the autocomplete */
+// If we have a city/country input field enable the autocomplete.
 if ( $( "#wpsl-zoom-name" ).length ) {
 	activateAutoComplete();	
 }
@@ -64,7 +64,7 @@ if ( $( "#wpsl-zoom-name" ).length ) {
 /**
  * Activate the autocomplete function for the city/country field.
  *
- * @since 1.0
+ * @since	1.0.0
  * @returns {void}
  */
 function activateAutoComplete() {
@@ -84,7 +84,7 @@ function activateAutoComplete() {
 /**
  * Add a new marker to the map based on the provided location (latlng).
  *
- * @since 1.0
+ * @since	1.0.0
  * @param   {object} location The latlng value
  * @returns {void}
  */
@@ -97,13 +97,13 @@ function addMarker( location ) {
 	
 	markersArray.push( marker );
 	
-	/* If the marker is dragged on the map, make sure the latlng values are updated. */
+	// If the marker is dragged on the map, make sure the latlng values are updated.
 	google.maps.event.addListener( marker, "dragend", function() {
 		setLatlng( marker.getPosition(), "store" );
 	});
 }
 
-/* Lookup the provided location with the Google Maps API */
+// Lookup the provided location with the Google Maps API.
 $( "#wpsl-lookup-location" ).on( "click", function( e ) {	
 	e.preventDefault();
 	codeAddress();
@@ -112,7 +112,7 @@ $( "#wpsl-lookup-location" ).on( "click", function( e ) {
 /**
  * Update the hidden input field with the current latlng values.
  *
- * @since 1.0
+ * @since	1.0.0
  * @param   {object} latLng The latLng values
  * @param   {string} target The location where we need to set the latLng
  * @returns {void}
@@ -133,97 +133,111 @@ function setLatlng( latLng, target ) {
 /**
  * Geocode the user input. 
  *
- * @since 1.0
+ * @since	1.0.0
  * @returns {void}
  */
 function codeAddress() {
-    var filteredResponse, fullAddress,
-		address = $( "#wpsl-address" ).val(),
-		city	= $( "#wpsl-city" ).val(),
-		zip		= $( "#wpsl-zip" ).val(),
-		country	= $( "#wpsl-country" ).val();
-	
-		if ( zip ) {
-			fullAddress = address + ',' + city + ',' + zip + ',' + country;
-		} else {
-			fullAddress = address + ',' + city + ',' + country;
-		}
+    var filteredResponse, geocodeAddress;
 		
-		$( "#wpsl-missing-geodata" ).remove();
-		
-		/* Check we have all the requird data before attempting to geocode the address */
-		if ( !validatePreviewFields( address, city, country ) ) {
-			geocoder.geocode( { 'address': fullAddress }, function( response, status ) {
-				if ( status === google.maps.GeocoderStatus.OK ) {
-					
-					/* If we have a previous marker on the map remove it */
-					if ( typeof( markersArray[0] ) !== "undefined" ) {
-						if ( markersArray[0].draggable ) {
-							markersArray[0].setMap( null );
-							markersArray.splice(0, 1);
-						}
+	// Check if we have all the required data before attempting to geocode the address.
+	if ( !validatePreviewFields() ) {
+		geocodeAddress = createGeocodeAddress();
+
+		geocoder.geocode( { 'address': geocodeAddress }, function( response, status ) {
+			if ( status === google.maps.GeocoderStatus.OK ) {
+
+				// If we have a previous marker on the map remove it.
+				if ( typeof( markersArray[0] ) !== "undefined" ) {
+					if ( markersArray[0].draggable ) {
+						markersArray[0].setMap( null );
+						markersArray.splice(0, 1);
 					}
-							
-					/* Center and zoom to the searched location */
-					map.setCenter( response[0].geometry.location );
-					map.setZoom( 16 );
-					addMarker( response[0].geometry.location );				
-					setLatlng( response[0].geometry.location, "store" );
-
-					filteredResponse = filterApiResponse( response );
-					$( "#wpsl-country" ).val( filteredResponse.country.long_name );
-					$( "#wpsl-country_iso" ).val( filteredResponse.country.short_name );
-				} else {
-					alert( wpslL10n.geocodeFail + ": " + status );
 				}
-			});
 
-			return false;
-		} else {
-			activateStoreTab( "first" );
-			
-			alert( wpslL10n.missingGeoData );
-			
-			return true;
-		}
+				// Center and zoom to the searched location.
+				map.setCenter( response[0].geometry.location );
+				map.setZoom( 16 );
+				addMarker( response[0].geometry.location );				
+				setLatlng( response[0].geometry.location, "store" );
+
+				filteredResponse = filterApiResponse( response );
+				$( "#wpsl-country" ).val( filteredResponse.country.long_name );
+				$( "#wpsl-country_iso" ).val( filteredResponse.country.short_name );
+			} else {
+				alert( wpslL10n.geocodeFail + ": " + status );
+			}
+		});
+
+		return false;
+	} else {
+		activateStoreTab( "first" );
+
+		alert( wpslL10n.missingGeoData );
+
+		return true;
+	}
 }
 
 /**
- * Check that all required fields for the preview to work are there. 
+ * Check that all required fields for the map preview are there. 
  *
- * @since 1.0
- * @param   {string}  address The store address
- * @param   {string}  city    The store city
- * @param   {string}  country The store country
- * @returns {boolean} error   Whether a field validated or not
+ * @since	1.0.0
+ * @returns {boolean} error  Whether all the required fields contained data.
  */
-function validatePreviewFields( address, city, country ) {
-	var error = false;
+function validatePreviewFields() {
+	var i, fieldData, 
+		requiredFields = [ "address", "city", "country" ],
+		error		   = false;
 	
 	$( ".wpsl-store-meta input" ).removeClass( "wpsl-error" );
-		
-	if ( !address ) {
-		$( "#wpsl-address" ).addClass( "wpsl-error" );
-		error = true;
+	
+	// Check if all the required fields contain data.
+	for ( i = 0; i < requiredFields.length; i++ ) {
+		fieldData = $.trim( $( "#wpsl-" + requiredFields[i] ).val() );
+
+		if ( !fieldData ) {
+			$( "#wpsl-" + requiredFields[i] ).addClass( "wpsl-error" );
+			error = true;
+		}
+
+		fieldData = '';
 	}
-	
-	if ( !city ) {
-		$( "#wpsl-city" ).addClass( "wpsl-error" );
-		error = true;
-	}
-	
-	if ( !country ) {
-		$( "#wpsl-country" ).addClass( "wpsl-error" );
-		error = true;
-	}	
-	
+
 	return error;
 }
 
 /**
- * Filter out the country name from the API response. 
+ * Build the address that's send to the Geocode API.
  *
- * @since 1.0
+ * @since	2.1.0
+ * @returns {string} geocodeAddress The address separated by , that's send to the Geocoder.
+ */
+function createGeocodeAddress() {
+	var i, part,
+		address      = [], 
+		addressParts = [ "address", "city", "state", "zip", "country" ];
+
+	for ( i = 0; i < addressParts.length; i++ ) {
+		part = $.trim( $( "#wpsl-" + addressParts[i] ).val() );
+
+		/*
+		 * At this point we already know the address, city and country fields contain data.
+		 * But no need to include the zip and state if they are empty.
+		 */ 
+		if ( part ) {
+			address.push( part );
+		}
+
+		part = "";
+	}
+
+	return address.join();
+}
+
+/**
+ * Filter out the country name from the API response.
+ *
+ * @since	1.0.0
  * @param   {object} response	   The response of the geocode API
  * @returns {object} collectedData The short and long country name
  */
@@ -233,13 +247,13 @@ function filterApiResponse( response ) {
 		collectedData = {},
 		addressLength = response[0].address_components.length;
 	
-	/* Loop over the API response */
+	// Loop over the API response.
 	for ( i = 0; i < addressLength; i++ ){
 		responseType = response[0].address_components[i].types;
 		
-		/* filter out the country name */
+		// Filter out the country name.
 		if ( /^country,political$/.test( responseType ) ) {
-			country = { 
+			country = {
 				long_name: response[0].address_components[i].long_name,
 				short_name: response[0].address_components[i].short_name
 			};
@@ -256,7 +270,7 @@ function filterApiResponse( response ) {
 /**
  * Round the coordinate to 6 digits after the comma. 
  *
- * @since 1.0
+ * @since	1.0.0
  * @param   {string} coordinate   The coordinate
  * @returns {number} roundedCoord The rounded coordinate
  */
@@ -265,13 +279,13 @@ function roundCoordinate( coordinate ) {
 	
 	roundedCoord = Math.round( coordinate * Math.pow( 10, decimals ) ) / Math.pow( 10, decimals );
 	
-	return roundedCoord; 
+	return roundedCoord;
 }
 
 /**
  * Strip the '(' and ')' from the captured coordinates and split them. 
  *
- * @since 1.0
+ * @since	1.0.0
  * @param   {string} coordinates The coordinates
  * @returns {object} latLng      The latlng coordinates
  */
@@ -298,11 +312,11 @@ $( ".wpsl-marker-list li" ).click( function() {
 	$( this ).addClass( "wpsl-active-marker" );
 });
 
-/* Handle a click on the dismiss button. So that the warning msg that no starting point is set is disabled */
+// Handle a click on the dismiss button. So that the warning msg that no starting point is set is disabled.
 $( ".wpsl-dismiss" ).click( function() {
-	var $link = $( this ), 
-		data = { 
-			action: "disable_location_warning", 
+	var $link = $( this ),
+		data = {
+			action: "disable_location_warning",
 			_ajax_nonce: $link.attr( "data-nonce" )
 		};
 		
@@ -313,7 +327,7 @@ $( ".wpsl-dismiss" ).click( function() {
 	return false;
 });
 
-/* Detect changes to the 'More info' and 'Load Locations' option on the settings page */
+// Detect changes to the 'More info' and 'Load Locations' option on the settings page.
 $( "#wpsl-more-info" ).on( "change", function() {
 	$( "#wpsl-more-info-options" ).toggle();
 });
@@ -326,7 +340,8 @@ $( "#wpsl-editor-hide-hours" ).on( "change", function() {
 	$( ".wpsl-hours" ).toggle();
 });
 
-/* Detect changes to the store template dropdown. If the template is selected to 
+/* 
+ * Detect changes to the store template dropdown. If the template is selected to 
  * show the store list under the map then we show the option to hide the scrollbar.
  */
 $( "#wpsl-store-template" ).on( "change", function() {
@@ -339,46 +354,56 @@ $( "#wpsl-store-template" ).on( "change", function() {
 	}
 });
 
-/* Make sure the correct hour input format is visible */
+$( "#wpsl-api-region" ).on( "change", function() {
+	var $geocodeComponent = $( "#wpsl-geocode-component" );
+	
+	if ( $( this ).val() ) {
+		$geocodeComponent.show();
+	} else {
+		$geocodeComponent.hide();
+	}
+});
+
+// Make sure the correct hour input format is visible.
 $( "#wpsl-editor-hour-input" ).on( "change", function() {
 	$( ".wpsl-" + $( this ).val() + "-hours" ).show().siblings( "div" ).hide();
 	$( ".wpsl-hour-notice" ).toggle();
 });
 
-/* If the marker cluster checkbox changes, show/hide the options */
+// If the marker cluster checkbox changes, show/hide the options.
 $( "#wpsl-marker-clusters" ).on( "change", function() {
 	$( ".wpsl-cluster-options" ).toggle();
 });
 
-/* If the permalink checkbox changes, show/hide the options */
+// If the permalink checkbox changes, show/hide the options.
 $( "#wpsl-permalinks-active" ).on( "change", function() {
 	$( ".wpsl-permalink-option" ).toggle();
 });
 
-/* Set the correct tab to active and show the correct content block */
-$( "#wpsl-meta-nav li" ).on( "click", function( e ) {	
+// Set the correct tab to active and show the correct content block.
+$( "#wpsl-meta-nav li" ).on( "click", function( e ) {
 	var activeClass = $( this ).attr( "class" );
 		activeClass = activeClass.split( "-tab" );
 
 	e.stopPropagation();
 	
-	/* Set the correct tab and metabox to active */
+	// Set the correct tab and metabox to active.
 	$( this ).addClass( "wpsl-active" ).siblings().removeClass( "wpsl-active" );
 	$( ".wpsl-store-meta ." + activeClass[0] + "" ).show().addClass( "wpsl-active" ).siblings( "div" ).hide().removeClass( "wpsl-active" );
 });
 
-/* Make sure the required store fields contain data */
+// Make sure the required store fields contain data.
 if ( $( "#wpsl-store-details" ).length ) {
 	$( "#publish" ).click( function() {
 		var firstErrorElem, currentTabClass, elemClass,
 			errorMsg	= '<div id="message" class="error"><p>' + wpslL10n.requiredFields + '</p></div>',
 			missingData = false;
 
-		/* Remove error messages and css classes from previous submissions */
+		// Remove error messages and css classes from previous submissions.
 		$( "#wpbody-content .wrap #message" ).remove();
 		$( ".wpsl-required" ).removeClass( "wpsl-error" );
 
-		/* Loop over the required fields and check for a value */
+		// Loop over the required fields and check for a value.
 		$( ".wpsl-required" ).each( function() {
 			if ( $( this ).val() == "" ) {
 				$( this ).addClass( "wpsl-error" );
@@ -391,8 +416,8 @@ if ( $( "#wpsl-store-details" ).length ) {
 			}
 		});
 		
-		/* If one of the required fields are empty, then show the error msg and make sure the correct tab is visible. */
-		if ( missingData ) {		
+		// If one of the required fields are empty, then show the error msg and make sure the correct tab is visible.
+		if ( missingData ) {	
 			$( "#wpbody-content .wrap > h2" ).after( errorMsg );
 
 			if ( typeof firstErrorElem.val !== "undefined" ) {
@@ -408,14 +433,15 @@ if ( $( "#wpsl-store-details" ).length ) {
 				currentTabClass = $.trim( currentTabClass.replace( /wpsl-tab|wpsl-active/g, "" ) );
 			}			
 			
-			/* If we don't have a class of the tab that should be set to visible, we just show the first one */
+			// If we don't have a class of the tab that should be set to visible, we just show the first one.
 			if ( !currentTabClass ) {
 				activateStoreTab( 'first' );
 			} else {
 				activateStoreTab( currentTabClass );
 			}
 			
-			/* If not all required fields contains data, and the user has 
+			/* 
+			 * If not all required fields contains data, and the user has 
 			 * clicked the submit button. Then an extra css class is added to the 
 			 * button that will disabled it. This only happens in WP 3.8 or earlier.
 			 * 
@@ -435,7 +461,7 @@ if ( $( "#wpsl-store-details" ).length ) {
 /**
  * Set the correct tab to visible, and hide all other metaboxes
  *
- * @since 2.0
+ * @since	2.0.0
  * @param   {string} $target The name of the tab to show
  * @returns {void}
  */
@@ -458,7 +484,7 @@ function activateStoreTab( $target ) {
  * We need this to determine which tab we need to set active,
  * which will be the tab were the first error occured. 
  * 
- * @since 2.0
+ * @since	2.0.0
  * @param   {object} elem			The element the error occured on
  * @returns {object} firstErrorElem The id/class set on the first elem that an error occured on and the attr value
  */
@@ -467,15 +493,15 @@ function getFirstErrorElemAttr( elem ) {
 
 	firstErrorElem = { "type": "id", "val" : elem.attr( "id" ) };
 
-	/* If no ID value exists, then check if we can get the class name */
+	// If no ID value exists, then check if we can get the class name.
 	if ( typeof firstErrorElem.val === "undefined" ) {
 		firstErrorElem = { "type": "class", "val" : elem.attr( "class" ) };
-	}			
+	}
 	
 	return firstErrorElem;
 }
 
-/* If we have a store hours dropdown, init the event handler */
+// If we have a store hours dropdown, init the event handler.
 if ( $( "#wpsl-store-hours" ).length ) {
 	initHourEvents();
 }
@@ -484,17 +510,17 @@ if ( $( "#wpsl-store-hours" ).length ) {
  * Assign an event handler to the button that enables 
  * users to remove an opening hour period.
  * 
- * @since 2.0
+ * @since	2.0.0
  * @returns {void}
  */
 function initHourEvents() {
 	$( "#wpsl-store-hours .wpsl-icon-cancel-circled" ).off();
 	$( "#wpsl-store-hours .wpsl-icon-cancel-circled" ).on( "click", function() {
-		removePeriod( $( this ) );	
+		removePeriod( $( this ) );
 	});
 }
 
-/* Add new openings period to the openings hours table */
+// Add new openings period to the openings hours table.
 $( ".wpsl-add-period" ).on( "click", function( e ) {
 	var newPeriod,
 		hours		= {},
@@ -518,12 +544,12 @@ $( ".wpsl-add-period" ).on( "click", function( e ) {
 	initHourEvents();
 	
 	if ( $( "#wpsl-editor-hour-format" ).val() == 24 ) {
-		hours = { 
+		hours = {
 			"open": "09:00",
 			"close": "17:00"
 		};
 	} else {
-		hours = { 
+		hours = {
 			"open": "9:00 AM",
 			"close": "5:00 PM"
 		};
@@ -538,7 +564,7 @@ $( ".wpsl-add-period" ).on( "click", function( e ) {
 /**
  * Remove an openings period
  * 
- * @since 2.0
+ * @since  2.0.0
  * @param  {object} elem The clicked element
  * @return {void}
  */	
@@ -547,15 +573,15 @@ function removePeriod( elem ) {
 		$tr			= elem.parents( "tr" ),
 		day 	    = $tr.find( ".wpsl-opening-hours" ).attr( "data-day" );
 	
-	/* If there was 1 opening hour left then we add the 'Closed' text */	
+	// If there was 1 opening hour left then we add the 'Closed' text.
 	if ( periodsLeft == 1 ) {
 		$tr.find( ".wpsl-opening-hours" ).html( "<p class='wpsl-store-closed'>" + wpslL10n.closedDate + "<input type='hidden' name='wpsl[hours][" + day + "_open]' value='' /></p>" );
 	}	
 	
-	/* Remove the selected openings period */
+	// Remove the selected openings period.
 	elem.parent().closest( ".wpsl-current-period" ).remove();
 	
-	/* If the first element has the multiple class, then we need to remove it */
+	// If the first element has the multiple class, then we need to remove it.
 	if ( $tr.find( ".wpsl-opening-hours div:first-child" ).hasClass( "wpsl-multiple-periods" ) ) {
 		$tr.find( ".wpsl-opening-hours div:first-child" ).removeClass( "wpsl-multiple-periods" );
 	}
@@ -564,7 +590,7 @@ function removePeriod( elem ) {
 /**
  * Count the current opening periods in a day block
  * 
- * @since 2.0
+ * @since  2.0.0
  * @param  {object} elem		   The clicked element
  * @return {string} currentPeriods The ammount of period divs found
  */	
@@ -577,7 +603,7 @@ function currentPeriodCount( elem ) {
 /**
  * Create an option list with the correct opening hour format and interval
  * 
- * @since 2.0
+ * @since  2.0.0
  * @param  {string} returnList Whether to return the option list or call the setSelectedOpeningHours function
  * @return {mixed}  optionList The html for the option list of or void
  */	
@@ -596,7 +622,7 @@ function createHourOptionList( returnList ) {
 		};
 	
 	if ( $( "#wpsl-editor-hour-format" ).length ) {
-		hrFormat = $( "#wpsl-editor-hour-format" ).val(); //todo andere naam - editor eruit halen	
+		hrFormat = $( "#wpsl-editor-hour-format" ).val();
 	} else {
 		hrFormat = wpslSettings.hourFormat;	
 	}
@@ -616,10 +642,12 @@ function createHourOptionList( returnList ) {
 	for ( var i = 0; i < openingHours.length; i++ ) {
 		hour = openingHours[i];
 
-		/* If the 12hr format is selected, then check if we need to show AM or PM.
-		   If the 24hr format is selected and the hour is a single digit 
-		   then we add a 0 to the start so 5:00 becomes 05:00. 
-		*/
+		/* 
+		 * If the 12hr format is selected, then check if we need to show AM or PM.
+		 * 
+		 * If the 24hr format is selected and the hour is a single digit 
+		 * then we add a 0 to the start so 5:00 becomes 05:00. 
+		 */
 		if ( hrFormat == 12 ) {
 			if ( hour >= 12 ) {
 				pm = true;
@@ -630,13 +658,13 @@ function createHourOptionList( returnList ) {
 			hour = "0" + hour;
 		}
 
-		/* Collect the new opening hour format and interval */
+		// Collect the new opening hour format and interval.
 		for ( var j = 0; j < openingHourInterval.length; j++ ) {
 			openingTimes.push( hour + ":" + openingHourInterval[j] + " " + pmOrAm );
 		}				
 	}
 
-	/* Create the <option> list */
+	// Create the <option> list.
 	for ( var i = 0; i < openingTimes.length; i++ ) {
 		optionList = optionList + '<option value="' + $.trim( openingTimes[i] ) + '">' + $.trim( openingTimes[i] ) + '</option>';
 	}
@@ -651,7 +679,7 @@ function createHourOptionList( returnList ) {
 /**
  * Set the correct selected opening hour in the dropdown
  * 
- * @since 2.0
+ * @since  2.0.0
  * @param  {string} optionList The html for the option list 
  * @param  {string} hrFormat   The html for the option list
  * @return {void}
@@ -660,7 +688,10 @@ function setSelectedOpeningHours( optionList, hrFormat ) {
 	var splitHour, hourType, periodBlock,		
 		hours = {};
 		
-	/* Loop over each open/close block and make sure the selected value is still set as selected after changing the hr format */			
+	/* 
+	 * Loop over each open/close block and make sure the selected 
+	 * value is still set as selected after changing the hr format.
+	 */			
 	$( ".wpsl-current-period" ).each( function() {
 		periodBlock  = $( this ),
 		hours 		 = { 
@@ -668,20 +699,20 @@ function setSelectedOpeningHours( optionList, hrFormat ) {
 			"close": $( this ).find( ".wpsl-close-hour" ).val()
 		};
 						
-		/* Set the new hour format for both dropdowns */
+		// Set the new hour format for both dropdowns.
 		$( this ).find( "select" ).html( optionList ).promise().done( function() {
 
-			/* Select the correct start/end hours as selected */
+			// Select the correct start/end hours as selected.
 			for ( var key in hours ) {
 				if ( hours.hasOwnProperty( key ) ) {
 					
-					/* Breakup the hour, so we can check the part before and after the : separately */
+					// Breakup the hour, so we can check the part before and after the : separately.
 					splitHour = hours[key].split( ":" );
 
 					if ( hrFormat == 12 ) {
 						hourType = "";
 
-						/* Change the hours to a 12hr format and add the correct AM or PM */
+						// Change the hours to a 12hr format and add the correct AM or PM.
 						if ( hours[key].charAt( 0 ) == 0 ) {
 							hours[key] = hours[key].substr( 1 );
 							hourType   = " AM";
@@ -696,14 +727,14 @@ function setSelectedOpeningHours( optionList, hrFormat ) {
 							hourType   = " PM";
 						}
 
-						/* Add either AM or PM behind the time. */
+						// Add either AM or PM behind the time.
 						if ( ( splitHour[1].indexOf( "PM" ) == -1 ) && ( splitHour[1].indexOf( "AM" ) == -1 ) ) {
 							hours[key] = hours[key] + hourType;
 						}
 
 					} else if ( hrFormat == 24 ) {								
 						
-						/* Change the hours to a 24hr format and remove the AM or PM */
+						// Change the hours to a 24hr format and remove the AM or PM.
 						if ( splitHour[1].indexOf( "PM" ) != -1 ) {		
 							if ( splitHour[0] == 12 ) {
 								hours[key] = "12:" + splitHour[1].replace( " PM", "" );
@@ -721,7 +752,7 @@ function setSelectedOpeningHours( optionList, hrFormat ) {
 						}
 					}
 					
-					/* Set the correct value as the selected one */
+					// Set the correct value as the selected one.
 					periodBlock.find( ".wpsl-" + key + "-hour option[value='" + $.trim( hours[key] ) + "']" ).attr( "selected", "selected" );
 				}
 			}
@@ -730,12 +761,12 @@ function setSelectedOpeningHours( optionList, hrFormat ) {
 	});
 }
 
-/* Update the opening hours format if one of the dropdown values change */
+// Update the opening hours format if one of the dropdown values change.
 $( "#wpsl-editor-hour-format, #wpsl-editor-hour-interval" ).on( "change", function() {
 	createHourOptionList();
 });
 
-/* Show the tooltips */
+// Show the tooltips.
 $( ".wpsl-info" ).on( "mouseover", function() {	
 	$( this ).find( ".wpsl-info-text" ).show();
 });
@@ -744,16 +775,17 @@ $( ".wpsl-info" ).on( "mouseout", function() {
 	$( this ).find( ".wpsl-info-text" ).hide();
 });
 
-/* If the start location is empty, then we color the info icon red instead of black */
+// If the start location is empty, then we color the info icon red instead of black.
 if ( $( "#wpsl-latlng" ).length && !$( "#wpsl-latlng" ).val() ) {
 	$( "#wpsl-latlng" ).siblings( "label" ).find( ".wpsl-info" ).addClass( "wpsl-required-setting" );
 }
 
-/* Try to apply the custom style data to the map.
+/** 
+ * Try to apply the custom style data to the map.
  * 
  * If the style data is invalid json we show an error.
  * 
- * @since 2.0
+ * @since  2.0.0
  * @return {void}
  */
 function tryCustomMapStyle() {
@@ -763,7 +795,8 @@ function tryCustomMapStyle() {
 	$( ".wpsl-style-preview-error" ).remove();
 	
 	if ( mapStyle ) {
-		/* Make sure the data is valid json */
+		
+		// Make sure the data is valid json.
 		validStyle = tryParseJSON( mapStyle );
 
 		if ( !validStyle ) {
@@ -774,37 +807,42 @@ function tryCustomMapStyle() {
 	map.setOptions({ styles: validStyle });
 }
 
-/* Handle the map style changes on the settings page */
+// Handle the map style changes on the settings page.
 if ( $( "#wpsl-map-style" ).val() ) {
 	tryCustomMapStyle();
 }
 
-/* Handle clicks on the map style preview button */
+// Handle clicks on the map style preview button.
 $( "#wpsl-style-preview" ).on( "click", function() {
 	tryCustomMapStyle();
 	
 	return false;
 });
 
-/* Make sure the json is valid. 
+/**
+ * Make sure the JSON is valid. 
  * 
- * @since 2.0
- * @see http://stackoverflow.com/a/20392392/1065294 
- * @return {object|boolean} The json string or false if it's invalid json.
+ * @link   http://stackoverflow.com/a/20392392/1065294 
+ * @since  2.0.0
+ * @param  {string} jsonString The JSON data
+ * @return {object|boolean}	   The JSON string or false if it's invalid json.
  */
 function tryParseJSON( jsonString ) {
+	
     try {
-        var o = JSON.parse(jsonString);
+        var o = JSON.parse( jsonString );
 
-        // Handle non-exception-throwing cases:
-        // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
-        // but... JSON.parse(null) returns 'null', and typeof null === "object", 
-        // so we must check for that, too.
-        if (o && typeof o === "object" && o !== null) {
+        /* 
+		 * Handle non-exception-throwing cases:
+		 * Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
+		 * but... JSON.parse(null) returns 'null', and typeof null === "object", 
+		 * so we must check for that, too.
+		 */ 
+        if ( o && typeof o === "object" && o !== null ) {
             return o;
         }
     }
-    catch (e) { }
+    catch ( e ) { }
 
     return false;
 }

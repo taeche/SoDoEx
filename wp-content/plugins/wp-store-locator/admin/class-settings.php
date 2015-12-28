@@ -1,6 +1,6 @@
 <?php
 /**
- * Handle the plugin settings
+ * Handle the plugin settings.
  *
  * @author Tijmen Smit
  * @since  2.0.0
@@ -67,20 +67,20 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
          * @return array $output The setting values
          */
 		public function sanitize_settings() {
-                        
-            global $wpsl_settings, $wpsl_admin;
 
-            $ux_absints = array( 
-                'height', 
-                'infowindow_width', 
-                'search_width', 
+            global $wpsl_settings, $wpsl_admin;
+            
+            $ux_absints = array(
+                'height',
+                'infowindow_width',
+                'search_width',
                 'label_width'
             );
             
-            $marker_effects = array( 
-                'bounce', 
-                'info_window', 
-                'ignore' 
+            $marker_effects = array(
+                'bounce',
+                'info_window',
+                'ignore'
             );
             
             $ux_checkboxes = array(
@@ -98,9 +98,10 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
                 'hide_distance'
             );
             
-			$output['api_key']      = sanitize_text_field( $_POST['wpsl_api']['key'] );
-			$output['api_language'] = wp_filter_nohtml_kses( $_POST['wpsl_api']['language'] );
-			$output['api_region']   = wp_filter_nohtml_kses( $_POST['wpsl_api']['region'] );
+			$output['api_key']               = sanitize_text_field( $_POST['wpsl_api']['key'] );
+			$output['api_language']          = wp_filter_nohtml_kses( $_POST['wpsl_api']['language'] );
+			$output['api_region']            = wp_filter_nohtml_kses( $_POST['wpsl_api']['region'] );
+            $output['api_geocode_component'] = isset( $_POST['wpsl_api']['geocode_component'] ) ? 1 : 0;
                         
             // Do we need to show the dropdown filters?
             $output['results_dropdown']  = isset( $_POST['wpsl_search']['results_dropdown'] ) ? 1 : 0;
@@ -161,7 +162,7 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
 			$output['streetview'] 		= isset( $_POST['wpsl_map']['streetview'] ) ? 1 : 0;
             $output['type_control']     = isset( $_POST['wpsl_map']['type_control'] ) ? 1 : 0;
             $output['scrollwheel']      = isset( $_POST['wpsl_map']['scrollwheel'] ) ? 1 : 0;	
-			$output['control_position'] = ( $_POST['wpsl_map']['control_position'] == 'left' )  ? 'left' : 'right';	
+			$output['control_position'] = ( $_POST['wpsl_map']['control_position'] == 'left' ) ? 'left' : 'right';	
             
             $output['map_style'] = json_encode( strip_tags( trim( $_POST['wpsl_map']['map_style'] ) ) );
                     
@@ -736,11 +737,12 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
          * @return string $marker_list A list of all the available markers
          */
         public function create_marker_html( $marker_img, $location ) {
-                  
+
             global $wpsl_settings;
-            
+
+            $marker_path = ( defined( 'WPSL_MARKER_URI' ) ) ? WPSL_MARKER_URI : WPSL_URL . 'img/markers/';
             $marker_list = '';
-            
+
             if ( $wpsl_settings[$location.'_marker'] == $marker_img ) {
                 $checked   = 'checked="checked"';
                 $css_class = 'class="wpsl-active-marker"';
@@ -748,12 +750,12 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
                 $checked   = '';
                 $css_class = '';
             }
-
+            
             $marker_list .= '<li ' . $css_class . '>';
-            $marker_list .= '<img src="' . WPSL_URL . 'img/markers/' . $marker_img . '" />';
+            $marker_list .= '<img src="' . $marker_path . $marker_img . '" />';
             $marker_list .= '<input ' . $checked . ' type="radio" name="wpsl_map[' . $location . '_marker]"  value="' . $marker_img . '" />';
             $marker_list .= '</li>';
-            
+
             return $marker_list;
         }
         
@@ -839,7 +841,7 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
          * @return string $marker_list The complete list of available and selected markers
          */
         public function show_marker_options() {
-            
+
             $marker_list      = '';
             $marker_images    = $this->get_available_markers();
             $marker_locations = array( 
@@ -864,20 +866,21 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
                     $marker_list .= '</ul>';
                 }
             }
-            
+
             return $marker_list;
         }
-        
+
         /**
-         * Load the markers that can be used on the map.
+         * Load the markers that are used on the map.
          *
          * @since 1.0.0
-         * @return array $marker_images A list of all the available markers
+         * @return array $marker_images A list of all the available markers.
          */
         public function get_available_markers() {
             
-            $dir = WPSL_PLUGIN_DIR . 'img/markers/';
-
+            $marker_images = array();
+            $dir           = apply_filters( 'wpsl_admin_marker_dir', WPSL_PLUGIN_DIR . 'img/markers/' );
+            
             if ( is_dir( $dir ) ) {
                 if ( $dh = opendir( $dir ) ) {
                     while ( false !== ( $file = readdir( $dh ) ) ) {

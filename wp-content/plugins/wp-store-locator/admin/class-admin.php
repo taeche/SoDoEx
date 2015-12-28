@@ -40,14 +40,14 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
          * @var WPSL_Settings
          */
         public $settings_page;
-        
+
         /**
          * Class constructor
          */
-		function __construct() {   
-            
+		function __construct() {
+
             $this->includes();
-                        
+
             add_action( 'init',                                 array( $this, 'init' ) );
             add_action( 'admin_menu',                           array( $this, 'create_admin_menu' ) );
 			add_action( 'admin_init',                           array( $this, 'admin_init' ) );
@@ -55,11 +55,11 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
             add_action( 'wp_trash_post',                        array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'untrash_post',                         array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'admin_enqueue_scripts',                array( $this, 'admin_scripts' ) );	
-            
+
             add_filter( 'plugin_action_links_' . WPSL_BASENAME, array( $this, 'add_action_links' ), 10, 2 );
             add_filter( 'admin_footer_text',                    array( $this, 'admin_footer_text' ), 1 );
 		}
-        
+
         /**
          * Include all the required files.
          *
@@ -68,6 +68,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
          */
         public function includes() {
             require_once( WPSL_PLUGIN_DIR . 'admin/class-notices.php' );
+            require_once( WPSL_PLUGIN_DIR . 'admin/class-license-manager.php' );
             require_once( WPSL_PLUGIN_DIR . 'admin/class-metaboxes.php' ); 
             require_once( WPSL_PLUGIN_DIR . 'admin/class-geocode.php' );
             require_once( WPSL_PLUGIN_DIR . 'admin/class-settings.php' );
@@ -104,8 +105,8 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
                     add_action( 'admin_footer',                     array( $this, 'show_location_warning' ) );
                 }
             }
-		}         
-        
+		}    
+
        /**
         * Display an error message when no start location is defined.
         * 
@@ -141,23 +142,39 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
        }
         
         /**
-         * Add the menu pages.
+         * Add the admin menu pages.
          *
          * @since 1.0.0
          * @return void
          */
-		public function create_admin_menu() {	
-            add_submenu_page( 'edit.php?post_type=wpsl_stores', __( 'Settings', 'wpsl' ), __( 'Settings', 'wpsl' ), 'manage_wpsl_settings', 'wpsl_settings', array( $this, 'show_settings' ) );
+		public function create_admin_menu() {
+            
+            $sub_menus = apply_filters( 'wpsl_sub_menu_items', array(
+                    array(
+                        'page_title'  => __( 'Settings', 'wpsl' ),
+                        'menu_title'  => __( 'Settings', 'wpsl' ),
+                        'caps'        => 'manage_wpsl_settings',
+                        'menu_slug'   => 'wpsl_settings',
+                        'function'    => array( $this, 'load_template' )
+                    )
+                )
+            );
+      
+            if ( count( $sub_menus ) ) {
+                foreach ( $sub_menus as $sub_menu ) {
+                    add_submenu_page( 'edit.php?post_type=wpsl_stores', $sub_menu['page_title'], $sub_menu['menu_title'], $sub_menu['caps'], $sub_menu['menu_slug'], $sub_menu['function'] );
+                }
+            }            
         }
-        
+
         /**
-         * Show the settings page.
+         * Load the correct page template.
          *
-         * @since 1.0.0
+         * @since 2.1.0
          * @return void
          */
-        public function show_settings() {
-            require 'templates/map-settings.php'; 
+        public function load_template() {
+            require 'templates/map-settings.php';
         }
 
         /**
@@ -403,7 +420,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
         public function add_action_links( $links, $file ) {
             
             if ( strpos( $file, 'wp-store-locator.php' ) !== false ) {
-                $documentation = '<a href="http://wpstorelocator.co/documentation" target="_blank">'. __( 'Documentation', 'wpsl' ).'</a>';
+                $documentation = '<a href="https://wpstorelocator.co/documentation" target="_blank">'. __( 'Documentation', 'wpsl' ).'</a>';
                 array_unshift( $links, $documentation );
                 
                 $settings_link = '<a href="' . admin_url( 'edit.php?post_type=wpsl_stores&page=wpsl_settings' ) . '">' . __( 'General Settings', 'wpsl' ) . '</a>';

@@ -210,6 +210,7 @@
 }
 
 /* Settings page */
+#wpsl-license-form .postbox-container,
 #wpsl-settings-form .postbox-container {
     width: 535px;
     clear: both;

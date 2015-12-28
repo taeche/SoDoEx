@@ -58,12 +58,12 @@ if ( !class_exists( 'WPSL_Geocode' ) ) {
          */
 		public function geocode_location( $post_id, $store_data ) {
                         
-			$geocode_response = $this->get_latlng( $post_id, $store_data );
+			$geocode_response = $this->get_latlng( $store_data );
 
             if ( isset( $geocode_response['status'] ) ) {
                 switch ( $geocode_response['status'] ) {
                     case 'OK':
-                        $location_data = array (
+                        $location_data = array(
                             'country_iso' => $this->filter_country_name( $geocode_response ),
                             'latlng'      => $this->format_latlng( $geocode_response['results'][0]['geometry']['location'] )
                         );
@@ -71,14 +71,19 @@ if ( !class_exists( 'WPSL_Geocode' ) ) {
                         return $location_data;
                     case 'ZERO_RESULTS':
                         $msg = __( 'The Google Geocoding API returned no results for the supplied address. Please change the address and try again.', 'wpsl' );
-                        break;	
+                        break;
                     case 'OVER_QUERY_LIMIT':
                         $msg = sprintf( __( 'You have reached the daily allowed geocoding limit, you can read more %shere%s.', 'wpsl' ), '<a target="_blank" href="https://developers.google.com/maps/documentation/geocoding/#Limits">', '</a>' );
-                        break;	
+                        break;
+                    case 'REQUEST_DENIED':
+                        $msg = sprintf( __( 'The Google Geocoding API returned REQUEST_DENIED. %s', 'wpsl' ), $this->check_geocode_error_msg( $geocode_response ) );
+                        break;
                     default:
                         $msg = __( 'The Google Geocoding API failed to return valid data, please try again later.', 'wpsl' );
-                        break;				
+                        break;
                 }
+            } else {
+                $msg = $geocode_response;
             }
             
             // Handle the geocode code errors messages.
@@ -87,29 +92,70 @@ if ( !class_exists( 'WPSL_Geocode' ) ) {
             }
 		}
         
+        /**
+         * Check if the response from the Geocode API contains an error message.
+         * 
+         * @since 2.1.0
+         * @param  array  $geocode_response The response from the Geocode API.
+         * @return string $error_msg        The error message, or empty if none exists.  
+         */
+        public function check_geocode_error_msg( $geocode_response, $inc_breaks = true ) {
+            
+            $breaks = ( $inc_breaks ) ? '<br><br>' : '';
+            
+            if ( isset( $geocode_response['error_message'] ) && $geocode_response['error_message'] ) {
+                $error_msg = sprintf( __( '%sError message: %s', 'wpsl' ),  $breaks, $geocode_response['error_message'] );
+            } else {
+                $error_msg = '';
+            }
+            
+            return $error_msg;
+        }
+        
         /** 
          * Make the API call to Google to geocode the address.
          * 
          * @since 1.0.0
-         * @param  integer    $post_id    store post ID
-         * @param  array      $store_data The store data
-         * @return void|array $geo_data   The geocoded response
+         * @param  array        $store_data   The store data
+         * @return array|string $geo_response The response from the Google Geocode API, or the wp_remote_get error message.
          */
-		public function get_latlng( $post_id, $store_data ) {
+		public function get_latlng( $store_data ) {
             
-            $address  = $store_data['address'].','.$store_data['city'].','.$store_data['zip'].','.$store_data['country'];
-			$url      = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode( $address ) . '&sensor=false' . wpsl_get_gmap_api_params();
+            $address  = $this->create_geocode_address( $store_data );
+			$url      = 'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode( $address ) . wpsl_get_gmap_api_params( true );
             $response = wp_remote_get( $url );
-
-            if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != 200 || empty( $response['body'] ) ) {
-                $msg = __( 'The Google Geocoding API failed to return valid data, please try again later.', 'wpsl' );
-                $this->geocode_failed( $msg, $post_id );
+            
+            if ( is_wp_error( $response ) ) {
+                $geo_response = sprintf( __( 'Something went wrong connecting to the Google Geocode API: %s %s Please try again later.', 'wpsl' ), $response->get_error_message(), '<br><br>' );
             } else {
-                $geo_data = json_decode( $response['body'], true ); 
-                
-                return $geo_data;
+                $geo_response = json_decode( $response['body'], true ); 
             }
+            
+            return $geo_response;
 		}
+        
+        /** 
+         * Create the address we need to Geocode.
+         * 
+         * @since 2.1.0
+         * @param  array  $store_data      The provided store data
+         * @return string $geocode_address The address we are sending to the Geocode API separated by ,
+         */
+        public function create_geocode_address( $store_data ) {
+            
+            $address       = array();
+            $address_parts = array( 'address', 'city', 'state', 'zip', 'country' );
+            
+            foreach ( $address_parts as $address_part ) {
+                if ( isset( $store_data[$address_part] ) && $store_data[$address_part] ) {
+                    $address[] = trim( $store_data[$address_part] );
+                }
+            }
+            
+            $geocode_address = implode( ',', $address );
+
+            return $geocode_address;
+        }
         
         /** 
          * If there is a problem with the geocoding then we save the notice and change the post status to pending.
@@ -126,7 +172,7 @@ if ( !class_exists( 'WPSL_Geocode' ) ) {
             $wpsl_admin->notices->save( 'error', $msg );
             $wpsl_admin->metaboxes->set_post_pending( $post_id );
         }
-        
+
         /** 
          * Save the store location data.
          * 
@@ -201,7 +247,7 @@ if ( !class_exists( 'WPSL_Geocode' ) ) {
             if ( !is_numeric( $lat ) || ( $lat > 90 ) || ( $lat < -90 ) ) {
                 return false;
             }
-            
+
             if ( !is_numeric( $lng ) || ( $lng > 180 ) || ( $lng < -180 ) ) {
                 return false;
             }

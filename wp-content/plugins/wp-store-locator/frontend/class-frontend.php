@@ -126,7 +126,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
         public function find_nearby_locations() {
 
             global $wpdb, $wpsl, $wpsl_settings;
-            
+
             $store_data = array();
 
             /* 
@@ -167,7 +167,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             if ( $wpsl->i18n->wpml_exists() ) {
                 $group_by = 'GROUP BY lat';
             } else {
-                $group_by = '';
+                $group_by = 'GROUP BY posts.ID';
             }
 
             /* 
@@ -251,7 +251,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $custom_fields = get_post_custom( $store->ID );
 
                 foreach ( $meta_field_map as $meta_key => $meta_value ) {
-                    
+
                     if ( isset( $custom_fields[$meta_key][0] ) ) {
                         if ( ( isset( $meta_value['type'] ) ) && ( !empty( $meta_value['type'] ) ) ) {         
                             $meta_type = $meta_value['type'];                                
@@ -507,7 +507,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
          * 
          * If you want to create a custom template you need to 
          * create a single-wpsl_stores.php file in your theme folder. 
-         * You can see an example here http://wpstorelocator.co/document/create-custom-store-page-template/
+         * You can see an example here https://wpstorelocator.co/document/create-custom-store-page-template/
          * 
          * @since  2.0.0
          * @param  string $content
@@ -765,6 +765,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             
             $atts = shortcode_atts( apply_filters( 'wpsl_map_shortcode_defaults', array(
                 'id'               => '',
+                'category'         => '',
                 'width'            => '',
                 'height'           => $wpsl_settings['height'],
                 'zoom'             => $wpsl_settings['zoom_level'],
@@ -786,11 +787,28 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                         return;
                     }
                 }
-            } else if ( empty( $atts['id'] ) ) {
-                return __( 'If you use the [wpsl_map] shortcode outside a store page you need to set the ID attribute.', 'wpsl' );
+            } else if ( empty( $atts['id'] ) && empty( $atts['category'] ) ) {
+                return __( 'If you use the [wpsl_map] shortcode outside a store page, then you need to set the ID or category attribute.', 'wpsl' );
             }
 
-            $store_ids  = array_map( 'absint', explode( ',', $atts['id'] ) );
+            if ( $atts['category'] ) {
+                $store_ids = get_posts( array(
+                    'numberposts' => -1,
+                    'post_type'   => 'wpsl_stores',
+                    'post_status' => 'publish',
+                    'tax_query'   => array(
+                        array(
+                            'taxonomy' => 'wpsl_store_category',
+                            'field'    => 'slug',
+                            'terms'    => explode( ',', sanitize_text_field( $atts['category'] ) )
+                        ),
+                    ),
+                    'fields'      => 'ids'
+                ) );
+            } else {
+                $store_ids = array_map( 'absint', explode( ',', $atts['id'] ) );
+            }
+
             $store_meta = array();
             $i          = 0;
             
@@ -1046,6 +1064,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             if ( $wpsl_settings['results_dropdown'] && !$wpsl_settings['category_dropdown'] && !$wpsl_settings['radius_dropdown'] ) {
                 $classes[] = 'wpsl-results-only';
             }
+            
+            $classes = apply_filters( 'wpsl_template_css_classes', $classes );
 
             if ( !empty( $classes ) ) {
                 return join( ' ', $classes );
@@ -1109,7 +1129,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $category .= '<option value="0">'. __( 'Any' , 'wpsl' ) .'</option>';
                 
                 foreach ( $terms as $term ) {
-                    $category .=  '<option value="' . $term->term_id . '">' . $term->name . '</option>';
+                    $category .= '<option value="' . $term->term_id . '" '. apply_filters( 'wpsl_selected_category' , $term->term_id ) .'>' . $term->name . '</option>';
                 }
 
                 $category .= '</select>';
@@ -1223,7 +1243,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
         /**
          * The different geolocation errors.
          * 
-         * They are shown when the HTML Geolocation API returns an error.
+         * They are shown when the Geolocation API returns an error.
          * 
          * @since 2.0.0
          * @return array $geolocation_errors
@@ -1241,6 +1261,49 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
         }
 
         /**
+         * Get the used marker properties.
+         *
+         * @since 2.1.0
+         * @link https://developers.google.com/maps/documentation/javascript/3.exp/reference#Icon
+         * @return array $marker_props The marker properties.
+         */        
+        public function get_marker_props() {
+            
+            $marker_props = apply_filters( 'wpsl_marker_props', array(
+                'scaledSize' => '24,35', // 50% of the normal image to make it work on retina screens.
+                'origin'     => '0,0',
+                'anchor'     => '12,35'
+            ) );
+            
+            /*
+             * If this is not defined, the url path will default to 
+             * the url path of the WPSL plugin folder + /img/markers/
+             * in the wpsl-gmap.js.
+             */
+            if ( defined( 'WPSL_MARKER_URI' ) ) {
+                $marker_props['url'] = WPSL_MARKER_URI;
+            }
+            
+            return $marker_props;
+        }
+        
+        /**
+         * Check if the map is draggable.
+         *
+         * @since 2.1.0
+         * @return array $draggable The draggable options.
+         */
+        public function maybe_draggable() {
+            
+            $draggable = apply_filters( 'wpsl_draggable_map', array(
+                'enabled'    => true,
+                'disableRes' => '675' // breakpoint where the dragging is disabled in px.
+            ) );
+            
+            return $draggable;
+        }
+
+        /**
          * Load the required JS scripts.
          *
          * @since 1.0.0
@@ -1254,11 +1317,11 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             if ( empty( $this->load_scripts ) ) {
                 return;
             }
-            
+
             $min = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
             $dropdown_defaults = $this->get_dropdown_defaults();
-            
+
             wp_enqueue_script( 'wpsl-gmap', ( 'https://maps.google.com/maps/api/js' . wpsl_get_gmap_api_params() ), '', null, true );
 
             $base_settings = array(
@@ -1270,9 +1333,11 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'autoZoomLevel'   => $wpsl_settings['auto_zoom_level'],
                 'scrollWheel'     => $wpsl_settings['scrollwheel'],
 				'controlPosition' => $wpsl_settings['control_position'],
-                'path'            => WPSL_URL
+                'url'             => WPSL_URL,
+                'markerIconProps' => $this->get_marker_props(),
+                'draggable'       => $this->maybe_draggable()
             );
-                          
+   
 			$locator_map_settings = array(
                 'startMarker'       => $this->create_retina_filename( $wpsl_settings['start_marker'] ),
                 'markerClusters'    => $wpsl_settings['marker_clusters'],
@@ -1298,11 +1363,22 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 'mapControls'       => $this->get_map_controls(),
                 'mapTabAnchor'      => apply_filters( 'wpsl_map_tab_anchor', 'wpsl-map-tab' )
 			);
+            
+            /* 
+             * If enabled, include the component filter settings.
+             * 
+             * See https://developers.google.com/maps/documentation/javascript/geocoding#ComponentFiltering
+             */
+            if ( $wpsl_settings['api_region'] && $wpsl_settings['api_geocode_component'] ) {
+                $locator_map_settings['geocodeComponents'] = apply_filters( 'wpsl_geocode_components', array(
+                    'country' => strtoupper( $wpsl_settings['api_region'] )
+                ) );
+            }
 
             // If the marker clusters are enabled, include the js file and marker settings.
-            if ( $wpsl_settings['marker_clusters'] ) {  
+            if ( $wpsl_settings['marker_clusters'] ) {
                 wp_enqueue_script( 'wpsl-cluster', WPSL_URL . 'js/markerclusterer'. $min .'.js', '', WPSL_VERSION_NUM, true  ); //not minified version is in the /js folder
-                            
+
                 $base_settings['clusterZoom'] = $wpsl_settings['cluster_zoom'];
                 $base_settings['clusterSize'] = $wpsl_settings['cluster_size'];
             }
@@ -1347,7 +1423,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $template = '';
                 $settings = $base_settings;
             }
-
+            
 			wp_localize_script( 'wpsl-js', 'wpslSettings', $settings );             
 
             wpsl_create_underscore_templates( $template );
