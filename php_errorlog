@@ -1,0 +1,2 @@
+[08-Dec-2015 23:27:10 UTC] PHP Fatal error:  Call to a member function add() on a non-object in /home/dm12x839/public_html/dev2580/wp-content/plugins/woocommerce/includes/wc-user-functions.php on line 42
+[08-Dec-2015 23:29:13 UTC] PHP Fatal error:  Call to a member function add() on a non-object in /home/dm12x839/public_html/dev2580/wp-content/plugins/woocommerce/includes/wc-user-functions.php on line 42

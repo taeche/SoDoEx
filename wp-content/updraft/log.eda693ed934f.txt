@@ -1,0 +1,134 @@
+0000.003 (0) Opened log file at time: Mon, 28 Dec 2015 07:23:54 +0000 on http://localhost
+0000.018 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.11.18 WP: 4.4 PHP: 5.3.28 (Windows NT TAECHEMOBILE 6.2 build 9200 (Unknow Windows version Enterprise Edition) i586) MySQL: 5.7.9 Server: Microsoft-IIS/10.0 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 44.2M | 44.5M) multisite: N mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.028 (0) Free space on disk containing Updraft's temporary directory: 147605.9 Mb
+0000.052 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: daily)
+0000.061 (0) Processed schedules. Tasks now: Backup files: 1 Backup DB: 1
+0000.091 (0) Requesting semaphore lock (fd)
+0000.110 (0) Set semaphore last lock (fd) time to 2015-12-28 07:23:54
+0000.116 (0) Semaphore lock (fd) complete
+0000.141 (0) Backup run: resumption=0, nonce=eda693ed934f, begun at=1451287434 (0s ago), job type=backup
+0000.155 (0) Scheduling a resumption (1) after 300 seconds (1451287734) in case this run gets aborted
+0000.190 (0) Checking if we have a zip executable available
+0000.203 (0) Creation of backups of directories: beginning
+0000.230 (0) No backup of plugins: excluded by user's options
+0000.240 (0) No backup of themes: excluded by user's options
+0000.250 (0) No backup of uploads: excluded by user's options
+0000.258 (0) No backup of others: excluded by user's options
+0000.282 (0) Saving backup status to database (elements: 0)
+0000.297 (0) Beginning creation of database dump (WordPress DB)
+0000.351 (0) Table wpdev_options: Total expected rows (approximate): 453
+0000.446 (0) Table wpdev_options: Total rows added: 470 in 0.09 seconds
+0000.456 (0) Table wpdev_options: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_options.table.gz - 170.5 Kb)
+0000.477 (0) Table wpdev_users: Total expected rows (approximate): 4
+0000.486 (0) Table wpdev_users: Total rows added: 4 in 0.00 seconds
+0000.497 (0) Table wpdev_users: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_users.table.gz - 0.7 Kb)
+0000.518 (0) Table wpdev_usermeta: Total expected rows (approximate): 159
+0000.532 (0) Table wpdev_usermeta: Total rows added: 148 in 0.01 seconds
+0000.543 (0) Table wpdev_usermeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_usermeta.table.gz - 2.9 Kb)
+0000.563 (0) Table wpdev_commentmeta: Total expected rows (approximate): 0
+0000.568 (0) Table wpdev_commentmeta: Total rows added: 0 in 0.00 seconds
+0000.574 (0) Table wpdev_commentmeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_commentmeta.table.gz - 0.3 Kb)
+0000.587 (0) Table wpdev_comments: Total expected rows (approximate): 2
+0000.593 (0) Table wpdev_comments: Total rows added: 3 in 0.00 seconds
+0000.601 (0) Table wpdev_comments: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_comments.table.gz - 0.7 Kb)
+0000.632 (0) Table wpdev_links: Total expected rows (approximate): 0
+0000.639 (0) Table wpdev_links: Total rows added: 0 in 0.00 seconds
+0000.646 (0) Table wpdev_links: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_links.table.gz - 0.4 Kb)
+0000.661 (0) Table wpdev_postmeta: Total expected rows (approximate): 491
+0000.678 (0) Table wpdev_postmeta: Total rows added: 491 in 0.01 seconds
+0000.685 (0) Table wpdev_postmeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_postmeta.table.gz - 11.7 Kb)
+0000.697 (0) Table wpdev_posts: Total expected rows (approximate): 96
+0000.714 (0) Table wpdev_posts: Total rows added: 97 in 0.01 seconds
+0000.721 (0) Table wpdev_posts: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_posts.table.gz - 8.3 Kb)
+0000.741 (0) Table wpdev_term_relationships: Total expected rows (approximate): 13
+0000.748 (0) Table wpdev_term_relationships: Total rows added: 15 in 0.00 seconds
+0000.755 (0) Table wpdev_term_relationships: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_term_relationships.table.gz - 0.4 Kb)
+0000.773 (0) Table wpdev_term_taxonomy: Total expected rows (approximate): 15
+0000.779 (0) Table wpdev_term_taxonomy: Total rows added: 16 in 0.00 seconds
+0000.785 (0) Table wpdev_term_taxonomy: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_term_taxonomy.table.gz - 0.6 Kb)
+0000.805 (0) Table wpdev_termmeta: Total expected rows (approximate): 0
+0000.810 (0) Table wpdev_termmeta: Total rows added: 0 in 0.00 seconds
+0000.816 (0) Table wpdev_termmeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_termmeta.table.gz - 0.4 Kb)
+0000.836 (0) Table wpdev_terms: Total expected rows (approximate): 15
+0000.844 (0) Table wpdev_terms: Total rows added: 16 in 0.00 seconds
+0000.852 (0) Table wpdev_terms: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_terms.table.gz - 0.6 Kb)
+0000.880 (0) Table wpdev_woocommerce_order_itemmeta: Total expected rows (approximate): 91
+0000.889 (0) Table wpdev_woocommerce_order_itemmeta: Total rows added: 91 in 0.00 seconds
+0000.895 (0) Table wpdev_woocommerce_order_itemmeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_order_itemmeta.table.gz - 1.1 Kb)
+0000.915 (0) Table wpdev_woocommerce_termmeta: Total expected rows (approximate): 5
+0000.921 (0) Table wpdev_woocommerce_termmeta: Total rows added: 5 in 0.00 seconds
+0000.928 (0) Table wpdev_woocommerce_termmeta: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_termmeta.table.gz - 0.4 Kb)
+0000.953 (0) Table wpdev_duplicator_packages: Total expected rows (approximate): 0
+0000.959 (0) Table wpdev_duplicator_packages: Total rows added: 0 in 0.00 seconds
+0000.968 (0) Table wpdev_duplicator_packages: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_duplicator_packages.table.gz - 0.4 Kb)
+0000.985 (0) Table wpdev_pl_data_sections: Total expected rows (approximate): 423
+0001.026 (0) Table wpdev_pl_data_sections: Total rows added: 423 in 0.04 seconds
+0001.036 (0) Table wpdev_pl_data_sections: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_pl_data_sections.table.gz - 7.7 Kb)
+0001.062 (0) Table wpdev_woocommerce_api_keys: Total expected rows (approximate): 0
+0001.070 (0) Table wpdev_woocommerce_api_keys: Total rows added: 0 in 0.00 seconds
+0001.084 (0) Table wpdev_woocommerce_api_keys: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_api_keys.table.gz - 0.4 Kb)
+0001.106 (0) Table wpdev_woocommerce_attribute_taxonomies: Total expected rows (approximate): 2
+0001.114 (0) Table wpdev_woocommerce_attribute_taxonomies: Total rows added: 2 in 0.00 seconds
+0001.123 (0) Table wpdev_woocommerce_attribute_taxonomies: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_attribute_taxonomies.table.gz - 0.5 Kb)
+0001.152 (0) Table wpdev_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0001.158 (0) Table wpdev_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.00 seconds
+0001.166 (0) Table wpdev_woocommerce_downloadable_product_permissions: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_downloadable_product_permissions.table.gz - 0.5 Kb)
+0001.192 (0) Table wpdev_woocommerce_order_items: Total expected rows (approximate): 14
+0001.213 (0) Table wpdev_woocommerce_order_items: Total rows added: 14 in 0.01 seconds
+0001.221 (0) Table wpdev_woocommerce_order_items: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_order_items.table.gz - 0.5 Kb)
+0001.270 (0) Table wpdev_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0001.276 (0) Table wpdev_woocommerce_tax_rate_locations: Total rows added: 0 in 0.00 seconds
+0001.288 (0) Table wpdev_woocommerce_tax_rate_locations: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_tax_rate_locations.table.gz - 0.4 Kb)
+0001.322 (0) Table wpdev_woocommerce_tax_rates: Total expected rows (approximate): 0
+0001.329 (0) Table wpdev_woocommerce_tax_rates: Total rows added: 0 in 0.00 seconds
+0001.337 (0) Table wpdev_woocommerce_tax_rates: finishing file (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_tax_rates.table.gz - 0.4 Kb)
+0001.349 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_options.table.gz (1/22): adding to final database dump
+0001.397 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_users.table.gz (2/22): adding to final database dump
+0001.407 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_usermeta.table.gz (3/22): adding to final database dump
+0001.413 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_commentmeta.table.gz (4/22): adding to final database dump
+0001.418 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_comments.table.gz (5/22): adding to final database dump
+0001.423 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_links.table.gz (6/22): adding to final database dump
+0001.427 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_postmeta.table.gz (7/22): adding to final database dump
+0001.435 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_posts.table.gz (8/22): adding to final database dump
+0001.441 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_term_relationships.table.gz (9/22): adding to final database dump
+0001.446 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_term_taxonomy.table.gz (10/22): adding to final database dump
+0001.450 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_termmeta.table.gz (11/22): adding to final database dump
+0001.454 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_terms.table.gz (12/22): adding to final database dump
+0001.457 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_order_itemmeta.table.gz (13/22): adding to final database dump
+0001.462 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_termmeta.table.gz (14/22): adding to final database dump
+0001.467 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_duplicator_packages.table.gz (15/22): adding to final database dump
+0001.473 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_pl_data_sections.table.gz (16/22): adding to final database dump
+0001.482 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_api_keys.table.gz (17/22): adding to final database dump
+0001.488 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_attribute_taxonomies.table.gz (18/22): adding to final database dump
+0001.493 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_downloadable_product_permissions.table.gz (19/22): adding to final database dump
+0001.498 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_order_items.table.gz (20/22): adding to final database dump
+0001.504 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_tax_rate_locations.table.gz (21/22): adding to final database dump
+0001.510 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db-table-wpdev_woocommerce_tax_rates.table.gz (22/22): adding to final database dump
+0001.517 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db.gz: finished writing out complete database file (184 Kb)
+0001.545 (0) Total database tables backed up: 22 (backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db.gz, size: 209918, checksum (SHA1): f393fe41087a80a78a9f659d71a23071febc612b)
+0001.551 (0) Saving backup history
+0001.565 (0) backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db.gz: db: This file has not yet been successfully uploaded: will queue
+0001.574 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0001.587 (0) Cloud backup selection (1/1):  (last)
+0001.591 (0) No remote despatch: user chose no remote backup service
+0001.600 (0) Recording as successfully uploaded: backup_2015-12-27-2323_SoDoEx_Organic_Solvent_eda693ed934f-db.gz (0e9aa5a8de25741cc278083508b72ccb)
+0001.625 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=1, retain_db=1
+0001.630 (0) Number of backup sets in history: 3
+0001.639 (0) Examining backup set with datestamp: 1451287434 (Dec 28 2015 07:23:54)
+0001.644 (0) 1451287434: this backup set remains non-empty (0/1); will retain in history
+0001.650 (0) Examining backup set with datestamp: 1450636961 (Dec 20 2015 18:42:41)
+0001.660 (0) 1450636961: db: this set includes a database (backup_2015-12-20-1042_SoDoEx_Organic_Solvent_2b42b68a8068-db.gz); db count is now 2
+0001.670 (0) 1450636961: db: over retain limit (1); will delete this database
+0001.676 (0) Delete file: backup_2015-12-20-1042_SoDoEx_Organic_Solvent_2b42b68a8068-db.gz, service=none
+0001.683 (0) Deleting local copy (backup_2015-12-20-1042_SoDoEx_Organic_Solvent_2b42b68a8068-db.gz)
+0001.692 (0) 1450636961: this backup set is now empty; will remove from history
+0001.696 (0) 1450636961: deleting log file (log.2b42b68a8068.txt)
+0001.700 (0) Examining backup set with datestamp: 1450304671 (Dec 16 2015 22:24:31)
+0001.705 (0) 1450304671: this backup set remains non-empty (1/0); will retain in history
+0001.709 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation
+0001.720 (0) Resume backup (eda693ed934f, 0): finish run
+0001.732 (0) Decremented the semaphore (fd) by 1
+0001.742 (0) Semaphore (fd) unlocked
+0001.747 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0001.762 (0) No email will/can be sent - the user has not configured an email address.
+0001.766 (0) The backup apparently succeeded and is now complete

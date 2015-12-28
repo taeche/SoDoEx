@@ -1,0 +1,233 @@
+0000.000 (0) Opened log file at time: Wed, 16 Dec 2015 22:24:31 +0000 on http://wordpress.dev
+0000.004 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.11.18 WP: 4.3.1 PHP: 5.6.15 (Windows NT UT-20130114GAMX 6.1 build 7601 (Windows 7 Ultimate Edition Service Pack 1) i586) MySQL: 5.5.5 Server: Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.15 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 28.5M | 29.3M) multisite: N mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.006 (0) Free space on disk containing Updraft's temporary directory: 8316.6 Mb
+0000.012 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB: 1 (schedule: daily)
+0000.076 (0) Requesting semaphore lock (fd)
+0000.084 (0) Set semaphore last lock (fd) time to 2015-12-16 22:24:31
+0000.088 (0) Semaphore lock (fd) complete
+0000.104 (0) Backup run: resumption=0, nonce=3f61d667c79c, begun at=1450304671 (0s ago), job type=backup
+0000.113 (0) Scheduling a resumption (1) after 300 seconds (1450304971) in case this run gets aborted
+0000.196 (0) Checking if we have a zip executable available
+0000.204 (0) Creation of backups of directories: beginning
+0000.218 (0) Beginning creation of dump of plugins (split every: 25 Mb)
+0006.277 (0) Total entities for the zip file: 510 directories, 4064 files (0 skipped as non-modified), 46.7 Mb
+0006.292 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0 Mb, 1 (1) files added so far); re-opening (prior size: 0 Kb)
+0006.412 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 100 files added (on-disk size: 80.1 Kb)
+0006.614 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 200 files added (on-disk size: 80.1 Kb)
+0006.753 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 300 files added (on-disk size: 80.1 Kb)
+0006.868 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 400 files added (on-disk size: 80.1 Kb)
+0006.997 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 500 files added (on-disk size: 80.1 Kb)
+0007.004 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (8.9 Mb, 4064 files batched, 501 (502) added so far); re-opening (prior size: 80.1 Kb)
+0011.528 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 600 files added (on-disk size: 4039.6 Kb)
+0011.708 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 700 files added (on-disk size: 4039.6 Kb)
+0011.887 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 800 files added (on-disk size: 4039.6 Kb)
+0012.067 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 900 files added (on-disk size: 4039.6 Kb)
+0012.238 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1000 files added (on-disk size: 4039.6 Kb)
+0012.247 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.2 Mb, 4064 files batched, 501 (1003) added so far); re-opening (prior size: 4039.6 Kb)
+0016.884 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1100 files added (on-disk size: 6033.9 Kb)
+0017.038 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1200 files added (on-disk size: 6033.9 Kb)
+0017.170 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1300 files added (on-disk size: 6033.9 Kb)
+0017.293 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1400 files added (on-disk size: 6033.9 Kb)
+0017.421 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1500 files added (on-disk size: 6033.9 Kb)
+0017.429 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (2.9 Mb, 4064 files batched, 501 (1504) added so far); re-opening (prior size: 6033.9 Kb)
+0021.131 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1600 files added (on-disk size: 8105.8 Kb)
+0021.266 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1700 files added (on-disk size: 8105.8 Kb)
+0021.416 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1800 files added (on-disk size: 8105.8 Kb)
+0021.562 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 1900 files added (on-disk size: 8105.8 Kb)
+0021.718 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 2000 files added (on-disk size: 8105.8 Kb)
+0021.727 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (1.8 Mb, 4064 files batched, 501 (2005) added so far); re-opening (prior size: 8105.8 Kb)
+0025.864 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 2100 files added (on-disk size: 10059.5 Kb)
+0026.002 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 2200 files added (on-disk size: 10059.5 Kb)
+0026.170 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 2300 files added (on-disk size: 10059.5 Kb)
+0026.337 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip.tmp: 2400 files added (on-disk size: 10059.5 Kb)
+0026.382 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): possibly approaching split limit (13.8 Mb, 428 (2433) files added so far); last ratio: 1; re-opening (prior size: 10059.5 Kb)
+0035.312 (0) Zip size is at/near split limit (14.3 Mb / 25 Mb) - bumping index (from: 0)
+0035.395 (0) Created plugins zip (0) - 14673.6 Kb in 35.1 s (418.2 Kb/s) (SHA1 checksum: 7e8f75e210197ae0fe669d5b29bedbd437be1593)
+0035.438 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 2500 files added (on-disk size: 0 Kb)
+0035.529 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 2600 files added (on-disk size: 0 Kb)
+0035.632 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 2700 files added (on-disk size: 0 Kb)
+0035.759 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 2800 files added (on-disk size: 0 Kb)
+0035.903 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 2900 files added (on-disk size: 0 Kb)
+0035.957 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (3.9 Mb, 4064 files batched, 501 (2934) added so far); re-opening (prior size: 0 Kb)
+0039.798 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3000 files added (on-disk size: 1232.3 Kb)
+0039.968 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3100 files added (on-disk size: 1232.3 Kb)
+0040.143 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3200 files added (on-disk size: 1232.3 Kb)
+0040.307 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3300 files added (on-disk size: 1232.3 Kb)
+0040.413 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3400 files added (on-disk size: 1232.3 Kb)
+0040.464 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (3.4 Mb, 4064 files batched, 501 (3435) added so far); re-opening (prior size: 1232.3 Kb)
+0045.458 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3500 files added (on-disk size: 2877.8 Kb)
+0045.610 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3600 files added (on-disk size: 2877.8 Kb)
+0045.774 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3700 files added (on-disk size: 2877.8 Kb)
+0045.921 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3800 files added (on-disk size: 2877.8 Kb)
+0046.072 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 3900 files added (on-disk size: 2877.8 Kb)
+0046.129 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (5.4 Mb, 4064 files batched, 501 (3936) added so far); re-opening (prior size: 2877.8 Kb)
+0051.366 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip.tmp: 4000 files added (on-disk size: 4286.4 Kb)
+0052.590 (0) Created plugins zip (1) - 4968.6 Kb in 17.2 s (289 Kb/s) (SHA1 checksum: e4e4025ce94b22fb381128fe6cf367ac442a4705)
+0052.596 (0) Beginning creation of dump of themes (split every: 25 Mb)
+0053.442 (0) Total entities for the zip file: 134 directories, 772 files (0 skipped as non-modified), 15.9 Mb
+0053.514 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0053.612 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0053.718 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0053.839 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0054.013 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0054.017 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (11.1 Mb, 772 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0057.509 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 600 files added (on-disk size: 5075 Kb)
+0057.622 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip.tmp: 700 files added (on-disk size: 5075 Kb)
+0060.902 (0) Created themes zip (0) - 8530.4 Kb in 8.3 s (1027.7 Kb/s) (SHA1 checksum: 34aea12500f1fd38f158ea9e6d31cc4154467a1f)
+0060.910 (0) Exclusion option setting (uploads): 
+0060.913 (0) Looking for candidates to back up in: E:\ALEX\STUDY\PHP\Wordpress.dev\public_html/wp-content/uploads
+0060.916 (0) finding files: 2015: adding to list (1)
+0060.918 (0) finding files: GeoIP.dat: adding to list (2)
+0060.920 (0) finding files: GeoIPv6.dat: adding to list (3)
+0060.922 (0) finding files: pagelines: adding to list (4)
+0060.924 (0) finding files: wc-logs: adding to list (5)
+0060.926 (0) finding files: woocommerce_uploads: adding to list (6)
+0060.930 (0) Beginning creation of dump of uploads (split every: 25 Mb)
+0061.031 (0) Total entities for the zip file: 7 directories, 142 files (0 skipped as non-modified), 9.9 Mb
+0061.102 (0) Zip: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-uploads.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0065.282 (0) Created uploads zip (0) - 8393 Kb in 4.3 s (1931.1 Kb/s) (SHA1 checksum: fb09441789c91cf524a9503e2b892abfd0e2f27c)
+0065.289 (0) Beginning backup of other directories found in the content directory (index: 0)
+0065.291 (0) Exclusion option setting (others): 
+0065.293 (0) Looking for candidates to back up in: E:\ALEX\STUDY\PHP\Wordpress.dev\public_html/wp-content
+0065.294 (0) finding files: debug.log: adding to list (1)
+0065.296 (0) finding files: index.php: adding to list (2)
+0065.297 (0) finding files: plugins: skipping: this is the plugins directory
+0065.299 (0) finding files: themes: skipping: this is the themes directory
+0065.300 (0) finding files: updraft: skipping: this is the updraft directory
+0065.302 (0) finding files: upgrade: adding to list (3)
+0065.303 (0) finding files: uploads: skipping: this is the uploads directory
+0065.312 (0) Total entities for the zip file: 1 directories, 2 files (0 skipped as non-modified), 0 Mb
+0065.352 (0) Created others zip (0) - 0.7 Kb in 0 s (16.6 Kb/s) (SHA1 checksum: dd4432a7836462bac2d3495c5615412b58d419f0)
+0065.361 (0) Saving backup status to database (elements: 9)
+0065.365 (0) Beginning creation of database dump (WordPress DB)
+0065.378 (0) Table wpdev_options: Total expected rows (approximate): 485
+0065.528 (0) Table wpdev_options: Total rows added: 493 in 0.15 seconds
+0065.532 (0) Table wpdev_options: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_options.table.gz - 299.7 Kb)
+0065.540 (0) Table wpdev_users: Total expected rows (approximate): 5
+0065.547 (0) Table wpdev_users: Total rows added: 5 in 0.01 seconds
+0065.549 (0) Table wpdev_users: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_users.table.gz - 0.8 Kb)
+0065.557 (0) Table wpdev_usermeta: Total expected rows (approximate): 169
+0065.567 (0) Table wpdev_usermeta: Total rows added: 169 in 0.01 seconds
+0065.570 (0) Table wpdev_usermeta: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_usermeta.table.gz - 2.7 Kb)
+0065.578 (0) Table wpdev_commentmeta: Total expected rows (approximate): 0
+0065.584 (0) Table wpdev_commentmeta: Total rows added: 0 in 0.01 seconds
+0065.588 (0) Table wpdev_commentmeta: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_commentmeta.table.gz - 0.3 Kb)
+0065.618 (0) Table wpdev_comments: Total expected rows (approximate): 4
+0065.627 (0) Table wpdev_comments: Total rows added: 4 in 0.01 seconds
+0065.629 (0) Table wpdev_comments: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_comments.table.gz - 0.7 Kb)
+0065.637 (0) Table wpdev_links: Total expected rows (approximate): 0
+0065.644 (0) Table wpdev_links: Total rows added: 0 in 0.01 seconds
+0065.647 (0) Table wpdev_links: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_links.table.gz - 0.4 Kb)
+0065.657 (0) Table wpdev_postmeta: Total expected rows (approximate): 563
+0065.690 (0) Table wpdev_postmeta: Total rows added: 563 in 0.03 seconds
+0065.693 (0) Table wpdev_postmeta: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_postmeta.table.gz - 12.2 Kb)
+0065.701 (0) Table wpdev_posts: Total expected rows (approximate): 90
+0065.726 (0) Table wpdev_posts: Total rows added: 90 in 0.02 seconds
+0065.729 (0) Table wpdev_posts: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_posts.table.gz - 8.1 Kb)
+0065.738 (0) Table wpdev_term_relationships: Total expected rows (approximate): 14
+0065.744 (0) Table wpdev_term_relationships: Total rows added: 14 in 0.00 seconds
+0065.746 (0) Table wpdev_term_relationships: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_term_relationships.table.gz - 0.4 Kb)
+0065.754 (0) Table wpdev_term_taxonomy: Total expected rows (approximate): 15
+0065.761 (0) Table wpdev_term_taxonomy: Total rows added: 15 in 0.01 seconds
+0065.763 (0) Table wpdev_term_taxonomy: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_term_taxonomy.table.gz - 0.5 Kb)
+0065.771 (0) Table wpdev_terms: Total expected rows (approximate): 15
+0065.777 (0) Table wpdev_terms: Total rows added: 15 in 0.01 seconds
+0065.780 (0) Table wpdev_terms: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_terms.table.gz - 0.6 Kb)
+0065.788 (0) Table wpdev_woocommerce_order_itemmeta: Total expected rows (approximate): 91
+0065.796 (0) Table wpdev_woocommerce_order_itemmeta: Total rows added: 91 in 0.01 seconds
+0065.799 (0) Table wpdev_woocommerce_order_itemmeta: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_order_itemmeta.table.gz - 1.1 Kb)
+0065.806 (0) Table wpdev_woocommerce_termmeta: Total expected rows (approximate): 5
+0065.813 (0) Table wpdev_woocommerce_termmeta: Total rows added: 5 in 0.00 seconds
+0065.815 (0) Table wpdev_woocommerce_termmeta: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_termmeta.table.gz - 0.4 Kb)
+0065.822 (0) Table wpdev_duplicator_packages: Total expected rows (approximate): 0
+0065.828 (0) Table wpdev_duplicator_packages: Total rows added: 0 in 0.00 seconds
+0065.831 (0) Table wpdev_duplicator_packages: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_duplicator_packages.table.gz - 0.4 Kb)
+0065.839 (0) Table wpdev_pl_data_sections: Total expected rows (approximate): 422
+0065.862 (0) Table wpdev_pl_data_sections: Total rows added: 422 in 0.02 seconds
+0065.865 (0) Table wpdev_pl_data_sections: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_pl_data_sections.table.gz - 7.7 Kb)
+0065.873 (0) Table wpdev_woocommerce_api_keys: Total expected rows (approximate): 0
+0065.879 (0) Table wpdev_woocommerce_api_keys: Total rows added: 0 in 0.01 seconds
+0065.882 (0) Table wpdev_woocommerce_api_keys: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_api_keys.table.gz - 0.4 Kb)
+0065.890 (0) Table wpdev_woocommerce_attribute_taxonomies: Total expected rows (approximate): 2
+0065.897 (0) Table wpdev_woocommerce_attribute_taxonomies: Total rows added: 2 in 0.01 seconds
+0065.899 (0) Table wpdev_woocommerce_attribute_taxonomies: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_attribute_taxonomies.table.gz - 0.5 Kb)
+0065.907 (0) Table wpdev_woocommerce_downloadable_product_permissions: Total expected rows (approximate): 0
+0065.914 (0) Table wpdev_woocommerce_downloadable_product_permissions: Total rows added: 0 in 0.01 seconds
+0065.917 (0) Table wpdev_woocommerce_downloadable_product_permissions: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_downloadable_product_permissions.table.gz - 0.5 Kb)
+0065.925 (0) Table wpdev_woocommerce_order_items: Total expected rows (approximate): 14
+0065.931 (0) Table wpdev_woocommerce_order_items: Total rows added: 14 in 0.01 seconds
+0065.934 (0) Table wpdev_woocommerce_order_items: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_order_items.table.gz - 0.5 Kb)
+0065.941 (0) Table wpdev_woocommerce_tax_rate_locations: Total expected rows (approximate): 0
+0065.949 (0) Table wpdev_woocommerce_tax_rate_locations: Total rows added: 0 in 0.01 seconds
+0065.965 (0) Table wpdev_woocommerce_tax_rate_locations: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_tax_rate_locations.table.gz - 0.4 Kb)
+0065.975 (0) Table wpdev_woocommerce_tax_rates: Total expected rows (approximate): 0
+0065.984 (0) Table wpdev_woocommerce_tax_rates: Total rows added: 0 in 0.01 seconds
+0065.986 (0) Table wpdev_woocommerce_tax_rates: finishing file (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_tax_rates.table.gz - 0.4 Kb)
+0065.993 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_options.table.gz (1/21): adding to final database dump
+0066.099 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_users.table.gz (2/21): adding to final database dump
+0066.101 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_usermeta.table.gz (3/21): adding to final database dump
+0066.105 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_commentmeta.table.gz (4/21): adding to final database dump
+0066.107 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_comments.table.gz (5/21): adding to final database dump
+0066.109 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_links.table.gz (6/21): adding to final database dump
+0066.112 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_postmeta.table.gz (7/21): adding to final database dump
+0066.119 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_posts.table.gz (8/21): adding to final database dump
+0066.125 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_term_relationships.table.gz (9/21): adding to final database dump
+0066.127 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_term_taxonomy.table.gz (10/21): adding to final database dump
+0066.129 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_terms.table.gz (11/21): adding to final database dump
+0066.132 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_order_itemmeta.table.gz (12/21): adding to final database dump
+0066.134 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_termmeta.table.gz (13/21): adding to final database dump
+0066.136 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_duplicator_packages.table.gz (14/21): adding to final database dump
+0066.138 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_pl_data_sections.table.gz (15/21): adding to final database dump
+0066.144 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_api_keys.table.gz (16/21): adding to final database dump
+0066.147 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_attribute_taxonomies.table.gz (17/21): adding to final database dump
+0066.150 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_downloadable_product_permissions.table.gz (18/21): adding to final database dump
+0066.152 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_order_items.table.gz (19/21): adding to final database dump
+0066.155 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_tax_rate_locations.table.gz (20/21): adding to final database dump
+0066.157 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db-table-wpdev_woocommerce_tax_rates.table.gz (21/21): adding to final database dump
+0066.160 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db.gz: finished writing out complete database file (328 Kb)
+0066.173 (0) Total database tables backed up: 21 (backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db.gz, size: 342273, checksum (SHA1): 3b027b4e79246ef0aef678e2f26386f6b34e276d)
+0066.176 (0) Saving backup history
+0066.182 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0066.184 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip: plugins: This file has not yet been successfully uploaded: will queue
+0066.185 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0066.186 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0066.188 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-others.zip: others: This file has not yet been successfully uploaded: will queue
+0066.189 (0) backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db.gz: db: This file has not yet been successfully uploaded: will queue
+0066.193 (0) Requesting upload of the files that have not yet been successfully uploaded (6)
+0066.198 (0) Cloud backup selection (1/1): none (last)
+0066.200 (0) No remote despatch: user chose no remote backup service
+0066.203 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins.zip (a1da265d74a4f1241eb1a262a489cbfa)
+0066.217 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-plugins2.zip (00153866f8bf15225a206e45d690207c)
+0066.227 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-themes.zip (3e19a4b2024d5514727892028930e992)
+0066.233 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-uploads.zip (c8572c134686d61b421da57e2a0de1d0)
+0066.239 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-others.zip (54f95b57e8081907fd7d3bea09971292)
+0066.246 (0) Recording as successfully uploaded: backup_2015-12-16-1424_SoDoEx_Organic_Degreaser_3f61d667c79c-db.gz (4a9fd6c43007d3819f77a8a4aa58b43b)
+0066.251 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=1, retain_db=1
+0066.253 (0) Number of backup sets in history: 3
+0066.255 (0) Examining backup set with datestamp: 1450304671 (Dec 16 2015 22:24:31)
+0066.257 (0) 1450304671: this backup set remains non-empty (1/1); will retain in history
+0066.258 (0) Examining backup set with datestamp: 1450291469 (Dec 16 2015 18:44:29)
+0066.260 (0) 1450291469: db: this set includes a database (backup_2015-12-16-1044_SoDoEx_Organic_Degreaser_0b2f261fc560-db.gz); db count is now 2
+0066.261 (0) 1450291469: db: over retain limit (1); will delete this database
+0066.262 (0) Delete file: backup_2015-12-16-1044_SoDoEx_Organic_Degreaser_0b2f261fc560-db.gz, service=none
+0066.264 (0) Deleting local copy (backup_2015-12-16-1044_SoDoEx_Organic_Degreaser_0b2f261fc560-db.gz)
+0066.267 (0) 1450291469: this backup set is now empty; will remove from history
+0066.269 (0) 1450291469: deleting log file (log.0b2f261fc560.txt)
+0066.271 (0) Examining backup set with datestamp: 1449070980 (Dec 02 2015 15:43:00)
+0066.273 (0) plugins: 1449070980: over retain limit (1); will delete this file (backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-plugins.zip)
+0066.274 (0) themes: 1449070980: over retain limit (1); will delete this file (backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-themes.zip)
+0066.276 (0) uploads: 1449070980: over retain limit (1); will delete this file (backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-uploads.zip)
+0066.277 (0) others: 1449070980: over retain limit (1); will delete this file (backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-others.zip)
+0066.278 (0) Delete file: backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-plugins.zip, service=none
+0066.280 (0) Delete file: backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-themes.zip, service=none
+0066.282 (0) Delete file: backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-uploads.zip, service=none
+0066.283 (0) Delete file: backup_2015-12-02-1543_SoDoEx_Organic_Degreaser_c15804a682a5-others.zip, service=none
+0066.286 (0) 1449070980: this backup set is now empty; will remove from history
+0066.288 (0) 1449070980: corresponding log file not found - must have already been deleted
+0066.289 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0066.294 (0) Resume backup (3f61d667c79c, 0): finish run
+0066.300 (0) Decremented the semaphore (fd) by 1
+0066.302 (0) Semaphore (fd) unlocked
+0066.304 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0066.315 (0) No email will/can be sent - the user has not configured an email address.
+0066.317 (0) The backup apparently succeeded and is now complete
