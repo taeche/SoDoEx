@@ -200,8 +200,10 @@ function dbsc_mysqldump_table($table) {
 				 * skip if post_type == shop_order to avoid overriding order information
 				 */
 				if($table == $wpdb->posts){
+
 					if(!empty($order_post_list)){
 						if(in_array($row[$post_id_column_no],$order_post_list)){
+
 							$index++;
 							continue;
 						}
@@ -209,7 +211,9 @@ function dbsc_mysqldump_table($table) {
 				}
 				if($table ==$wpdb->postmeta){
 					if(!empty($order_post_list)){
+
 						if(in_array($row[$post_id_column_no_in_postmeta],$order_post_list)){
+
 							$index++;
 							continue;
 						}
