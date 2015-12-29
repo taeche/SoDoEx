@@ -1,6 +1,6 @@
 <div class="wrap">
 	<?php screen_icon(); ?>
-	<h2>Sync with Remote Server</h2>
+	<h2>Database Sync Custom - Sync with Remote Server</h2>
 
 	<h3>Push</h3>
 

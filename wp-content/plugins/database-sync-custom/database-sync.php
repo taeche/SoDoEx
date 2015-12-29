@@ -13,7 +13,7 @@ define('dbsc_REQUIRED_CAPABILITY', 'manage_options');
 define('dbsc_API_VERSION', 1);
 
 require_once 'functions.php';
-
+require_once 'class-woo-order.php';
 //add a menu item under Tools
 add_action('admin_menu', 'dbsc_menu');
 function dbsc_menu() {
@@ -93,7 +93,7 @@ function dbsc_post_actions() {
 
 						//store some options to restore after sync
 						$optionCache = dbsc_cacheOptions();
-
+						$orderCache=dbsc_cacheOrders();
 						//load the new data
 						if (dbsc_loadSql($sql)) {
 							//clear object cache
@@ -101,7 +101,7 @@ function dbsc_post_actions() {
 
 							//restore options
 							dbsc_restoreOptions($optionCache);
-
+							dbsc_restoreOrders($orderCache);
 							$gotoUrl = dbsc_url(array('message' => 'Database synced successfully'));
 						} else {
 							//import failed part way through so attempt to restore last backup
@@ -202,6 +202,8 @@ function dbsc_push() {
 
 		//store options
 		$optionCache = dbsc_cacheOptions();
+		//store orders
+		$orderCache=dbsc_cacheOrders();
 
 		//load posted data
 		dbsc_loadSql($sql);
@@ -211,7 +213,7 @@ function dbsc_push() {
 
 		//reinstate options
 		dbsc_restoreOptions($optionCache);
-
+		dbsc_restoreOrders($orderCache);
 		echo 'OK';
 	} else {
 		echo 'Error: invalid SQL dump';
@@ -240,5 +242,68 @@ function dbsc_cacheOptions() {
 function dbsc_restoreOptions($optionCache) {
 	foreach ($optionCache as $name => $value) {
 		update_option($name, $value);
+	}
+}
+
+/**
+ * cache order data
+ */
+
+function dbsc_cacheOrders()
+{
+	$orders = Array();
+	global $wpdb;
+	$results = $wpdb->get_results(
+		"
+	SELECT *
+	FROM $wpdb->posts
+	WHERE post_type = 'shop_order'
+
+	"
+	);
+
+	foreach ($results as $row) {
+		$order = new class_woo_order;
+		$order->body['old_id']=$row->ID;
+		$order->body['post_type'] = $row->post_type;
+		$order->body['post_status'] = $row->post_status;
+		$order->body['post_title'] = $row->post_title;
+		$order->body['post_name'] = $row->post_name;
+		$order->body['post_date'] = $row->post_date;
+		$order->body['post_date_gmt'] = $row->post_date_gmt;
+		$order->body['post_content'] = $row->post_content;
+		$order->body['post_excerpt'] = $row->post_excerpt;
+		$order->body['post_parent'] = $row->post_parent;
+		$order->body['post_password'] = $row->post_password;
+		$order->body['comment_status'] = $row->comment_status;
+		$order->body['ping_status'] = $row->ping_status;
+		$order->body['menu_order'] = $row->menu_order;
+		$order->body['post_author'] = $row->post_author;
+
+		$post_id = $row->ID;
+
+		$results_meta = $wpdb->get_results(
+			"
+	SELECT meta_key,meta_value
+	FROM $wpdb->postmeta
+	WHERE post_id = " . $post_id . "
+
+	"
+		);
+
+		//$order->meta = $results_meta;
+		foreach($results_meta as $meta){
+			$order->meta[$meta->meta_key]=$meta->meta_value;
+		}
+		array_push($orders, $order);
+
+	}
+	return $orders;
+}
+
+function dbsc_restoreOrders($orderCache){
+
+	foreach ($orderCache as $orderCache) {
+		$orderCache->save();
 	}
 }

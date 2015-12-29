@@ -108,6 +108,7 @@ function dbsc_makeBackup() {
 $order_post_list;
 $order_type_column_no=20;
 $post_id_column_no=0;
+$post_id_column_no_in_postmeta=1;
 /**
  * Dump the current MYSQL table.
  * Original code (c)2006 Huang Kai <hkai@atutility.com>
@@ -164,7 +165,7 @@ function contained($small_string,$big_string){
  * @return string SQL
  */
 function dbsc_mysqldump_table($table) {
-	global $wpdb;
+	global $wpdb,$post_id_column_no,$post_id_column_no_in_postmeta,$order_post_list;
 	echo "/* Table structure for table `$table` */\n\n";
 
 	$sql = "SHOW CREATE TABLE `$table`; ";
@@ -199,13 +200,17 @@ function dbsc_mysqldump_table($table) {
 				 * skip if post_type == shop_order to avoid overriding order information
 				 */
 				if($table == $wpdb->posts){
-					if(is_order_information($row)){
+					if(!empty($order_post_list)){
+						if(in_array($row[$post_id_column_no],$order_post_list)){
+							$index++;
 							continue;
+						}
 					}
 				}
 				if($table ==$wpdb->postmeta){
 					if(!empty($order_post_list)){
-						if(in_array($row['post_id'],$order_post_list)){
+						if(in_array($row[$post_id_column_no_in_postmeta],$order_post_list)){
+							$index++;
 							continue;
 						}
 					}
@@ -248,14 +253,6 @@ function dbsc_mysqldump_table($table) {
 	}
 	$wpdb->flush();
 	echo "\n";
-}
-
-function is_order_information($row){
-	global $order_type_column_no;
-	if($row[$order_type_column_no]=='shop_order')
-		return true;
-	else
-		return false;
 }
 
 function fetch_order_post_list(){
