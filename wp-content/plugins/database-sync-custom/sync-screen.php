@@ -9,7 +9,7 @@
 		<input type="hidden" name="url" value="<?php echo $url; ?>">
 		<p><?php echo dbsc_stripHttp(get_bloginfo('wpurl')) . " &#x21d2 " . dbsc_stripHttp($url); ?></p>
 		<p>
-			<b>Delete all data</b> in the remote WordPress database and replace with the data from this database.
+			<b>Delete all data except for <span style="color: red">user</span> and <span style="color: red">order</span> data</b> in the remote WordPress database and replace with the data from this database.
 			<input type="submit" value="Push" class="button-primary">
 		</p>
 	</form>
@@ -21,7 +21,7 @@
 		<input type="hidden" name="url" value="<?php echo $url; ?>">
 		<p><?php echo dbsc_stripHttp(get_bloginfo('wpurl')) . " &#x21d0 " . dbsc_stripHttp($url); ?></p>
 		<p>
-			<b>Delete all data</b> in this database and replace with the data from the remote WordPress database.
+			<b>Delete all data except for <span style="color: red">user</span> and <span style="color: red">order</span> data data</b> in this database and replace with the data from the remote WordPress database.
 			<input type="submit" value="Pull" class="button-primary">
 		</p>
 	</form>
