@@ -200,12 +200,14 @@ function dbsc_mysqldump_table($table) {
 				 */
 				if($table == $wpdb->posts){
 					if(is_order_information($row)){
+							$index++;
 							continue;
 					}
 				}
 				if($table ==$wpdb->postmeta){
 					if(!empty($order_post_list)){
 						if(in_array($row['post_id'],$order_post_list)){
+							$index++;
 							continue;
 						}
 					}
