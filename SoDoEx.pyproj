@@ -793,6 +793,8 @@
     <Content Include="wp-comments-post.php" />
     <Content Include="wp-config-sample.php" />
     <Content Include="wp-config.php" />
+    <Content Include="wp-content\plugins\wp-store-locator\admin\class-license-manager.php" />
+    <Content Include="wp-content\plugins\wp-store-locator\admin\EDD_SL_Plugin_Updater.php" />
     <Content Include="wp-cron.php" />
     <Content Include="wp-links-opml.php" />
     <Content Include="wp-load.php" />
