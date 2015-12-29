@@ -99,7 +99,15 @@ function dbsc_makeBackup() {
 
 	return $filename;
 }
-
+/**
+ * 2015.12.30 YongUn Choi
+ *  array to store list of post id of shop_order type post which is order data,
+ *  collected when creating sql for wp_posts table,
+ *  used when creating sql for wp_postmeta table to avoid syncing additional information of order data.
+ */
+$order_post_list;
+$order_type_column_no=20;
+$post_id_column_no=0;
 /**
  * Dump the current MYSQL table.
  * Original code (c)2006 Huang Kai <hkai@atutility.com>
@@ -107,11 +115,16 @@ function dbsc_makeBackup() {
  */
 function dbsc_mysqldump() {
 	global $wpdb;
-    $tables_to_be_excluded=array($wpdb->posts,$wpdb->postmeta,$wpdb->users,$wpdb->usermeta);
+	global $order_post_list;
+	$order_post_list=fetch_order_post_list();
+
+    $tables_to_be_excluded=array($wpdb->users,$wpdb->usermeta);
+
     $tables_to_be_excluded_by_string=array('woocommerce_order_items','woocommerce_order_itemmeta');
 	$sql = "SHOW TABLES;";
 	echo '/* Dump of database '.DB_NAME.' on '.$_SERVER['HTTP_HOST'].' at '.date('Y-m-d H:i:s')." */\n\n";
 	$results = $wpdb->get_results($sql, ARRAY_N);
+
 	foreach ($results as $row) {
         $table=$row[0];
         if(in_array($table,$tables_to_be_excluded)){
@@ -143,6 +156,8 @@ function contained($small_string,$big_string){
         return false;
     }
 }
+
+
 /**
  * Original code (c)2006 Huang Kai <hkai@atutility.com>
  * @param $table string Table name
@@ -179,6 +194,25 @@ function dbsc_mysqldump_table($table) {
 			$index = 0;
 			$statementSql = '';
 			foreach ($result as $row) {
+				/**
+				 * 2015.12.30 YongUn Choi
+				 * skip if post_type == shop_order to avoid overriding order information
+				 */
+				if($table == $wpdb->posts){
+					if(is_order_information($row)){
+							continue;
+					}
+				}
+				if($table ==$wpdb->postmeta){
+					if(!empty($order_post_list)){
+						if(in_array($row['post_id'],$order_post_list)){
+							continue;
+						}
+					}
+				}
+				/**
+				 * end .2015.12.30 YongUn Choi
+				 */
 				if (!$statementSql) $statementSql .= "INSERT INTO `$table` VALUES\n";
 				$statementSql .= "(";
 				for ($i = 0; $i < $num_fields; $i++) {
@@ -214,5 +248,19 @@ function dbsc_mysqldump_table($table) {
 	}
 	$wpdb->flush();
 	echo "\n";
+}
+
+function is_order_information($row){
+	global $order_type_column_no;
+	if($row[$order_type_column_no]=='shop_order')
+		return true;
+	else
+		return false;
+}
+
+function fetch_order_post_list(){
+	global  $wpdb;
+	$pids = $wpdb->get_col("SELECT ID FROM {$wpdb->posts} WHERE post_type='shop_order'");
+	return $pids;
 }
 
