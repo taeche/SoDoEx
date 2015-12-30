@@ -172,7 +172,7 @@ function new_customer_email_subject( $subject ) {
     return $subject;
 }
 
-add_action( 'loop_start', 'personal_message_when_logged_in' );
+//add_action( 'loop_start', 'personal_message_when_logged_in' );
 
 function personal_message_when_logged_in() {
 
