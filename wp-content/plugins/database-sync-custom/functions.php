@@ -205,7 +205,9 @@ function dbsc_mysqldump_table($table) {
 						if(in_array($row[$post_id_column_no],$order_post_list)){
 							$index++;
 							if (strlen($statementSql) > $maxInsertSize || $index == $num_rows - 1) {
+
 								echo rtrim($statementSql,",\n").";\n";
+
 								$statementSql = '';
 							}
 							continue;
@@ -217,7 +219,9 @@ function dbsc_mysqldump_table($table) {
 						if(in_array($row[$post_id_column_no_in_postmeta],$order_post_list)){
 							$index++;
 							if (strlen($statementSql) > $maxInsertSize || $index == $num_rows - 1) {
+
 								echo rtrim($statementSql,",\n").";\n";
+
 								$statementSql = '';
 							}
 							continue;
