@@ -171,3 +171,28 @@ function new_customer_email_subject( $subject ) {
 
     return $subject;
 }
+
+//add_action( 'loop_start', 'personal_message_when_logged_in' );
+
+function personal_message_when_logged_in() {
+
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+       // echo 'Personal Message For ' . $current_user->user_login . '!';
+
+
+
+
+
+            if ( ! is_wp_error( $current_user ) AND ! get_user_meta( $current_user->ID, 'wp-approve-user', true ) ) {
+               // unapproved user, force logout
+                wp_logout();
+            }
+
+    } else {
+        echo 'Non Personalized Message!';
+    }
+
+}
+
+//remove_action( 'wp_authenticate_user' );
