@@ -4,17 +4,15 @@ global $wpsl_settings, $wpsl;
 $output         = $this->get_custom_css(); 
 $autoload_class = ( !$wpsl_settings['autoload'] ) ? 'class="wpsl-not-loaded"' : '';
 
-
+// styles to set store results floating on the map
 $listHeight = $wpsl_settings['height'];
-
- 
-$output .= '<style>.wpsl-store-float #wpsl-result-list{overflow: hidden;z-index: 1;position: absolute;top: 70px;width: 300px;padding: 0px;border: 5px solid rgba(0, 0, 0, .1);</style>' . "\r\n";
+$output .= '<style>.wpsl-store-float #wpsl-result-list{overflow: hidden;z-index: 1;position: absolute;top:10px;width: 300px;padding: 0px;border: 7px solid rgba(0, 0, 0, .1);</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-gmap{float:none;width:100%;height:100%}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-stores{background-color:rgb(240,240,240);}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-result-title{overflow-y:auto;z-index: 1;background-color: rgba(76, 92, 173, .9);height: 30px;font-size: 15px;text-align: center;line-height: 30px;text-wrap: none;padding: 0px;}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float a.titleClose{position: absolute;top: 3px;right: 7px;z-index: 1;padding 7px;padding-right:8px;width: 12px;height: 12px;display: block;}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-direction-details, #wpsl-stores{height:' . ($listHeight - 30 - 10) . 'px !important}</style>' . "\r\n";
-	
+
 
 $output .= '<div id="wpsl-wrap" class="wpsl-store-float">' . "\r\n";
 $output .= "\t" . '<div class="wpsl-search wpsl-clearfix ' . $this->get_css_classes() . '">' . "\r\n";
@@ -69,16 +67,17 @@ $output .= "\t" . '<div id="wpsl-result-list">' . "\r\n";
 
 
 
-// store results title <div>
-// TODO: add onclick event to close the results <div>
+// title bar for the store results.
 $output .= "\t" . '<div id="wpsl-result-title"><a style="color:white;">Store Results</a>' . "\r\n";
-$output .= "\t" . '<a class="titleClose" title="Close" heft="#">' . "\r\n";
+$output .= "\t" . '<a class="titleClose" title="Close" id="aClose" href="#">' . "\r\n";
 $output .= "\t" . '<svg style="background-image:none;" enable-background="new 0 0 9 9" viewBox="0 0 9 9" focusable="false" xmlns="http://www.w3.org/2000/svg">' . "\r\n";
 $output .= "\t" . '<path fill="white" d="M 9 0.6 l -0.6 -0.6 l -3.9 3.9 l -3.9 -3.9 l -0.6 0.6 l 3.9 3.9 l -3.9 3.9 l 0.6 0.6 l 3.9 -3.9 l 3.9 3.9 l 0.6 -0.6 l -3.9 -3.9 Z"></path>' . "\r\n";
 $output .= "\t" . '</svg>' . "\r\n";
 $output .= "\t" . '</a>' . "\r\n";
 $output .= "\t" . '</div>' . "\r\n";
-
+$output .= '<script type="text/javascript">jQuery("#aClose").click(function(){jQuery("#wpsl-result-list").fadeOut("slow")});' . "\r\n";
+$output .= 'jQuery("#wpsl-search-btn").click(function(){jQuery("#wpsl-result-list").fadeIn("slow")});' . "\r\n";
+$output .= 'jQuery("#wpsl-result-list").css("top", jQuery("#wpsl-gmap").position().top);</script>' . "\r\n";
 
 
 $output .= "\t\t" . '<div id="wpsl-stores" '. $autoload_class .'>' . "\r\n";
