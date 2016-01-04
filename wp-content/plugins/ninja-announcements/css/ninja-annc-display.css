@@ -1,0 +1,67 @@
+.ninja-annc-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: -2px;
+  background:#ffffcc;
+  padding: 10px 0;
+  font: 14px/20px Helvetica, Arial, sans-serif;
+  color:#333;
+  overflow:hidden;
+  position: relative;
+}
+
+.ninja-annc-widget-wrapper {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: -2px;
+  background:#ffffcc;
+  padding: 10px;
+  font: 14px/20px Helvetica, Arial, sans-serif;
+  color:#333;
+  overflow:hidden;
+  position: relative;
+}
+
+.ninja-annc-title {
+  width: 600px;
+  margin:0 auto;
+}
+
+.ninja-annc-content {
+  width: 600px;
+  margin:0 auto;
+}
+
+.ninja-annc-widget-wrapper .ninja-annc-title {
+  width: 100%;
+  margin:0 auto;
+}
+
+.ninja-annc-widget-wrapper .ninja-annc-content {
+  width: 100%;
+  margin:0 auto;
+}
+
+.ninja-annc-content .alignleft {
+  float: left;
+  margin-right:10px;
+}
+
+.ninja-annc-close {
+  background: #999;
+  color: #fff;
+  margin-top: -2px;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+.ninja-annc-close:hover {
+  text-decoration: none;
+}
+
+.ninja-annc-wrapper .ninja-annc-close {
+  background: #ffff99;
+  color: #999;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

@@ -1,0 +1,86 @@
+.misc-pub-section {
+	display: none; 
+}
+
+#post-preview {
+	display: none;
+}
+#edit-slug-box {
+	display: none;
+}
+span.post-state {
+	display: none;
+}
+#ninja_annc_function {
+  background:#FFFFCC;
+  padding: 3px 0;
+  color:#990000;
+  border:1px solid #999;
+  overflow:hidden;
+  text-align:center;
+}
+
+#ninja_annc_options_general {
+background:url("ninja_admin_img/head-ico.png") no-repeat;
+}
+
+#ninja_annc_options_new {
+background:url("ninja_admin_img/swords-ico.png") no-repeat;
+}
+
+#ninja_annc_options_edit {
+background:url("ninja_admin_img/fist-ico.png") no-repeat;
+}
+.icon32 {
+float:left;
+height:36px;
+margin:14px 6px 0 0;
+width:36px;
+}
+.column-action {
+  width: 100px;
+}
+.ninja-annc-active .column-action {
+  background: #e7ffe5;
+  text-align: center;
+  vertical-align: middle;
+}
+.ninja-annc-inactive .column-action {
+  background: #f4dada;
+  text-align: center;
+  vertical-align: middle;
+}
+span.hide-if-no-js, span.view {
+  display: none;
+}
+
+.ninja-annc-hidden {
+	display:none !important;
+}
+
+.wrap-left {
+	float: left;
+	width: 60%;
+}
+.wrap-right {
+	background: #464646;
+	color: #fff;
+	float: right;
+	margin: 0 auto;
+	padding: 10px;
+	width: 263px;
+}
+.wrap-right img {
+	margin: 0 auto;
+}
+.wrap-right h2 {
+	color: #fff;
+	text-shadow: black 0 1px 0;
+}
+.wrap-right ul {
+	background: #fff;
+	color: #333;
+	list-style: disc;
+	list-style-position: inside;
+	padding: 20px;
+}
