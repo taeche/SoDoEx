@@ -112,7 +112,12 @@ function registration_message(){
 
     if( isset($_REQUEST['approved']) ){
         $approved = $_REQUEST['approved'];
-        if ($approved == 'false')  echo '<p class="registration successful">Registration successful! You will be notified upon approval of your account.</p>';
+        if ($approved == 'false') {
+            if (function_exists("ninja_annc_display")) {
+                ninja_annc_display(165);
+            }
+            //echo '<p class="registration successful">Registration successful! You will be notified upon approval of your account.</p>';
+        }
         else echo $not_approved_message;
     }
     else echo $not_approved_message;
@@ -210,7 +215,7 @@ function force_logout($is_in_billing_address_page)
 {
     if(!$is_in_billing_address_page) {
         wp_logout();
-        wp_redirect(  get_permalink( wc_get_page_id( 'myaccount' ) ) . "?approved=false" );
+        wp_redirect(  get_permalink( wc_get_page_id( 'myaccount' ) ) );
         exit;
     }
 }
@@ -234,3 +239,19 @@ function page_action_for_unapproved_users($callback){
     }
 }
 
+function action_woocommerce_customer_save_address( $user_id, $load_address ) {
+
+        $current_user = wp_get_current_user();
+
+        if ( ! is_wp_error( $current_user ) AND ! get_user_meta( $current_user->ID, 'wp-approve-user', true ) ) {
+             if($load_address=="billing"){
+                 wp_logout();
+                 wp_redirect(  get_permalink( wc_get_page_id( 'myaccount' ) ) . "?approved=false" );
+                 exit;
+             }
+
+        }
+};
+
+// add the action
+add_action( 'woocommerce_customer_save_address', 'action_woocommerce_customer_save_address', 10, 2 );
