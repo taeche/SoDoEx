@@ -42,7 +42,7 @@ if (!in_array($role,$special_customers)) { ?>
 
 <?php }else{ ?>
 
-	<p><?php printf( __( 'Thank you for registrating your account with us.  Since you have selected (Wholesaler|Distributor) as your business, we will be reaching out to you shortly for the verification process.  Once your business status has been verified and your account will be active and you can enjoy the price rate reservered for you.', 'woocommerce' ) ); ?></p>
+	<p><?php printf( __( 'Thank you for registrating your account with us.  Since you have selected (Retailer|Wholesaler) as your business, we will be reaching out to you shortly for the verification process.  Once your business status has been verified and your account will be active and you can enjoy the price rate reservered for you.', 'woocommerce' ) ); ?></p>
 
 <?php } ?>
 <?php do_action( 'woocommerce_email_footer' ); ?>
