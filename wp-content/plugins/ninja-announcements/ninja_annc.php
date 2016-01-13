@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Ninja Announcements(DO NOT UPDATE!! This plugin is customized by YongUn)
+Plugin Name: DO NOT UPDATE!!Ninja Announcements
 Plugin URI: http://wpninjas.net/
-Description: A plugin that displays annoucements on pages and posts. They can be scheduled so that they are only displayed between specified dates/times. Additionally, all annoucements are edited via the built-in WordPress RTE. You can also include images and videos from your WordPress media library or YouTube. Each of your announcements has it's own location setting, allowing you to place the announcement exactly where you want it, even display it as a widget!
+Description: (DO NOT UPDATE!! This plugin is customized by YongUn)A plugin that displays annoucements on pages and posts. They can be scheduled so that they are only displayed between specified dates/times. Additionally, all annoucements are edited via the built-in WordPress RTE. You can also include images and videos from your WordPress media library or YouTube. Each of your announcements has it's own location setting, allowing you to place the announcement exactly where you want it, even display it as a widget!
 Author: The WP Ninjas
 Version: 2.3.2
 Author URI: http://wpninjas.net
