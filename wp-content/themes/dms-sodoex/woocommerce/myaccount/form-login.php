@@ -22,10 +22,14 @@ function myplugin_register_form() {
 
     global $wp_roles;
 	$available_role_IDs_for_registration=Array('customer','whole_saler','distributor');
-
+	$template_path=get_stylesheet_directory_uri();
 	echo '<p class="form-row form-row-wide">
-				<label for="Type">Type<span class="required">*</span></label>';
-    
+				<label for="Type" >Type<span class="required">*</span>
+				<img src="'.$template_path.'/info_icon.png" class="type_info">
+				</label>';
+
+
+
 	echo '<select name="role" class="input">';
     foreach ( $wp_roles->roles as $key=>$value ):
 		if(in_array($key,$available_role_IDs_for_registration))
@@ -39,7 +43,50 @@ function myplugin_register_form() {
 
 add_action( 'woocommerce_register_form_start', 'myplugin_register_form' );
 
+function popover_myaccount() {
+	?>
+	echo '
 
+	<div class="type_info_detail" style="display: none">
+		<ol>
+			<li>Customer - End customer who will enjoy our product</li>
+			<li>Retailer - Retail store owners who sales to the end customers</li>
+			<li>Wholesaler - Wholesale owners who sales to the retail store owners</li>
+		</ol>
+		<p>
+			Registering as a retailer or wholesaler requires verification before your account can be active.  Please be patient as the SoDoEx team reaches out to you to gather additional information to validate your request and to finally approve.
+		</p>
+
+
+	</div>
+	';
+	<script>
+		jQuery(document).ready(function(){
+			jQuery('.type_info').popover({
+				trigger: 'hover',
+				placement: function (context, source) {
+					var position = jQuery(source).position();
+
+					if (position.left < 280) {
+						return "right";
+					}
+
+					if (position.top < 280){
+						return "bottom";
+					}
+
+					else {
+						return "left";
+					}
+				},
+				html: true,
+				content: jQuery('.type_info_detail').html()
+			});
+		});
+	</script>
+<?php
+}
+add_action( 'wp_footer', 'popover_myaccount' );
 /**
 * end  of role selection
 */

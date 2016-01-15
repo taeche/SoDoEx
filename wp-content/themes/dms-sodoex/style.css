@@ -59,3 +59,8 @@ PLMOB: true
 	width: 500px;
 	margin:0 auto;
 }
+.popover{
+	max-width:500px;
+	width:400px;
+
+}
