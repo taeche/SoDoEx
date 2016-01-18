@@ -255,3 +255,76 @@ function action_woocommerce_customer_save_address( $user_id, $load_address ) {
 
 // add the action
 add_action( 'woocommerce_customer_save_address', 'action_woocommerce_customer_save_address', 10, 2 );
+
+/**
+ *  extra fields for variation
+ */
+
+// Add Variation Settings
+add_action( 'woocommerce_product_after_variable_attributes', 'variation_settings_fields', 10, 3 );
+// Save Variation Settings
+add_action( 'woocommerce_save_product_variation', 'save_variation_settings_fields', 10, 2 );
+/**
+ * Create new fields for variations
+ *
+ */
+function variation_settings_fields( $loop, $variation_data, $variation ) {
+    global $wp_roles;
+
+    if ( class_exists( 'WP_Roles' ) ) {
+        if ( ! isset( $wp_roles ) ) {
+            $wp_roles = new WP_Roles();
+        }
+    }
+
+    echo "Price by role ($):";
+  //  var_dump($wp_roles->role_objects);
+    foreach ( $wp_roles->role_objects as $role ) {
+
+        woocommerce_wp_text_input(
+            array(
+                'id'          => $role->name.'[' . $variation->ID . ']',
+                'label'       => __( ucwords($wp_roles->role_names[$role->name]), 'woocommerce' ),
+                'desc_tip'    => 'true',
+                'description' => __( 'Enter the custom number here.', 'woocommerce' ),
+                'value'       => get_post_meta( $variation->ID, $role->name, true ),
+                'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                )
+            )
+        );
+
+
+    }
+    // Number Field
+
+
+}
+/**
+ * Save new fields for variations
+ *
+ */
+function save_variation_settings_fields( $post_id ) {
+
+    global $wp_roles;
+
+    if ( class_exists( 'WP_Roles' ) ) {
+        if ( ! isset( $wp_roles ) ) {
+            $wp_roles = new WP_Roles();
+        }
+    }
+
+
+    foreach ( $wp_roles->role_objects as $role ) {
+
+        $field = $_POST[$role->name][ $post_id ];
+        if( ! empty( $field ) ) {
+            update_post_meta( $post_id, $role->name, esc_attr( $field ) );
+        }
+
+
+    }
+
+
+}
