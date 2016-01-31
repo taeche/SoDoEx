@@ -45,7 +45,7 @@ add_action( 'woocommerce_register_form_start', 'myplugin_register_form' );
 
 function popover_myaccount() {
 	?>
-	echo '
+
 
 	<div class="type_info_detail" style="display: none">
 		<ol>
@@ -59,7 +59,7 @@ function popover_myaccount() {
 
 
 	</div>
-	';
+
 	<script>
 		jQuery(document).ready(function(){
 			jQuery('.type_info').popover({

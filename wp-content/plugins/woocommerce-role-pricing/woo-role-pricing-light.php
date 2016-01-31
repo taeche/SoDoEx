@@ -162,7 +162,7 @@ class WooRolePricingLight_Plugin {
 	?>
 	<div class="wrap" style="border: 1px solid #ccc; padding:10px;">
 	<form method="post" action="">
-	   
+
 
 	    <div class="description">Go to product page and set price for each role in the variation section.
 	    </div>
