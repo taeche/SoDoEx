@@ -223,7 +223,7 @@ function show_ninja_message($is_in_billing_address_page){
     }
 }
 
-add_action( 'init', 'logout_unapproved_user');
+add_action( 'wp', 'logout_unapproved_user', 11, 0);
 
 function logout_unapproved_user() {
     page_action_for_unapproved_users('force_logout');
@@ -247,6 +247,12 @@ function page_action_for_unapproved_users($callback){
             $current_url =get_current_url();
             $edit_billing_address_url=get_edit_billing_address_url();
             $is_in_billing_address_page=($current_url==$edit_billing_address_url);
+            // when billing address page loaded, request for home url is somehow made internally.
+            // to avoid logout in this situation, calling home url is also allowed.
+            $home=home_url()."/";
+            if($current_url==$home){
+                $is_in_billing_address_page=true;
+            }
 
             call_user_func($callback,$is_in_billing_address_page);
             // echo "<p>The page is NOT permitted to access for unapproved users. </p><p><a href='".$edit_billing_address_url."'> go to edit address page</a> </p>";
