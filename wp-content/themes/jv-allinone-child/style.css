@@ -1,0 +1,30 @@
+/*
+Theme Name: Allinone Child Theme
+Theme URI: http://demo.joomlavi.com/wordpress/jv-allinone
+Author: Joomlavi
+Author URI: http://joomlavi.com/
+Template: jv-allinone
+Description: Allinone  is a Premium Template tailored for clothes, fashion shop websites. It is 100% responsive, clean and stylish.  It is a bundle of joy that give you ultimate speed and flexibility.  Sure to impress anyone that looks for a modern template. This  Wordpress Theme is designed with inspiration from Fashion shows currently happening all over the world
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, left-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready
+Text Domain: Allinone
+*/
+@import url("../jv-allinone/style.css");
+
+.ninja-annc-content {
+	width: 500px;
+	margin:0 auto;
+}
+.popover{
+	max-width:700px;
+	width:550px;
+
+
+}
+
+.wpcf7-form table td{
+	margin: 5px;
+	padding: 5px;
+}
