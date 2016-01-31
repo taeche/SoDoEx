@@ -571,7 +571,7 @@ function ninja_annc_output_display($id, $widget = false, $group = false, $before
 	do_action('ninja_annc_before_output_'.$id);
 	//begin output.
 	$output = "<div id='my-modal' class='modal fade'>";
-	$output .= "    <div class='modal-dialog'>";
+	$output .= "    <div class='modal-dialog' style='z-index: 9999'>";
 	$output .= "        <div class='modal-content'>";
 	$output .= "            <div class='modal-header'>";
 	$output .= "                <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>Close</button>";
