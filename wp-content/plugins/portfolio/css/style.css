@@ -1,0 +1,14 @@
+#adminmenu #menu-posts-portfolio:hover div.wp-menu-image:before,
+#adminmenu #menu-posts-portfolio.wp-has-current-submenu div.wp-menu-image:before,
+#adminmenu #menu-posts-portfolio div.wp-menu-image:before {
+	background: url("../images/menu_single.png") no-repeat scroll center 8px rgba(0, 0, 0, 0);
+	content: "";
+	opacity: 0.7;
+}
+#adminmenu #menu-posts-portfolio.wp-has-current-submenu div.wp-menu-image:before {
+	opacity: 1;
+}
+
+/* Styles for Portfolio */
+
+.portfolio_content { margin-bottom:50px;} 

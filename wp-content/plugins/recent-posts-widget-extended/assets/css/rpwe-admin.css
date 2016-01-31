@@ -1,0 +1,88 @@
+.widgets-php .rpwe-columns-3 {
+	overflow: hidden;
+	float: left;
+	width: 31%;
+	margin-right: 3.5%;
+}
+
+.widgets-php .rpwe-columns-3 select.widefat {
+	width: 98.5%;
+}
+
+.widgets-php .rpwe-column-last {
+	float: right;
+	margin-right: 0;
+}
+
+.widgets-php .rpwe-columns-3 label {
+	font-size: 11px;
+}
+
+.widgets-php .rpwe-columns-3 p small {
+	color: #777;
+	font-style: italic;
+}
+
+
+
+.rpwe-block {
+	display: block;
+}
+
+.rpwe-multiple-check-form {
+	margin: 1em 0;
+}
+
+.rpwe-multiple-check-form ul {
+	border: 1px solid #eee;
+	padding: 10px;
+	height: 135px;
+	overflow: auto;
+	margin-top: 0;
+}
+
+.rpwe-multiple-check-form ul li:last-child {
+	margin-bottom: 0;
+}
+.rpwe-tab { overflow: hidden; }
+.rpwe-tab li { float: left; margin: 0 5px 0 0; border-right: 1px solid #ddd; padding: 0 5px 0 0; }
+.rpwe-tab li:last-child { border-right-width: 0; }
+.rpwe-tab li a { text-decoration: none; }
+.rpwe-tab li.active a { text-decoration: underline; }
+.tab-pane.hide { display: none; }
+
+
+.cols2 { overflow:hidden; margin:0 -10px 20px; }
+.cols2 .column { float:left; width:50%; padding:0 10px; 	-moz-box-sizing:border-box;	-webkit-box-sizing:border-box;	box-sizing:border-box;}
+.column select { width:100%}
+.width70 { width:70% !important}
+.width30 { width:30% !important}
+
+.small-input {
+	width: 30% !important;
+}
+
+/*--*/
+.rpwe-tab{margin:20px 0 0;position:relative;z-index:1;margin-bottom:-1px}
+.rpwe-tab li{margin:0;border:none}
+.rpwe-tab li a{display:block;padding:8px 15px;border:1px solid #e5e5e5}
+.rpwe-tab li.active{position:relative}
+.rpwe-tab li.active a, .rpwe-tab li.active a:hover,.rpwe-tab li.active a:active, .rpwe-tab li.active a:focus{background:#fafafa;border-bottom-color:#fafafa;box-shadow:none!important}
+.rpwe-tab li a,.rpwe-tab li a:hover,.rpwe-tab li a:active, .rpwe-tab li a:focus{box-shadow:none!important}
+.rpwe-columns-2{border:1px solid #e5e5e5;padding:15px;margin-bottom:30px;background:#fafafa;border-radius:0 3px 3px 3px;position:relative;z-index:0}
+.rpwe-columns-2 .cols2{border:1px solid #e5e5e5;padding:15px;margin:10px 0;background:#fff;border-radius:4px}
+.rpwe-columns-2 .cols2 label:not(.input-checkbox){margin-bottom:10px;display:inline-block}
+.rpwe-columns-2 .cols2 ul li label{margin-bottom:0!important}
+.rpwe-columns-2 .cols2 label.rpwe-block{display:block}
+.rpwe-columns-2 hr{opacity:0}
+.rpwe-columns-2 small{color:#999;font-style:italic}
+.rpwe-columns-2 .cols2 p:after{content:"";display:block;clear:both}
+.rpwe-columns-2 .cols2 .small-input{float:left}
+.widefat[readonly="readonly"]{margin-bottom:20px;border-radius:2;border-color:rgba(213,78,33,0.66)!important;color:rgba(213,78,33,1)!important;padding:6px;background:#f0f0f0}
+
+
+
+.mega_menu .cols2 {margin:0 0 20px; }
+.mega_menu .cols2 .column { float: none !important; width: auto !important; padding:0 !important; }	
+.mega_menu .rpwe-multiple-check-form ul { height:auto; max-height:100px}
+
