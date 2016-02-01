@@ -10,7 +10,7 @@ $output .= '<style>.wpsl-store-float #wpsl-result-list{overflow: hidden;z-index:
 $output .= '<style>.wpsl-store-float #wpsl-gmap{float:none;width:100%;height:100%}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-stores, #wpsl-direction-details{background-color:rgb(240,240,240);}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-result-title{overflow-y:auto;z-index: 1;background-color: rgba(76, 92, 173, .9);height: 30px;font-size: 15px;text-align: center;line-height: 30px;text-wrap: none;padding: 0px;}</style>' . "\r\n";
-$output .= '<style>.wpsl-store-float a.titleClose{position: absolute;top: 3px;right: 7px;z-index: 1;padding 7px;padding-right:8px;width: 12px;height: 12px;display: block;}</style>' . "\r\n";
+$output .= '<style>.wpsl-store-float a.titleClose{position: absolute;top: 3px;right: 7px;z-index: 1;padding 7px;width: 12px;height: 12px;display: block;}</style>' . "\r\n";
 $output .= '<style>.wpsl-store-float #wpsl-direction-details, #wpsl-stores{height:' . ($listHeight - 30 - 10) . 'px !important}</style>' . "\r\n";
 
 
