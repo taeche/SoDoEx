@@ -28,3 +28,7 @@ Text Domain: Allinone
 	margin: 5px;
 	padding: 5px;
 }
+
+#block-breadcrumb {
+    padding: 15px 0;
+}
