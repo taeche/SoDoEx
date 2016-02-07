@@ -30,7 +30,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 		$this->meter_number    = $this->get_option( 'meter_number' );
 		$this->smartpost_hub   = $this->get_option( 'smartpost_hub' );
 		$this->indicia   	   = $this->get_option( 'indicia' );
-		
+
 		$this->api_key         = $this->get_option( 'api_key' );
 		$this->api_pass        = $this->get_option( 'api_pass' );
 		$this->production      = ( $bool = $this->get_option( 'production' ) ) && $bool == 'yes' ? true : false;
@@ -41,7 +41,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 		$this->boxes           = $this->get_option( 'boxes', array( ));
 		$this->custom_services = $this->get_option( 'services', array( ));
 		$this->offer_rates     = $this->get_option( 'offer_rates', 'all' );
-		$this->convert_currency_to_base     = $this->get_option( 'convert_currency');		
+		$this->convert_currency_to_base     = $this->get_option( 'convert_currency');
 		$this->residential     = ( $bool = $this->get_option( 'residential' ) ) && $bool == 'yes' ? true : false;
 		$this->freight_enabled = false;
 		$this->fedex_one_rate  = ( $bool = $this->get_option( 'fedex_one_rate' ) ) && $bool == 'yes' ? true : false;
@@ -76,12 +76,12 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 			wc_add_notice( $message, $type );
 		}
 	}
-	
+
 	private function wf_get_fedex_currency(){
-		if(get_woocommerce_currency() == 'GBP') 
+		if(get_woocommerce_currency() == 'GBP')
 			return 'UKL';
-		
-		return get_woocommerce_currency();		
+
+		return get_woocommerce_currency();
 	}
 
 	private function environment_check() {
@@ -89,8 +89,8 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 			echo '<div class="notice">
 				<p>' . __( 'FedEx API returns the rates in USD. Please enable Rates in base currency option in the plugin. Conversion happens only if FedEx API provide the exchange rates.', 'wf-shipping-fedex' ) . '</p>
 			</div>';
-		} 
-			
+		}
+
 		if ( ! $this->origin && $this->enabled == 'yes' ) {
 			echo '<div class="error">
 				<p>' . __( 'FedEx is enabled, but the origin postcode has not been set.', 'wf-shipping-fedex' ) . '</p>
@@ -119,7 +119,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 			padding: 15px 0
 		}
 		</style>
-		<?php 
+		<?php
 		// Show settings
 		parent::admin_options();
 	}
@@ -135,7 +135,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 	public function validate_services_field( $key ) {
 		$services         = array();
 		$posted_services  = $this->services;
- 
+
 		foreach ( $posted_services as $code => $name ) {
 			$services[ $code ] = array(
 				'name'               => $name,
@@ -364,9 +364,9 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 				$request['RequestedShipment']['RequestedPackageLineItems'] = array();
 
 				foreach ( $parcels as $key => $parcel ) {
-					
+
 					$single_package_weight = $parcel['Weight']['Value'];
-				
+
 					$parcel_request = $parcel;
 					$total_value    += $parcel['InsuredValue']['Amount'] * $parcel['GroupPackageCount'];
 					$total_packages += $parcel['GroupPackageCount'];
@@ -426,13 +426,13 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 				$request['RequestedShipment']['PackageCount'] = $total_packages;
 
 				$indicia = $this->indicia;
-				
+
 				if($indicia == 'AUTOMATIC' && $single_package_weight >= 1)
 					$indicia = 'PARCEL_SELECT';
 				elseif($indicia == 'AUTOMATIC' && $single_package_weight < 1)
-					$indicia = 'PRESORTED_STANDARD';				
-				
-				
+					$indicia = 'PRESORTED_STANDARD';
+
+
 				// Smart post
 				if ( 'smartpost' === $request_type ) {
 					$request['RequestedShipment']['SmartPostDetail'] = array(
@@ -466,7 +466,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 						)
 					);
 					$request['RequestedShipment']['CustomsClearanceDetail']['Commodities'] = array_values( $commodoties );
-					
+
 					if( !in_array(WC()->countries->get_base_country(),$core_countries)){
 						$request['RequestedShipment']['CustomsClearanceDetail']['CommercialInvoice'] = array(
 							'Purpose' => 'SOLD'
@@ -512,12 +512,27 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 				if ( $value['packages'] < $packages_to_quote_count ) {
 					unset( $this->found_rates[ $key ] );
 				}
+
+				//edited by yongun
+				// limit displaying results only for fedex ground and fedex 2days
+				if ( !($value['id']=='wf_fedex_woocommerce_shipping:FEDEX_GROUND'
+					    ||$value['id']=='wf_fedex_woocommerce_shipping:FEDEX_2_DAY'
+				      )
+				   ) {
+					unset( $this->found_rates[ $key ] );
+				}
 			}
 		}
 
 		$this->add_found_rates();
 	}
-
+	private function constains($heystack,$needle){
+		if (strpos($heystack,$needle) !== false) {
+			return true;
+		}else{
+			return false;
+		}
+	}
 	public function run_package_request( $requests ) {
 		try {
 			foreach ( $requests as $key => $request ) {
@@ -601,7 +616,7 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 			}
 		}
 	}
-	
+
 	private function convert_to_base_currency($details,$rate_cost){
 		$converted_rate = $rate_cost;
 		if($this->convert_currency_to_base == 'yes'){
@@ -610,10 +625,10 @@ class wf_fedex_woocommerce_shipping_method extends WC_Shipping_Method {
 				$convertion_rate = floatval( $details->ShipmentRateDetail->CurrencyExchangeRate->Rate);
 				if($from_currency == $this->wf_get_fedex_currency()){
 					$converted_rate = $converted_rate/$convertion_rate;
-				}			
+				}
 			}
 		}
-		return $converted_rate;		
+		return $converted_rate;
 	}
 
 	private function prepare_rate( $rate_code, $rate_id, $rate_name, $rate_cost ) {

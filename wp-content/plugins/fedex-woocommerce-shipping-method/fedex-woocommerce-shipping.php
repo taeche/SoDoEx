@@ -1,8 +1,8 @@
 <?php
 /*
-	Plugin Name: FedEx WooCommerce Shipping Basic
+	Plugin Name: DO NOT UPDATE!!FedEx WooCommerce Shipping Basic
 	Plugin URI: http://www.wooforce.com
-	Description: Obtain real time shipping rates via FedEx Shipping API. Upgrade to Premium version for Print label & Tracking features.
+	Description: Customized by Yong:Obtain real time shipping rates via FedEx Shipping API. Upgrade to Premium version for Print label & Tracking features.
 	Version: 1.0.0
 	Author: WooForce
 	Author URI: http://www.wooforce.com

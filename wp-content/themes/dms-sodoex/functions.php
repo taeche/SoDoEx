@@ -84,12 +84,25 @@ function user_autologout(){
             //return $redirect_url;
         }
         else{
-            //how to change email template at this point from customer-new-account.php to customer-account-waiting-approval.php
 
-            wp_logout();
-            return get_permalink(woocommerce_get_page_id('myaccount')) . "?approved=false";
+
+          return get_edit_billing_address_url();
+
+           // wp_logout();
+           // return get_permalink( wc_get_page_id( 'myaccount' ) ) . "?approved=false";
         }
     }
+}
+function get_edit_billing_address_url(){
+    $account_edit_adress_url= wc_get_endpoint_url( 'edit-address', '', get_permalink( wc_get_page_id( 'myaccount' ) ) );
+    $edit_billing_address_url=$account_edit_adress_url."billing/";
+    return $edit_billing_address_url;
+}
+
+function get_current_url(){
+    global $wp;
+    $current_url = home_url().$_SERVER['REQUEST_URI'];
+    return $current_url;
 }
 add_action('woocommerce_registration_redirect', 'user_autologout', 2);
 
@@ -99,7 +112,12 @@ function registration_message(){
 
     if( isset($_REQUEST['approved']) ){
         $approved = $_REQUEST['approved'];
-        if ($approved == 'false')  echo '<p class="registration successful">Registration successful! You will be notified upon approval of your account.</p>';
+        if ($approved == 'false') {
+            if (function_exists("ninja_annc_display")) {
+                ninja_annc_display(165);
+            }
+            //echo '<p class="registration successful">Registration successful! You will be notified upon approval of your account.</p>';
+        }
         else echo $not_approved_message;
     }
     else echo $not_approved_message;
@@ -172,27 +190,141 @@ function new_customer_email_subject( $subject ) {
     return $subject;
 }
 
-//add_action( 'loop_start', 'personal_message_when_logged_in' );
 
-function personal_message_when_logged_in() {
+add_action( 'loop_start', 'show_notice_in_billing_address');
 
-    if ( is_user_logged_in() ) {
-        $current_user = wp_get_current_user();
-       // echo 'Personal Message For ' . $current_user->user_login . '!';
-
-
-
-
-
-            if ( ! is_wp_error( $current_user ) AND ! get_user_meta( $current_user->ID, 'wp-approve-user', true ) ) {
-               // unapproved user, force logout
-                wp_logout();
-            }
-
-    } else {
-        echo 'Non Personalized Message!';
-    }
-
+function show_notice_in_billing_address() {
+    page_action_for_unapproved_users('show_ninja_message');
 }
 
-//remove_action( 'wp_authenticate_user' );
+function show_ninja_message($is_in_billing_address_page){
+    if($is_in_billing_address_page) {
+        if (function_exists("ninja_annc_display")) {
+            ninja_annc_display(147);
+        }
+    }
+}
+
+add_action( 'init', 'logout_unapproved_user');
+
+function logout_unapproved_user() {
+    page_action_for_unapproved_users('force_logout');
+}
+
+function force_logout($is_in_billing_address_page)
+{
+    if(!$is_in_billing_address_page) {
+        wp_logout();
+        wp_redirect(  get_permalink( wc_get_page_id( 'myaccount' ) ) );
+        exit;
+    }
+}
+
+function page_action_for_unapproved_users($callback){
+    if ( is_user_logged_in() ) {
+
+        $current_user = wp_get_current_user();
+
+        if ( ! is_wp_error( $current_user ) AND ! get_user_meta( $current_user->ID, 'wp-approve-user', true ) ) {
+            $current_url =get_current_url();
+            $edit_billing_address_url=get_edit_billing_address_url();
+            $is_in_billing_address_page=($current_url==$edit_billing_address_url);
+
+            call_user_func($callback,$is_in_billing_address_page);
+            // echo "<p>The page is NOT permitted to access for unapproved users. </p><p><a href='".$edit_billing_address_url."'> go to edit address page</a> </p>";
+            // exit();
+
+        }
+
+    }
+}
+
+function action_woocommerce_customer_save_address( $user_id, $load_address ) {
+
+        $current_user = wp_get_current_user();
+
+        if ( ! is_wp_error( $current_user ) AND ! get_user_meta( $current_user->ID, 'wp-approve-user', true ) ) {
+             if($load_address=="billing"){
+                 wp_logout();
+                 wp_redirect(  get_permalink( wc_get_page_id( 'myaccount' ) ) . "?approved=false" );
+                 exit;
+             }
+
+        }
+};
+
+// add the action
+add_action( 'woocommerce_customer_save_address', 'action_woocommerce_customer_save_address', 10, 2 );
+
+/**
+ *  extra fields for variation
+ */
+
+// Add Variation Settings
+add_action( 'woocommerce_product_after_variable_attributes', 'variation_settings_fields', 10, 3 );
+// Save Variation Settings
+add_action( 'woocommerce_save_product_variation', 'save_variation_settings_fields', 10, 2 );
+/**
+ * Create new fields for variations
+ *
+ */
+function variation_settings_fields( $loop, $variation_data, $variation ) {
+    global $wp_roles;
+
+    if ( class_exists( 'WP_Roles' ) ) {
+        if ( ! isset( $wp_roles ) ) {
+            $wp_roles = new WP_Roles();
+        }
+    }
+
+    echo "Price by role ($):";
+  //  var_dump($wp_roles->role_objects);
+    foreach ( $wp_roles->role_objects as $role ) {
+
+        woocommerce_wp_text_input(
+            array(
+                'id'          => $role->name.'[' . $variation->ID . ']',
+                'label'       => __( ucwords($wp_roles->role_names[$role->name]), 'woocommerce' ),
+                'desc_tip'    => 'true',
+                'description' => __( 'Enter the custom number here.', 'woocommerce' ),
+                'value'       => get_post_meta( $variation->ID, $role->name, true ),
+                'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                )
+            )
+        );
+
+
+    }
+    // Number Field
+
+
+}
+/**
+ * Save new fields for variations
+ *
+ */
+function save_variation_settings_fields( $post_id ) {
+
+    global $wp_roles;
+
+    if ( class_exists( 'WP_Roles' ) ) {
+        if ( ! isset( $wp_roles ) ) {
+            $wp_roles = new WP_Roles();
+        }
+    }
+
+
+    foreach ( $wp_roles->role_objects as $role ) {
+
+        $field = $_POST[$role->name][ $post_id ];
+        if( ! empty( $field ) ) {
+            update_post_meta( $post_id, $role->name, esc_attr( $field ) );
+        }
+
+
+    }
+
+
+}

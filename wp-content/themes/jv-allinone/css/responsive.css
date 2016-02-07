@@ -1,0 +1,247 @@
+/*
+
+Theme Name: JV Allinone
+
+Theme URI: http://demo.joomlavi.com/wordpress/jv-allinone
+
+Author: Joomlavi
+
+Author URI: http://joomlavi.com/
+
+Description: Allinone  is a Premium Template tailored for clothes, fashion shop websites. It is 100% responsive, clean and stylish.  It is a bundle of joy that give you ultimate speed and flexibility.  Sure to impress anyone that looks for a modern template. This  Wordpress Theme is designed with inspiration from Fashion shows currently happening all over the world
+
+Version: 1.2.1
+
+License: GNU General Public License v2 or later
+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Tags: allinone, onepage, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, left-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready
+
+Text Domain: jv_allinone
+
+*/
+
+
+
+@media (max-width:1650px){
+
+	#style-index-4 #nav-mainmenu ul.mega-menu > li{ margin-left: 1px;}
+
+	#style-index-4  #nav-mainmenu ul.mega-menu > li > a{ font-size: 14px; text-transform: uppercase; padding: 0 15px;}
+
+	@media (max-width:1399px){
+
+		#style-index-4  #nav-mainmenu ul.mega-menu > li > a{ padding: 0 10px;}
+
+	}
+
+}
+
+
+
+@media (max-width:1199px){
+
+	h2.widgettitle { max-width: 970px;}
+
+	.owl-controls { display:none !important}
+
+
+
+	#searchtop .container {    height: 80px;}
+
+	#searchtop .searchform {    margin-top: -20px;}
+
+	#searchtop input {    font-size: 22px;    height: 40px;}
+
+	
+
+	
+
+	[class*="col-sm"], [class*="col-md"]  { margin-bottom:20px;}
+
+	
+
+	#header  {border-bottom: 1px solid #d1d1d1 !important;}
+
+	#style-index-4 #header { border-bottom-width: 0 !important;}
+
+	#style-index-4 header#header{ padding-top: 60px;}
+
+
+
+	#header .container, .logo-table-cell {		height: 80px;	}	
+
+	
+
+	#index-2 #header-sticky-wrapper {position: relative !important; left:auto !important }
+
+	
+
+	.sectionCallout		{  background-attachment: initial !important; background-position: center center !important} 
+
+		
+
+	/*shop*/
+
+	.woocommerce_count{display:none;}
+
+	.panel-allinone.bpopup-content{width:460px;}
+
+	
+
+	
+
+	.Block-slideshow.margin-tm-30 { margin:0 !important}
+
+	.Block-slideshow .line { display:none !important}
+
+	
+
+	#style-index-4 header #panel aside.widget_text{ display: none;}
+
+	.hot-banners .banner-1 h3 { font-size: 16px;}
+
+
+
+	/*portfolio*/
+
+	.jv-porfolio.overlay-title .pfo-title {font-size: 25px; }
+
+
+
+
+
+	@media(max-width:991px){
+
+		h2.widgettitle { max-width: 750px;}
+
+		.our-servise-content  .pane-mobile-item-img { float:none !important; margin: 0 0 20px; width:auto; }
+
+		
+
+		.woocommerce  .shop-products-list .product_list_widget .inner-item .star-rating { height:1.5em; opacity: 1; }
+
+		.shop-products-list .product_list_widget .inner-item .imgsubproduct { opacity: 1;  height: auto !important; margin-bottom:10px !important}
+
+		.shop-products-list .product_list_widget .inner-item .product-action { opacity: 1; height: 36px;}
+
+
+
+		
+
+		.slider-rect-nav .tp-bullets .bullet, .slider-rect-nav .tp-bullets.simplebullets.round .bullet{ width: 38px !important}
+
+		.slider-rect-nav .title a{ font-size: 24px !important; line-height: 40px !important;}
+
+		#style-index-3 .topbanner,#style-index-5 .topbanner { display: block; float: none; height: auto; width: auto; }
+
+
+
+
+
+
+
+
+
+		@media (min-width:640px){
+
+			.wpb_column { margin-bottom:20px;}
+
+			.vc_col-sm-3 { width:50%; float:left}
+
+		}
+
+
+
+		@media (min-width:768px){
+
+			.col-sm-4{width:33.333%;}
+
+		}		
+
+
+
+		
+
+		@media (max-width:767px){
+
+			
+
+			#header.scroll-to-fixed-fixed .container, #header.scroll-to-fixed-fixed .logo-table-cell {    height: 60px;}
+
+			#block-breadcrumb {    border-top: none;    padding: 15px 0;}
+
+			
+
+			.shop-info-detail .shopImages  { max-width:400px; margin:0 auto 20px;}
+
+
+
+			.blog-photo-only .top-item { width: 100%; }
+
+			.blog-photo-only .more-item { width: 50%; }
+
+			
+
+
+
+			@media (max-width:500px){
+
+				.panel-allinone.bpopup-content {    width: 400px;}
+
+				#style-index-4 a.jvlogo::before,#style-index-4 a.jvlogo::after{ display: none;}
+
+			}
+
+
+
+		
+
+			@media (max-width:479px){
+
+				[class*="col-xs"] {   width: 100%;}
+
+				.shop-products-list .product_list_widget { height:auto !important}
+
+				.shop-products-list .product_list_widget .itemMasonry {  margin:0 auto 20px !important; position:relative !important; left: auto !important; top: auto !important; float: none !important }
+
+				#searchtop input {    font-size: 16px; }
+
+				.panel-allinone.bpopup-content {    width: 300px;}
+
+				.pageBlog > article { padding:0}
+
+				.pageBlog > article .post-meta { display:none}
+
+				
+
+				#panel .pull-right.dropdownMenu ul.menu .sub-menu {    width: 300px;}
+
+				#panel .widget_icl_lang_sel_widget { display:none !important}
+
+
+
+				#style-index-3 .topbanner,#style-index-5 .topbanner { display: none;}
+
+			}
+
+
+
+		}		
+
+	
+
+	}
+
+	
+
+	
+
+	
+
+
+
+
+
+}

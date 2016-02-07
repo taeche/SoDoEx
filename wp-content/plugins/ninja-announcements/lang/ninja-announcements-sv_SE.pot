@@ -1,0 +1,254 @@
+# Copyright (C) 2012 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/ninja-announcements\n"
+"POT-Creation-Date: 2012-01-31 16:02:17+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-04-15 03:22+0100\n"
+"Last-Translator: Per Söderman <fejan@home.se>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: ninja_annc.php:55
+#: includes/columns.php:53
+msgid "Activate"
+msgstr "Aktivera"
+
+#: ninja_annc.php:58
+#: includes/columns.php:57
+msgid "Deactivate"
+msgstr "Avaktivera"
+
+#: ninja_annc.php:60
+msgid "Save"
+msgstr "Spara"
+
+#: includes/meta-boxes.php:244
+msgid "Not Scheduled (Will display whenever active)"
+msgstr "Inte schemalagda (visas när aktiv)"
+
+#: includes/meta-boxes.php:256
+msgid "Begin Date"
+msgstr "Startdatum"
+
+#: includes/meta-boxes.php:268
+msgid "Time "
+msgstr "Tid"
+
+#: includes/meta-boxes.php:336
+msgid "End Date"
+msgstr "Slutdatum"
+
+#: includes/meta-boxes.php:348
+msgid "Time"
+msgstr "Tid"
+
+#: includes/meta-boxes.php:416
+msgid "Select All"
+msgstr "Välj Alla"
+
+#: includes/meta-boxes.php:427
+msgid "Sunday"
+msgstr "Söndag"
+
+#: includes/meta-boxes.php:439
+msgid "Monday"
+msgstr "Måndag"
+
+#: includes/meta-boxes.php:451
+msgid "Tuesday"
+msgstr "Tisdag"
+
+#: includes/meta-boxes.php:462
+msgid "Wednsday"
+msgstr "Onsdag"
+
+#: includes/meta-boxes.php:474
+msgid "Thursday"
+msgstr "Torsdag"
+
+#: includes/meta-boxes.php:485
+msgid "Friday"
+msgstr "Fredag"
+
+#: includes/meta-boxes.php:497
+msgid "Saturday"
+msgstr "Lördag"
+
+#: includes/meta-boxes.php:513
+msgid "Show Title"
+msgstr "Visa Rubrik"
+
+#: includes/meta-boxes.php:524
+msgid "Location"
+msgstr "Plats"
+
+#: includes/meta-boxes.php:531
+msgid "Header (Default)"
+msgstr "Huvud (Standard)"
+
+#: includes/meta-boxes.php:532
+msgid "Sidebar (Widget)"
+msgstr "Sidopanel (Widget)"
+
+#: includes/meta-boxes.php:533
+msgid "Manual (Function)"
+msgstr "Manuell (Funktion)"
+
+#: includes/meta-boxes.php:544
+msgid "Allow the user to close the announcement"
+msgstr "Tillåt användaren att stänga meddelandet"
+
+#: includes/meta-boxes.php:555
+msgid "Allow the announcement to be re-opened"
+msgstr "Tillåt användaren att öppna meddelandet"
+
+#: includes/meta-boxes.php:575
+msgid "Display on your Homepage"
+msgstr "Visas på Hemsidan"
+
+#: includes/meta-boxes.php:587
+msgid "Display on your Frontpage"
+msgstr "Visas på Huvudsidan"
+
+#: includes/meta-boxes.php:603
+msgid "This announcement's settings are being controlled by one of its groups. Please remove this announcement from the controlling group, or visit the group edit page to change its settings."
+msgstr "Detta är inställningar som styrs av en av dess grupper. Ta bort det här meddelandet från den grupp, eller besök den grupp redigera sidan för att ändra dess inställningar. .."
+
+#: includes/meta-boxes.php:614
+#: includes/meta-boxes.php:618
+#: includes/meta-boxes.php:627
+msgid "Announcement Options"
+msgstr "Alternativ för meddelande"
+
+#: includes/meta-boxes.php:617
+#: includes/meta-boxes.php:626
+msgid "Announcement Schedule"
+msgstr "Schema för meddelande"
+
+#: includes/meta-boxes.php:619
+#: includes/meta-boxes.php:628
+msgid "Main Page Display Options"
+msgstr "Alternativ för huvudmenyn"
+
+#: includes/cpt.php:7
+msgid "Ninja Announcements"
+msgstr "Ninja Announcements"
+
+#: includes/cpt.php:8
+msgid "Announcement"
+msgstr "Meddelande"
+
+#: includes/cpt.php:9
+msgid "No Announcements Found"
+msgstr "Inga meddelanden funna"
+
+#: includes/cpt.php:10
+#: includes/cpt.php:11
+msgid "New Announcement"
+msgstr "Nytt meddelande"
+
+#: includes/cpt.php:12
+msgid "Edit Announcement"
+msgstr "Redigera meddelande"
+
+#: includes/plugin-settings.php:3
+#: includes/plugin-settings.php:35
+msgid "Plugin Settings"
+msgstr "Inställningar för plugin"
+
+#: includes/plugin-settings.php:38
+msgid "Version"
+msgstr "Version"
+
+#: includes/plugin-settings.php:42
+msgid "Use Ninja Announcements default stylesheet"
+msgstr "Använd Ninja Announcements standard stylesheet"
+
+#: includes/plugin-settings.php:50
+msgid "Save Changes"
+msgstr "Spara ändringar"
+
+#: includes/display.php:556
+#: includes/scripts-styles.php 143
+msgid "Open"
+msgstr "Öppna"
+
+#: includes/display.php:559
+#: includes/scripts-styles.php:
+#: 144
+msgid "Close"
+msgstr "Stäng"
+
+#: includes/widget.class.php:139
+msgid "New title"
+msgstr "Ny Rubrik"
+
+#: includes/widget.class.php:145
+msgid "Announcement:"
+msgstr "Meddelande:"
+
+#: includes/widget.class.php:147
+msgid "Select an announcement"
+msgstr "Välj ett meddelande"
+
+#: includes/widget.class.php:162
+msgid "Active"
+msgstr "Aktiv"
+
+#: includes/widget.class.php:165
+#: includes/columns.php:27
+msgid "Not Scheduled (Will show whenever active)"
+msgstr "Inte schemalagda (visas när aktiv)"
+
+#: includes/widget.class.php:168
+msgid "Begin Date:"
+msgstr "Startdatum:"
+
+#: includes/widget.class.php:172
+msgid "Begin Time:"
+msgstr "Starttid:"
+
+#: includes/widget.class.php:207
+msgid "End Date:"
+msgstr "Slutdatum:"
+
+#: includes/widget.class.php:211
+msgid "End Time:"
+msgstr "Sluttid:"
+
+#: includes/columns.php:9
+msgid "Action"
+msgstr "Åtgärd"
+
+#: includes/columns.php:10
+msgid "Announcement Title"
+msgstr "Meddelande rubrik"
+
+#: includes/columns.php:13
+msgid "Groups"
+msgstr "Grupper"
+
+#: includes/columns.php:16
+msgid "Scheduled Dates"
+msgstr "Schemalagda datum"
+
+#: includes/columns.php:17
+msgid "Description"
+msgstr "Besrivning"
+
+#: includes/columns.php:18
+msgid "Function Code"
+msgstr "Funktionskod"
+
+#: includes/columns.php:43
+msgid "Announcement controlled via group settings"
+msgstr "Meddelande styrs via grupp inställningar"
+
+#: includes/meta-boxes.php:418
+msgid "Days of the week"
+msgstr "Veckodagar"
+

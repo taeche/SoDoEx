@@ -1,0 +1,1 @@
+[22-May-2015 05:03:28 UTC] WordPress database error Got error 28 from storage engine for query SHOW FULL COLUMNS FROM `wp_newsletter` made by NewsletterSubscription->subscribe, NewsletterModule->save_user, NewsletterStore->save

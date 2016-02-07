@@ -18,9 +18,9 @@
  * @package woorolepricinglight
  * @since woorolepricinglight 1.0.0
  *
- * Plugin Name: Woocommerce Role Pricing Light
+ * Plugin Name: DO NOT UPDATE!Woocommerce Role Pricing Light
  * Plugin URI: http://www.eggemplo.com/plugins/woocommerce-role-pricing
- * Description: Shows different prices according to the user's role
+ * Description: Shows different prices according to the user's role. Modified by Yong
  * Version: 1.0
  * Author: eggemplo
  * Author URI: http://www.eggemplo.com
@@ -162,68 +162,14 @@ class WooRolePricingLight_Plugin {
 	?>
 	<div class="wrap" style="border: 1px solid #ccc; padding:10px;">
 	<form method="post" action="">
-	    <table class="form-table">
-	        <tr valign="top">
-	        <th scope="row"><strong><?php echo __( 'Products discount method:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
-	        <td>
-	        	<select name="wrp-method">
-	        	<?php 
-	        	if ( get_option("wrp-method") == "amount" ) {
-	        	?>
-	        		<option value="rate">Rate</option>
-	        		<option value="amount" selected="selected">Amount</option>
-	        	<?php 
-	        	} else {
-	        	?>
-	        		<option value="rate" selected="selected">Rate</option>
-	        		<option value="amount">Amount</option>
-	        	<?php 
-	        	}
-	        	?>
-	        	</select>
-	        </tr>
-	        
-	        <tr valign="top">
-	        <th scope="row"><strong><?php echo __( 'Apply to:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></strong></th>
-	        <td>
-	        	<select name="wrp-baseprice">
-	        	<?php 
-	        	if ( get_option("wrp-baseprice") == "sale" ) {
-	        	?>
-	        		<option value="regular">Regular price</option>
-	        		<option value="sale" selected="selected">Sale price</option>
-	        	<?php 
-	        	} else {
-	        	?>
-	        		<option value="regular" selected="selected">Regular price</option>
-	        		<option value="sale">Sale price</option>
-	        	<?php 
-	        	}
-	        	?>
-	        	</select>
-	        </tr>
-	    </table>
-	    <h3><?php echo __( 'Roles:', WOO_ROLE_PRICING_LIGHT_DOMAIN ); ?></h3>
-	    <div class="description">Leave empty if no role discount should be applied (default setting).<br>
-	    Example with rate method: Indicate 0.1 for 10% discounts on every product.
+
+
+	    <div class="description">Go to product page and set price for each role in the variation section.
 	    </div>
 		
-		<table class="form-table">
-	    <?php 
-	    	foreach ( $wp_roles->role_objects as $role ) {
-			        ?>
-			        <tr valign="top">
-			        <th scope="row"><?php echo ucwords($role->name) . ':'; ?></th>
-			        <td>
-			        	<input type="text" name="wrp-<?php echo $role->name;?>" value="<?php echo get_option( "wrp-" . $role->name ); ?>" />
-			        </td>
-			        </tr>
-			        <?php 
-			}
-		?>
-	    </table>
+
 	    
-	    <?php submit_button( __( "Save", WOO_ROLE_PRICING_LIGHT_DOMAIN ) ); ?>
+
 	    
 	    <?php settings_fields( 'woorolepricinglight' ); ?>
 	    

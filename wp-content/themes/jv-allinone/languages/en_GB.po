@@ -1,0 +1,1761 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JV Allinone\n"
+"POT-Creation-Date: 2015-09-12 10:23+0700\n"
+"PO-Revision-Date: 2015-09-12 10:24+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:16
+msgid "Page 404"
+msgstr ""
+
+#: 404.php:23
+msgid "404"
+msgstr ""
+
+#: 404.php:24
+msgid "Oops! Page not found"
+msgstr ""
+
+#: 404.php:25
+msgid ""
+"Sorry&#44; but the page you are looking for is not found. Please, make sure "
+"you have typed the current URL."
+msgstr ""
+
+#: archive.php:29
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: archive.php:31
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: archive.php:31
+msgctxt "monthly archives date format"
+msgid "F Y"
+msgstr ""
+
+#: archive.php:33
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: archive.php:33
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: archive.php:35
+msgid "Archives"
+msgstr ""
+
+#: author.php:21
+#, php-format
+msgid "Author : %s"
+msgstr ""
+
+#: author.php:79 content.php:202
+#, php-format
+msgid "About %s"
+msgstr ""
+
+#: blog-item.php:133 content-aside.php:34 content-image.php:32
+#: content-link.php:38 content-page.php:28 content-quote.php:36
+#: content-status.php:52 content.php:126 functions.php:362 image.php:125
+msgid "Edit"
+msgstr ""
+
+#: blog-item.php:179 content-aside.php:31 content-image.php:28
+#: content-link.php:34 content-quote.php:30 content-status.php:46
+#: content.php:131 content.php:181
+msgid "0"
+msgstr ""
+
+#: blog-item.php:179 content-aside.php:31 content-image.php:28
+#: content-link.php:34 content-quote.php:30 content-status.php:46
+#: content.php:131 content.php:181
+msgid "<i class=\"icon-comments3\"></i> 1"
+msgstr ""
+
+#: blog-item.php:179 content-aside.php:31 content-image.php:28
+#: content-link.php:34 content-quote.php:30 content-status.php:46
+#: content.php:131 content.php:181
+msgid "<i class=\"icon-comments3\"></i> %"
+msgstr ""
+
+#: blog-item.php:183 content-aside.php:25 content-image.php:23
+#: content-link.php:28 content-quote.php:25 content-status.php:41
+#: content.php:186
+msgid "Read more"
+msgstr ""
+
+#. translators: 1: user profile link, 2: user name, 3: activity permalink, 4: activity timestamp
+#: buddypress/activity/comment.php:27
+#, php-format
+msgid ""
+"<a href=\"%1$s\">%2$s</a> replied <a href=\"%3$s\" class=\"activity-time-"
+"since\"><span class=\"time-since\">%4$s</span></a>"
+msgstr ""
+
+#: buddypress/activity/entry.php:50
+msgid "View Conversation"
+msgstr ""
+
+#: buddypress/activity/entry.php:58
+#, php-format
+msgid " <span>%s</span> Comments"
+msgstr ""
+
+#: buddypress/activity/entry.php:66
+msgid "Mark as Favorite"
+msgstr ""
+
+#: buddypress/activity/entry.php:66
+msgid " Favorite"
+msgstr ""
+
+#: buddypress/activity/entry.php:70
+msgid "Remove Favorite"
+msgstr ""
+
+#: buddypress/activity/entry.php:70
+msgid " Remove Favorite"
+msgstr ""
+
+#: buddypress/activity/entry.php:102
+msgid "Post"
+msgstr ""
+
+#: buddypress/activity/entry.php:102 library/function.php:531
+#: woocommerce/myaccount/my-orders.php:77
+msgid "Cancel"
+msgstr ""
+
+#: category.php:22
+#, php-format
+msgid "Category : %s"
+msgstr ""
+
+#: category.php:40
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: comments.php:37
+#, php-format
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:52
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:53
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:54
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:63
+msgid "Comments are closed."
+msgstr ""
+
+#: content-link.php:25
+msgid "Post Format: Link"
+msgstr ""
+
+#: content-none.php:20 search.php:45
+msgid "Nothing Found"
+msgstr ""
+
+#: content-none.php:24
+msgid ""
+"Apologies, but no results were found. Perhaps searching will help find a "
+"related post."
+msgstr ""
+
+#: content-page.php:25 content.php:170 image.php:101
+msgid "Pages:"
+msgstr ""
+
+#: content-quote.php:23
+msgid "Post Format: Quote"
+msgstr ""
+
+#: content.php:206
+#, php-format
+msgid "View all posts by %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: functions.php:91
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:217
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:227
+msgid "Panel"
+msgstr ""
+
+#: functions.php:236
+msgid "Panel Header 4"
+msgstr ""
+
+#: functions.php:238
+msgid "header 4 desc"
+msgstr ""
+
+#: functions.php:248
+msgid "Shop Sidebar"
+msgstr ""
+
+#: functions.php:257
+msgid "BuddyPress Sidebar"
+msgstr ""
+
+#: functions.php:266
+msgid "Bottom Column"
+msgstr ""
+
+#: functions.php:275
+msgid "Copyright"
+msgstr ""
+
+#: functions.php:301
+msgid "Post navigation"
+msgstr ""
+
+#: functions.php:302
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr ""
+
+#: functions.php:303
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: functions.php:328
+msgid "Pingback:"
+msgstr ""
+
+#: functions.php:328
+msgid "(Edit)"
+msgstr ""
+
+#. translators: 1: date, 2: time
+#: functions.php:352
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: functions.php:358
+msgid "Reply"
+msgstr ""
+
+#: functions.php:367
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: functions.php:395 functions.php:398 functions.php:465 functions.php:468
+msgid ", "
+msgstr ""
+
+#: functions.php:414 functions.php:483
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: functions.php:420
+#, php-format
+msgid ""
+"\n"
+"\t\t<span class=\"category\"> <i class=\"icon-folder2\"></i>   %1$s</span> \n"
+"\t\t<span class=\"tag\"> <i class=\"icon-tags2\"></i>   %2$s</span> \n"
+"\t\t<span class=\"date\"> <i class=\"icon-calendar3\"></i>   %3$s</span> \n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:428
+#, php-format
+msgid ""
+"\n"
+"\t\t<span class=\"category\"> <i class=\"icon-folder2\"></i>   %1$s</span> \n"
+"\t\t<span class=\"date\"> <i class=\"icon-calendar3\"></i>   %3$s</span> \n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:434
+#, php-format
+msgid ""
+"\n"
+"\t\t<span class=\"date\"> <i class=\"icon-calendar3\"></i>   %3$s</span> \n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t\n"
+"\t\t\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:489
+#, php-format
+msgid ""
+"\n"
+"\t\t<span class=\"category\"> <i class=\"icon-folder2\"></i>   %1$s</span> \n"
+"\t\t<span class=\"tag\"> <i class=\"icon-tags2\"></i>   %2$s</span> \n"
+"\t\t\n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:497
+#, php-format
+msgid ""
+"\n"
+"\t\t<span class=\"category\"> <i class=\"icon-folder2\"></i>   %1$s</span> \n"
+"\t\t\n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:503
+#, php-format
+msgid ""
+"\n"
+"\t\t\n"
+"\t\t<span class=\"by-author\"> <i class=\"icon-user22\"></i>  %4$s</span>\n"
+"\t\t\n"
+"\t\t\n"
+"\t\t"
+msgstr ""
+
+#: functions.php:629
+msgid "Register Shortcode"
+msgstr ""
+
+#: functions.php:685
+msgid "Home"
+msgstr ""
+
+#: functions.php:712 functions.php:713 functions.php:714
+msgid "Archive for"
+msgstr ""
+
+#: functions.php:715
+msgid "Author Archive"
+msgstr ""
+
+#: functions.php:716
+msgid "Blog Archives"
+msgstr ""
+
+#: functions.php:717
+msgid "Search Results"
+msgstr ""
+
+#: header-style-2.php:75 header-style-3.php:67 header-style-4.php:64
+#: header-style-5.php:67 header.php:85
+msgid "Menu"
+msgstr ""
+
+#: image.php:39
+msgid "&larr; Previous"
+msgstr ""
+
+#: image.php:40
+msgid "Next &rarr;"
+msgstr ""
+
+#: image.php:107
+#, php-format
+msgid ""
+"\n"
+"\t\t\t\t\t\t\t\t<span> <i class=\"icon-folder2\"></i> <a href=\"%6$s\" title="
+"\"Return to %7$s\" rel=\"gallery\">%8$s</a></span>\n"
+"\t\t\t\t\t\t\t\t<span class=\"entry-date\"><i class=\"icon-calendar3\"></i> "
+"<time class=\"entry-date\" datetime=\"%1$s\">%2$s</time></span> \n"
+"\t\t\t\t\t\t\t\t<span><i class=\"icon-zoomin4\"></i> <a href=\"%3$s\" title="
+"\"Link to full-size image\">%4$s &times; %5$s</a></span>\n"
+"\t\t\t\t\t\t\t\t\n"
+"\t\t\t\t\t\t\t\t \n"
+"\t\t\t\t\t\t\t\t \n"
+"\t\t\t\t\t\t\t\t ."
+msgstr ""
+
+#: image.php:136
+msgctxt "Parent post link"
+msgid ""
+"<span class=\"meta-nav\">Published in</span><span class=\"post-title\">"
+"%title</span>"
+msgstr ""
+
+#: index.php:57
+msgid "Previous page"
+msgstr ""
+
+#: index.php:58
+msgid "Next page"
+msgstr ""
+
+#: index.php:59 woocommerce/global/breadcrumb.php:222
+msgid "Page"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:161
+#: library/jvLibrary.php:601
+msgid "Install Required Plugins"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:162
+#: library/jvLibrary.php:602
+msgid "Install Plugins"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:163
+#: library/jvLibrary.php:603
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:164
+msgid "Something went wrong."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:165
+#: library/jvLibrary.php:605
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:166
+#: library/jvLibrary.php:606
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:167
+#: library/jvLibrary.php:607
+#, php-format
+msgid ""
+"Sorry&#44; but you do not have the correct permissions to install the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin installed."
+msgid_plural ""
+"Sorry&#44; but you do not have the correct permissions to install the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:168
+#: library/jvLibrary.php:608
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:169
+#: library/jvLibrary.php:609
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:170
+#: library/jvLibrary.php:610
+#, php-format
+msgid ""
+"Sorry&#44; but you do not have the correct permissions to activate the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin activated."
+msgid_plural ""
+"Sorry&#44; but you do not have the correct permissions to activate the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins activated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:171
+#: library/jvLibrary.php:611
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:172
+#: library/jvLibrary.php:612
+#, php-format
+msgid ""
+"Sorry&#44; but you do not have the correct permissions to update the %s "
+"plugin. Contact the administrator of this site for help on getting the "
+"plugin updated."
+msgid_plural ""
+"Sorry&#44; but you do not have the correct permissions to update the %s "
+"plugins. Contact the administrator of this site for help on getting the "
+"plugins updated."
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:173
+#: library/jvLibrary.php:613
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:174
+#: library/jvLibrary.php:614
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:175
+#: library/jvLibrary.php:615
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:176
+msgid "Return to the dashboard"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:177
+#: library/classes/class-tgm-plugin-activation.php:1956
+#: library/jvLibrary.php:616
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:178
+#: library/classes/class-tgm-plugin-activation.php:1644
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/classes/class-tgm-plugin-activation.php:179
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:180
+msgid "Dismiss this notice"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:532
+#: library/classes/class-tgm-plugin-activation.php:2173
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1167
+#: library/classes/class-tgm-plugin-activation.php:1348
+msgid "Private Repository"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1170
+#: library/classes/class-tgm-plugin-activation.php:1351
+msgid "Pre-Packaged"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1175
+msgid "WordPress Repository"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1178
+msgid "Required"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1178
+msgid "Recommended"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1181
+msgid "Not Installed"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1183
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1288
+#: library/classes/class-tgm-plugin-activation.php:1409
+msgid "Install"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1312
+#: library/classes/class-tgm-plugin-activation.php:1410
+msgid "Activate"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1372
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1388
+msgid "Plugin"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1389
+msgid "Source"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1390
+msgid "Type"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1391
+#: woocommerce/myaccount/my-orders.php:36
+msgid "Status"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1939
+msgid "Install package not available."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1940
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1941
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1942
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1943
+msgid "Plugin install failed."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1944
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:1955
+msgid "Plugin activation failed."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2069
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2070
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2070
+#: library/classes/class-tgm-plugin-activation.php:2079
+msgid "Show Details"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2070
+#: library/classes/class-tgm-plugin-activation.php:2079
+msgid "Hide Details"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2071
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2072
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2076
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2077
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2078
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2079
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2080
+msgid "All installations have been completed."
+msgstr ""
+
+#: library/classes/class-tgm-plugin-activation.php:2081
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: library/function.php:184
+msgid "Hook Sidebar"
+msgstr ""
+
+#: library/function.php:483
+msgid "My acount"
+msgstr ""
+
+#: library/function.php:484
+msgid "Cart"
+msgstr ""
+
+#: library/function.php:485
+msgid "Wishlist"
+msgstr ""
+
+#: library/function.php:486 woocommerce/cart/mini-cart.php:86
+msgid "Checkout"
+msgstr ""
+
+#: library/function.php:487
+msgid "Logout"
+msgstr ""
+
+#: library/function.php:502 library/function.php:510 library/function.php:530
+#: woocommerce/myaccount/form-login.php:28
+#: woocommerce/myaccount/form-login.php:59
+msgid "Login"
+msgstr ""
+
+#: library/function.php:514 woocommerce/myaccount/form-login.php:35
+msgid "Username or email address"
+msgstr ""
+
+#: library/function.php:518 woocommerce/myaccount/form-login.php:39
+#: woocommerce/myaccount/form-login.php:97
+msgid "Password"
+msgstr ""
+
+#: library/function.php:523 woocommerce/myaccount/form-login.php:51
+msgid "Remember me"
+msgstr ""
+
+#: library/function.php:525 woocommerce/myaccount/form-login.php:47
+msgid "Lost your password?"
+msgstr ""
+
+#: library/function.php:550 searchform.php:14
+msgid "Search here and press enter"
+msgstr ""
+
+#: library/jvLibrary.php:604
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: library/jvLibrary.php:617
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: library/jvLibrary.php:702
+msgid "Color theme"
+msgstr ""
+
+#: library/jvLibrary.php:721
+msgid "Font"
+msgstr ""
+
+#: library/jvLibrary.php:724
+msgid "Body:"
+msgstr ""
+
+#: library/jvLibrary.php:726 library/jvLibrary.php:742
+#: library/jvLibrary.php:755
+msgid "Open Sans"
+msgstr ""
+
+#: library/jvLibrary.php:727 library/jvLibrary.php:740
+#: library/jvLibrary.php:753
+msgid "Raleway"
+msgstr ""
+
+#: library/jvLibrary.php:728 library/jvLibrary.php:741
+#: library/jvLibrary.php:754
+msgid "Roboto Slab"
+msgstr ""
+
+#: library/jvLibrary.php:729 library/jvLibrary.php:739
+#: library/jvLibrary.php:752
+msgid "Oswald"
+msgstr ""
+
+#: library/jvLibrary.php:730 library/jvLibrary.php:743
+#: library/jvLibrary.php:756
+msgid "Lato"
+msgstr ""
+
+#: library/jvLibrary.php:731 library/jvLibrary.php:744
+#: library/jvLibrary.php:757
+msgid "Source Sans Pro"
+msgstr ""
+
+#: library/jvLibrary.php:732 library/jvLibrary.php:745
+#: library/jvLibrary.php:758
+msgid "PT Sans"
+msgstr ""
+
+#: library/jvLibrary.php:733 library/jvLibrary.php:746
+#: library/jvLibrary.php:759
+msgid "Droid Serif"
+msgstr ""
+
+#: library/jvLibrary.php:737
+msgid "Menu:"
+msgstr ""
+
+#: library/jvLibrary.php:750
+msgid "Title:"
+msgstr ""
+
+#: library/jvLibrary.php:763
+msgid ""
+"* Fonts are used to example. You able to use 600+ google web fonts in the "
+"backend."
+msgstr ""
+
+#: library/jvLibrary.php:766
+msgid "Layout Style"
+msgstr ""
+
+#: library/jvLibrary.php:782
+msgid "Texture for Boxed, Framed, Rounded Layout Background"
+msgstr ""
+
+#: library/jvthemes.php:45 library/theme_options.php:85
+#: library/theme_options.php:88
+msgid "Theme Settings"
+msgstr ""
+
+#: library/theme_options.php:70
+msgid "You do not have permission to edit theme settings."
+msgstr ""
+
+#: library/theme_options.php:88
+msgid "saved"
+msgstr ""
+
+#: library/theme_options.php:94
+msgid "Global"
+msgstr ""
+
+#: library/theme_options.php:95 library/theme_options.php:201
+msgid "Google Fonts"
+msgstr ""
+
+#: library/theme_options.php:96
+msgid "Style"
+msgstr ""
+
+#: library/theme_options.php:97
+msgid "Owl Slider"
+msgstr ""
+
+#: library/theme_options.php:98
+msgid "Scrolling Effect"
+msgstr ""
+
+#: library/theme_options.php:99
+msgid "Optimize"
+msgstr ""
+
+#: library/theme_options.php:100
+msgid "Advanced Theme "
+msgstr ""
+
+#: library/theme_options.php:101
+msgid "Sample Data"
+msgstr ""
+
+#: library/theme_options.php:112
+msgid "Logo Setting"
+msgstr ""
+
+#: library/theme_options.php:125
+msgid "Logo Desktop"
+msgstr ""
+
+#: library/theme_options.php:132 library/theme_options.php:146
+msgid "Upload Logo"
+msgstr ""
+
+#: library/theme_options.php:134 library/theme_options.php:148
+msgid "Upload an image for the logo."
+msgstr ""
+
+#: library/theme_options.php:138
+msgid "Logo Mobile"
+msgstr ""
+
+#: library/theme_options.php:153
+msgid "Your Text Logo."
+msgstr ""
+
+#: library/theme_options.php:154
+msgid "Your Slogan."
+msgstr ""
+
+#: library/theme_options.php:165
+msgid "Direction RTL"
+msgstr ""
+
+#: library/theme_options.php:174
+msgid "Support Retina "
+msgstr ""
+
+#: library/theme_options.php:177 library/theme_options.php:184
+#: library/theme_options.php:217 library/theme_options.php:349
+msgid "Enable"
+msgstr ""
+
+#: library/theme_options.php:181
+msgid "Go To Top"
+msgstr ""
+
+#: library/theme_options.php:191 library/theme_options.php:256
+#: library/theme_options.php:316 library/theme_options.php:378
+#: library/theme_options.php:400 library/theme_options.php:571
+#: library/theme_options.php:624
+msgid "Save All Settings"
+msgstr ""
+
+#: library/theme_options.php:222 library/theme_options.php:355
+msgid "Title"
+msgstr ""
+
+#: library/theme_options.php:227
+msgid "Font family"
+msgstr ""
+
+#: library/theme_options.php:233
+msgid "Font weight"
+msgstr ""
+
+#: library/theme_options.php:238
+msgid "Assign to selector"
+msgstr ""
+
+#: library/theme_options.php:266
+msgid "Style layout "
+msgstr ""
+
+#: library/theme_options.php:273
+msgid "Background Layout"
+msgstr ""
+
+#: library/theme_options.php:278
+msgid "Background color"
+msgstr ""
+
+#: library/theme_options.php:282
+msgid "Background position"
+msgstr ""
+
+#: library/theme_options.php:287
+msgid "Background attachment"
+msgstr ""
+
+#: library/theme_options.php:293
+msgid "Background repeat"
+msgstr ""
+
+#: library/theme_options.php:304
+msgid "Theme Color "
+msgstr ""
+
+#: library/theme_options.php:308
+msgid "Show color demo"
+msgstr ""
+
+#: library/theme_options.php:327
+msgid "Version"
+msgstr ""
+
+#: library/theme_options.php:333
+msgid "OWL Slide"
+msgstr ""
+
+#: library/theme_options.php:358
+msgid "Element (.class || #id)"
+msgstr ""
+
+#: library/theme_options.php:361
+msgid "Params"
+msgstr ""
+
+#: library/theme_options.php:390
+msgid "Apply selector"
+msgstr ""
+
+#: library/theme_options.php:415
+msgid "Favicon"
+msgstr ""
+
+#: library/theme_options.php:419
+msgid "Upload Favicon"
+msgstr ""
+
+#: library/theme_options.php:430 library/theme_options.php:449
+#: library/theme_options.php:504
+msgid "Upload Image"
+msgstr ""
+
+#: library/theme_options.php:432 library/theme_options.php:451
+msgid "Upload an favicon for website."
+msgstr ""
+
+#: library/theme_options.php:443
+msgid "Banner Ads of Header  style 3 and style 5 "
+msgstr ""
+
+#: library/theme_options.php:445
+msgid "Upload Banner"
+msgstr ""
+
+#: library/theme_options.php:455
+msgid "Banner Ads URL"
+msgstr ""
+
+#: library/theme_options.php:462
+msgid "Target URL"
+msgstr ""
+
+#: library/theme_options.php:488
+msgid " Background Breadcrumb"
+msgstr ""
+
+#: library/theme_options.php:490
+msgid "Upload Background"
+msgstr ""
+
+#: library/theme_options.php:507
+msgid "Upload an image for header."
+msgstr ""
+
+#: library/theme_options.php:513
+msgid "WooCommerce"
+msgstr ""
+
+#: library/theme_options.php:515
+msgid "Show login anchor in the header (Woocomerce)"
+msgstr ""
+
+#: library/theme_options.php:526
+msgid "Number of products displayed per page"
+msgstr ""
+
+#: library/theme_options.php:533
+msgid "Number of column in shop page (1,2,3,4,6) "
+msgstr ""
+
+#: library/theme_options.php:552
+msgid "Woocommerce Product Detail Images"
+msgstr ""
+
+#: library/theme_options.php:585
+msgid "Dummy Data"
+msgstr ""
+
+#: library/theme_options.php:591
+msgid "Do you want to show button \"install sample data\" ?"
+msgstr ""
+
+#: library/theme_options.php:595
+msgid "You have installed data sample!"
+msgstr ""
+
+#: library/theme_options.php:598
+msgid ""
+"WARNING: Importing demo content will give you all content and other "
+"settings. This will replicate the live demo!"
+msgstr ""
+
+#: library/theme_options.php:607
+msgid "Import dummy data"
+msgstr ""
+
+#: library/theme_options.php:609
+msgid "Export dummy data"
+msgstr ""
+
+#: library/theme_options.php:615
+msgid "Please install plugin \"Jv-sampledata\""
+msgstr ""
+
+#: library/theme_options.php:639
+msgid "Compress"
+msgstr ""
+
+#: library/theme_options.php:640
+msgid "Please install plugin \"autooptimize\""
+msgstr ""
+
+#: portfolio/overlay-title-2.php:26
+msgid "All categories"
+msgstr ""
+
+#: portfolio/overlay-title-2.php:43
+msgid "Default"
+msgstr ""
+
+#: portfolio/overlay-title-2.php:247
+msgid "Loading the next set of posts..."
+msgstr ""
+
+#: portfolio/overlay-title-2.php:258
+msgid "Load more"
+msgstr ""
+
+#: recent-post/blog-grid-normal.php:143 recent-post/blog-grid-slider.php:97
+#: recent-post/blog-video.php:84 recent-post/focus-left.php:141
+#: recent-post/focus-top-photo-only.php:147
+#: recent-post/focus-top-slider.php:141 recent-post/focus-topcenter.php:144
+#: recent-post/slider.php:97 recent-post/thumb-left.php:77
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: search.php:18
+#, php-format
+msgid "Search Results for : %s"
+msgstr ""
+
+#: search.php:49
+msgid ""
+"Sorry&#44; but nothing matched your search criteria. Please try again with "
+"some different keywords."
+msgstr ""
+
+#: single.php:16
+msgid "Blog"
+msgstr ""
+
+#: single.php:32
+msgctxt "Previous post link"
+msgid "&larr;"
+msgstr ""
+
+#: single.php:33
+msgctxt "Next post link"
+msgid "&rarr;"
+msgstr ""
+
+#: tag.php:21
+#, php-format
+msgid "Tag : %s"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:16
+msgid "Cart Totals"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:26
+#: woocommerce/checkout/review-order.php:51
+msgid "Cart Subtotal"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:80
+#: woocommerce/checkout/review-order.php:98
+msgid "Order Total"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:92
+#, php-format
+msgid " (taxes estimated for %s)"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:95
+#, php-format
+msgid ""
+"Note: Shipping and taxes are estimated%s and will be updated during checkout "
+"based on your billing and shipping information."
+msgstr ""
+
+#: woocommerce/cart/cart.php:27
+msgid "Images"
+msgstr ""
+
+#: woocommerce/cart/cart.php:28 woocommerce/checkout/form-pay.php:17
+#: woocommerce/checkout/review-order.php:18
+#: woocommerce/order/order-details.php:20
+#: woocommerce/order/order-details_bk.php:17
+msgid "Product"
+msgstr ""
+
+#: woocommerce/cart/cart.php:29
+msgid "Price"
+msgstr ""
+
+#: woocommerce/cart/cart.php:30
+msgid "Quantity"
+msgstr ""
+
+#: woocommerce/cart/cart.php:31 woocommerce/checkout/review-order.php:19
+#: woocommerce/myaccount/my-orders.php:37
+#: woocommerce/order/order-details.php:21
+#: woocommerce/order/order-details_bk.php:18
+msgid "Total"
+msgstr ""
+
+#: woocommerce/cart/cart.php:71
+msgid "Available on backorder"
+msgstr ""
+
+#: woocommerce/cart/cart.php:98 woocommerce/cart/mini-cart.php:56
+msgid "Remove this item"
+msgstr ""
+
+#: woocommerce/cart/cart.php:122
+msgid "Coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:123
+msgid "Coupon code"
+msgstr ""
+
+#: woocommerce/cart/cart.php:125
+msgid "Apply Coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142
+msgid "Update Cart"
+msgstr ""
+
+#: woocommerce/cart/cart.php:151
+msgid "Continue Shopping"
+msgstr ""
+
+#: woocommerce/cart/cart.php:152
+msgid "Proceed to Checkout"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:23
+msgid "0 items"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:35
+msgid "items"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:80
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:85
+msgid "View Cart"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:19
+msgid "Calculate Shipping"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:24
+msgid "Select a country&hellip;"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:41
+#: woocommerce/cart/shipping-calculator.php:47
+#: woocommerce/cart/shipping-calculator.php:59
+msgid "State / county"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:48
+msgid "Select a state&hellip;"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:68
+msgid "City"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:76
+msgid "Postcode / Zip"
+msgstr ""
+
+#: woocommerce/cart/shipping-calculator.php:81
+msgid "Update Totals"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:17
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:21
+msgid "Billing Details"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:43
+msgid "Create an account?"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:54
+msgid ""
+"Create an account by entering the information below. If you are a returning "
+"customer please login at the top of the page."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:20
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:51
+msgid "Your order"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:18
+msgid "Qty"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:19
+msgid "Totals"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:52 woocommerce/checkout/payment.php:22
+msgid "Payment"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:77
+msgid ""
+"<p>Sorry&#44; it seems that there are no available payment methods for your "
+"location. Please contact us if you need assistance or wish to make alternate "
+"arrangements.</p>"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:87
+msgid "Pay for order"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:31
+msgid "Ship to a different address?"
+msgstr ""
+
+#: woocommerce/checkout/form-shipping.php:56
+msgid "Additional Information"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:35
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:37
+msgid ""
+"Sorry&#44; it seems that there are no available payment methods for your "
+"state. Please contact us if you need assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:48
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the <em>Update Totals</em> button before placing your "
+"order. You may be charged more than the amount stated above if you fail to "
+"do so."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:48
+msgid "Update totals"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:58
+#, php-format
+msgid ""
+"I&rsquo;ve read and accept the <a href=\"%s\" target=\"_blank\">terms &amp; "
+"conditions</a>"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:18
+msgid ""
+"Unfortunately your order cannot be processed as the originating bank/"
+"merchant has declined your transaction."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:22
+msgid "Please attempt your purchase again or go to your account page."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:24
+msgid "Please attempt your purchase again."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:28 woocommerce/myaccount/my-orders.php:70
+msgid "Pay"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:30
+msgid "My Account"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:39 woocommerce/checkout/thankyou.php:74
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:44
+msgid "Order Number:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:47
+msgid "Date:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:49
+msgid "Total:"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:53
+msgid "Payment Method:"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:75
+msgid "Products tagged &ldquo;"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:104 woocommerce/global/breadcrumb.php:208
+msgid "Search results for &ldquo;"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:162
+msgid "Error 404"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:212
+msgid "Posts tagged &ldquo;"
+msgstr ""
+
+#: woocommerce/global/breadcrumb.php:217
+msgid "Author:"
+msgstr ""
+
+#: woocommerce/myaccount/form-add-payment-method.php:39
+msgid ""
+"Sorry&#44; it seems that there are no payment methods which support adding a "
+"new payment method. Please contact us if you xrequire assistance or wish to "
+"make alternate arrangements."
+msgstr ""
+
+#: woocommerce/myaccount/form-add-payment-method.php:47
+msgid "Add Payment Method"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:24
+msgid "First name "
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:27
+msgid "Last name *"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:36
+msgid "Current Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:40
+msgid "New Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:43
+msgid "Confirm New Password"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-account.php:59
+msgid "Save changes"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-address.php:16
+#: woocommerce/myaccount/my-address.php:19
+#: woocommerce/myaccount/my-address.php:25
+#: woocommerce/order/order-details-customer.php:59
+#: woocommerce/order/order-details_bk.php:199
+msgid "Billing Address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-address.php:16
+#: woocommerce/myaccount/my-address.php:20
+#: woocommerce/order/order-details-customer.php:81
+#: woocommerce/order/order-details_bk.php:221
+msgid "Shipping Address"
+msgstr ""
+
+#: woocommerce/myaccount/form-edit-address.php:53
+msgid "Save Address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:74
+#: woocommerce/myaccount/form-login.php:111
+msgid "Register"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:83
+msgid "Username"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:90
+msgid "Email address"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:104
+msgid "Anti-spam"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:17
+msgid "My Addresses"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:23
+msgid "My Address"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:41
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:76
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:28
+msgid "Recent Orders"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:34
+msgid "Order"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:35
+msgid "Date"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:61
+#, php-format
+msgid "%s for %s item"
+msgid_plural "%s for %s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/myaccount/my-orders.php:83
+msgid "View"
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:17
+msgid ""
+"To track your order please enter your Order ID in the box below and press "
+"return. This was given to you on your receipt and in the confirmation email "
+"you should have received."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:19
+msgid "Order ID"
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:19
+msgid "Found in your order confirmation email."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:20
+msgid "Billing Email"
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:20
+msgid "Email you used during checkout."
+msgstr ""
+
+#: woocommerce/order/form-tracking.php:23
+msgid "Track"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:14
+msgid "Customer Details"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:20
+#: woocommerce/order/order-details_bk.php:153
+msgid "Note:"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:27
+#: woocommerce/order/order-details_bk.php:171
+msgid "Email:"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:34
+#: woocommerce/order/order-details_bk.php:172
+msgid "Telephone:"
+msgstr ""
+
+#: woocommerce/order/order-details-customer.php:64
+#: woocommerce/order/order-details-customer.php:86
+#: woocommerce/order/order-details_bk.php:204
+#: woocommerce/order/order-details_bk.php:226
+msgid "N/A"
+msgstr ""
+
+#: woocommerce/order/order-details.php:16
+#: woocommerce/order/order-details_bk.php:13
+msgid "Order Details"
+msgstr ""
+
+#: woocommerce/order/order-details_bk.php:56
+#, php-format
+msgid "Download file%s"
+msgstr ""
+
+#: woocommerce/order/order-details_bk.php:122
+#: woocommerce/order/order-details_bk.php:126
+#, php-format
+msgid "(Includes %s)"
+msgstr ""
+
+#: woocommerce/order/order-details_bk.php:144
+msgid "Refunded:"
+msgstr ""
+
+#: woocommerce/order/order-details_bk.php:165
+msgid "Customer details"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:22
+#, php-format
+msgid "%s review for %s"
+msgid_plural "%s reviews for %s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:24
+msgid "Reviews"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:46
+msgid "There are no reviews yet."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:61
+msgid "Add a review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:61
+msgid "Be the first to review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:62
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:66
+#: woocommerce/single-product-reviews.php:67
+msgid "Name"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:68
+#: woocommerce/single-product-reviews.php:69
+msgid "Email"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:71
+msgid "Submit"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:77
+msgid "Your Rating"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:78
+msgid "Rate&hellip;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:79
+msgid "Perfect"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:80
+msgid "Good"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:81
+msgid "Average"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:82
+msgid "Not that bad"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:83
+msgid "Very Poor"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:87
+msgid "Your Review"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:96
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:27
+msgid "Choose an option"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:91
+msgid "Clear selection"
+msgstr ""
+
+#: woocommerce/single-product/add-to-cart/variable.php:124
+msgid "This product is currently out of stock and unavailable."
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:46
+#: woocommerce/single-product/product-image.php:101
+msgid "Placeholder"
+msgstr ""
+
+#: woocommerce/single-product/related.php:44
+msgid "Related Products"
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:43
+msgid "You may also like&hellip;"
+msgstr ""

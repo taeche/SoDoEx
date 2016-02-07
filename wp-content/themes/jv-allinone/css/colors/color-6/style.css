@@ -1,0 +1,69 @@
+/*
+
+Theme Name: JV Allinone
+
+Theme URI: http://demo.joomlavi.com/wordpress/jv-allinone
+
+Author: Joomlavi
+
+Author URI: http://joomlavi.com/
+
+Description: Allinone  is a Premium Template tailored for clothes, fashion shop websites. It is 100% responsive, clean and stylish.  It is a bundle of joy that give you ultimate speed and flexibility.  Sure to impress anyone that looks for a modern template. This  Wordpress Theme is designed with inspiration from Fashion shows currently happening all over the world
+
+Version: 1.2.1
+
+License: GNU General Public License v2 or later
+
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Tags: brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, left-sidebar, fluid-layout, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready, accessibility-ready
+
+Text Domain: jv_allinone
+
+*/
+a:hover, .shop-products-list .product_list_widget li .product-action .item-btn a:hover, .shop-products-list  .product-action .item-btn .btnicon:hover, .breadcrumb li a:hover, #block-footer-copyright a, .set-col.selected, .cols1  .product-img  .btnicon:hover, .woocommerce div.product span.price, .woocommerce div.product p.price, .woocommerce #content div.product span.price, .woocommerce #content div.product p.price, .woocommerce-page div.product span.price, .woocommerce-page div.product p.price, .woocommerce-page #content div.product span.price, .woocommerce-page #content div.product p.price, #block-panel a:hover, #block-panel .active > a, #wp-calendar a, .ppqtrans_language_chooser li.active, .bg-ico:hover, .features-list li:before, .infographics-content .completed, #owl-testimonials .owl-buttons > div:hover, #accordion-html .panel-heading h4 a[aria-expanded="true"], .social-small li:hover, #Bottom .widget_recent_entries .post-date, #page .wpb_accordion .wpb_accordion_wrapper .ui-state-default .ui-icon, #page .wpb_accordion .wpb_accordion_wrapper .ui-state-active, .owl-carousel .owl-controls .owl-buttons > div:hover, #panel li:hover a.showtotal, .gridItem .dateItem .d, .pageBlog > article .post-meta .date h2 span, .featured-post, ul.product-categories [class*="current-"] > a, ul.product-categories [class*="current-"] > span, ul.product-categories li .showsubmenu:hover, ul.product-categories ul a:hover, #nav-mainmenu-mobile  ul.mega-sub-menu > li[class*="current_"] > a, .page-404 h2, a.logo-text .text, #nav-mainmenu-mobile  li[class*="current_"] > a, .calculator-wrapper .calculator .fa, .testimonials-item-content p::after, .testimonials-item-content p::before, .widget-area.sidebar .widget.buddypress div.item-options .selected, .text-overlay, .blog-grid .dateItem, .sidebar.list-block-big .widget_categories ul li a:before, .offer-banners .banner-description .offer, #style-index-5 .woocommerce span.onsale {
+	color: #4bd0ea
+}
+.bg-ico .scale-border, .features-list li:before, .wpb_tabs_fix .wpb_content_element .wpb_tabs_nav, .wpb_tabs_fix ul.vc_tta-tabs-list, .testimonials-autor:after, .social-small li:hover, .numbers-ico, .shop-main-products-list .imgsubproduct .active .item a, .shopImages .imgsubproduct .active   img, .product-category .product-cat-image:before, #page-shop-sidebar #content ul.tabs, .calculator-wrapper:before, #page #buddypress div.item-list-tabs ul, #page img.avatar:hover, .social-large li a:hover, #style-index-3 ul.mega-menu > li:hover > a, .recentcomments .comment-author-link::after, .offer-banners .banner-description .offer, .calculator-wrapper:before, .services-wrapper .service-block .service-ico::before, #style-index-5 .woocommerce span.onsale {
+	border-color: #4bd0ea
+}
+.cpost_page ul  a.act_me, #wp-calendar #today, .btn-primary,.newsletter-submit.btn-primary, .demo-list-box .active, #page-shop-sidebar #content ul.tabs li:hover a, #page-shop-sidebar #content ul.tabs li.active a, .wpb_tabs_fix .wpb_content_element .wpb_tabs_nav li.ui-tabs-active, .wpb_tabs_fix  .wpb_content_element .wpb_tabs_nav li:hover, .wpb_tabs_fix.vc_tta.vc_general .vc_tta-tab.vc_active > a, .wpb_tabs_fix.vc_tta.vc_general ul.vc_tta-tabs-list .vc_tta-tab:hover > a, .testimonials-autor, .cols_list_1 .item:before, .blog-item-description .edit-link, .portfolioFilter > .filter-link > a.current, #page #buddypress div.item-list-tabs ul li.selected a, #page #buddypress div.item-list-tabs ul li.current a, a.flexMenuToggle:hover, .sidebar .widget_recent_entries ul li:hover > a, .sidebar .widget_recent_comments ul li:hover > a, .sidebar .widget_archive ul li:hover > a, .sidebar .widget_categories ul li:hover > a, .sidebar .widget_meta ul li:hover > a, [id*="monster-widget-"] ul li:hover > a, .sidebar ul.menu li:hover > a, .sidebar .widget_recent_entries ul li:hover > span, .sidebar .widget_recent_comments ul li:hover > span, .sidebar .widget_archive ul li:hover > span, .sidebar .widget_categories ul li:hover > span, .sidebar .widget_meta ul li:hover > span, [id*="monster-widget-"] ul li:hover > span, .sidebar ul.menu li:hover > span, .sidebar .widget_recent_entries ul li[class*="current-menu"] > a, .sidebar .widget_recent_comments ul li[class*="current-menu"] > a, .sidebar .widget_archive ul li[class*="current-menu"] > a, .sidebar .widget_categories ul li[class*="current-menu"] > a, .sidebar .widget_meta ul li[class*="current-menu"] > a, [id*="monster-widget-"] ul li[class*="current-menu"] > a, .sidebar ul.menu li[class*="current-menu"] > a, .sidebar .widget_recent_entries ul li[class*="current-menu"] > span, .sidebar .widget_recent_comments ul li[class*="current-menu"] > span, .sidebar .widget_archive ul li[class*="current-menu"] > span, .sidebar .widget_categories ul li[class*="current-menu"] > span, .sidebar .widget_meta ul li[class*="current-menu"] > span, [id*="monster-widget-"] ul li[class*="current-menu"] > span, .sidebar ul.menu li[class*="current-menu"] > span, .recentcomments .comment-author-link, .sidebar.list-block-big .widget_categories ul li:hover, .video-wrap .caption, .shipping-list span.number {
+	background-color: #4bd0ea;
+}
+.slider-rect-nav .tp-bullets .bullet.selected, .jv-bullet-outline .tp-bullets.simplebullets .bullet.selected, .wpb_tabs_fix  .vc_tta-panel.vc_active .vc_tta-panel-title, .wpb_tabs_fix .vc_tta-panel .vc_tta-panel-heading:hover, .wpb_tabs_fix .vc_tta-panel .vc_tta-panel-heading:focus {
+	background-color: #4bd0ea !important;
+}
+.woocommerce .widget_price_filter .ui-slider .ui-slider-range, .woocommerce-page .widget_price_filter .ui-slider .ui-slider-range, .shop-info-detail  span.onsale, .woocommerce .widget_price_filter .ui-slider .ui-slider-handle, .woocommerce-page .widget_price_filter .ui-slider .ui-slider-handle, .product_list_widget span.onsale, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit:hover, .woocommerce #content input.button:hover, .woocommerce-page a.button:hover, .woocommerce-page button.button:hover, .woocommerce-page input.button:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page #content input.button:hover {
+	background: #4bd0ea;
+}
+.overaly, #searchtop {
+	background-color: rgba(75, 208, 234, 0.85);
+}
+.our-banners-description:hover > .our-banners-border {
+	border-color: rgba(75, 208, 234, 0.56);
+}
+.btn, #respond #commentform input#submit, .pagination .current, #toTop, #page #buddypress input[type="submit"], #page #buddypress input[type="button"], #page #buddypress  #delete-group-avatar-button a, #bp-login-widget-form #bp-login-widget-submit, #bp-login-widget-form  .bp-login-widget-register-link a 
+, .newsletter-submit.btn-primary, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+	text-shadow: 1px 1px 1px #0fa9c8;
+	box-shadow: 0 -2px 0 0 #0fa9c8 inset;
+	-webkit-box-shadow: 0 -2px 0 0 #0fa9c8 inset;
+	background: #4bd0ea;    /* Old browsers */
+	background: -moz-linear-gradient(bottom, #52d5ef 0%, #40c7e1 100%);	/* FF3.6+ */
+	background: -webkit-linear-gradient(bottom, #52d5ef 0%, #40c7e1 100%);	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(bottom, #52d5ef 0%, #40c7e1 100%);	/* Opera 11.10+ */
+	background: -ms-linear-gradient(bottom, #52d5ef 0%, #40c7e1 100%);	/* IE10+ */
+	background: linear-gradient(to bottom, #52d5ef 0%, #40c7e1 100%);/* W3C */
+}
+.btn:hover, .btn:focus, #respond #commentform input#submit:hover, .titleTable, #toTop:hover, #page #buddypress input[type="submit"]:hover, #page #buddypress input[type="button"]:hover, #page #buddypress  #delete-group-avatar-button a:hover, #bp-login-widget-form #bp-login-widget-submit:hover, #bp-login-widget-form  .bp-login-widget-register-link a:hover 
+, .newsletter-submit.btn-primary:hover {
+	border-color: transparent;
+	text-shadow: 1px 1px 1px #0ca4c2;
+	box-shadow: 0 -2px 0 0 #0ca4c2 inset;
+	-webkit-box-shadow: 0 -2px 0 0 #0ca4c2 inset;
+	background: #37c2dd;    /* Old browsers */
+	background: -moz-linear-gradient(bottom, #42cbe6 0%, #30b9d4 100%);	/* FF3.6+ */
+	background: -webkit-linear-gradient(bottom, #42cbe6 0%, #30b9d4 100%);	/* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(bottom, #42cbe6 0%, #30b9d4 100%);	/* Opera 11.10+ */
+	background: -ms-linear-gradient(bottom, #42cbe6 0%, #30b9d4 100%);	/* IE10+ */
+	background: linear-gradient(to bottom, #42cbe6 0%, #30b9d4 100%);/* W3C */
+}
