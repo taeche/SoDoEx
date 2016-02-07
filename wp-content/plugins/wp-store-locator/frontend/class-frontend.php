@@ -1325,6 +1325,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
             wp_enqueue_script( 'wpsl-gmap', ( 'https://maps.google.com/maps/api/js' . wpsl_get_gmap_api_params() ), '', null, true );
 
             $base_settings = array(
+				// TODO: CLEAN UP
+				'wholesaleMarker'     => $this->create_retina_filename( $wpsl_settings['wholesale_marker'] ),
                 'storeMarker'     => $this->create_retina_filename( $wpsl_settings['store_marker'] ),
                 'mapType'         => $wpsl_settings['map_type'],
                 'mapTypeControl'  => $wpsl_settings['type_control'],

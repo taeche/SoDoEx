@@ -50,7 +50,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
 
             add_action( 'init',                                 array( $this, 'init' ) );
             add_action( 'admin_menu',                           array( $this, 'create_admin_menu' ) );
-			add_action( 'admin_init',                           array( $this, 'admin_init' ) );
+			      add_action( 'admin_init',                           array( $this, 'admin_init' ) );
             add_action( 'delete_post',                          array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'wp_trash_post',                        array( $this, 'maybe_delete_autoload_transient' ) );
             add_action( 'untrash_post',                         array( $this, 'maybe_delete_autoload_transient' ) );
@@ -84,7 +84,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
 		public function init() {
             $this->notices       = new WPSL_Notices();
             $this->metaboxes     = new WPSL_Metaboxes();
-			$this->geocode       = new WPSL_Geocode();
+			      $this->geocode       = new WPSL_Geocode();
             $this->settings_page = new WPSL_Settings();
 		}
                 
@@ -95,7 +95,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
          * @since 1.0.0
          * @return void
          */
-		public function admin_init() {
+		    public function admin_init() {
             
             global $current_user, $wpsl_settings;
                                     
@@ -147,7 +147,7 @@ if ( !class_exists( 'WPSL_Admin' ) ) {
          * @since 1.0.0
          * @return void
          */
-		public function create_admin_menu() {
+		     public function create_admin_menu() {
             
             $sub_menus = apply_filters( 'wpsl_sub_menu_items', array(
                     array(
