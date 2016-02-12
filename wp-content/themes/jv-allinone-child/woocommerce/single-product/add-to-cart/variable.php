@@ -34,8 +34,8 @@ function user_has_role( $role, $user_id = null ) {
 
     return in_array( $role, (array) $user->roles );
 }
-function HideCaseOf48($string) {
-  return strpos($string, 'caseof48') === false;
+function HideCaseOf6($string) {
+  return strpos($string, 'caseof6') === false;
 }
 
 global $product, $post;
@@ -57,8 +57,8 @@ global $product, $post;
 
 
 				<?php $loop = 0; foreach ( $attributes as $name => $options ) : 
-				if(!(user_has_role('whole_saler') || user_has_role('distributor'))){
-					$options = array_filter($options, 'HideCaseOf48');
+				if(user_has_role('whole_saler') || user_has_role('distributor')){
+					$options = array_filter($options, 'HideCaseOf6');
 				}
 				$loop++; ?>
 
