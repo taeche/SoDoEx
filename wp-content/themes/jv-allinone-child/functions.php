@@ -349,6 +349,25 @@ function save_variation_settings_fields( $post_id ) {
 
 
     }
+}
 
+/**
+ * #3: Notify the user when order quantity equal or more than 10 boxes
+ */
+add_action('the_post', 'notify_shipping_for_bulkorder', 10);
+function notify_shipping_for_bulkorder()
+{
+    global $woocommerce;
+    if (is_cart()) {
+        $bulkorder_minimum_weight = 210720;
 
+        echo "<br />";
+        if ($woocommerce->cart->cart_contents_weight >= $bulkorder_minimum_weight) {
+           //show alert, ninja announce plugin must be activated
+            if (function_exists("ninja_annc_display")) {
+                ninja_annc_display(232);
+            }
+
+        }
+    }
 }
