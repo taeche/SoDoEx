@@ -224,6 +224,9 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
             $output['infowindow_style']   = isset( $_POST['wpsl_ux']['infowindow_style'] ) ? 'default' : 'infobox';
             $output['start_marker']       = wp_filter_nohtml_kses( $_POST['wpsl_map']['start_marker'] );
             $output['store_marker']       = wp_filter_nohtml_kses( $_POST['wpsl_map']['store_marker'] );
+			
+			// TODO: CLEAN UP
+			$output['wholesale_marker']       = wp_filter_nohtml_kses( $_POST['wpsl_map']['wholesale_marker'] );
 			$output['editor_country']     = sanitize_text_field( $_POST['wpsl_editor']['default_country'] );
             $output['editor_map_type']    = wpsl_valid_map_type( $_POST['wpsl_editor']['map_type'] );
             $output['hide_hours']         = isset( $_POST['wpsl_editor']['hide_hours'] ) ? 1 : 0; 
@@ -846,15 +849,21 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
             $marker_images    = $this->get_available_markers();
             $marker_locations = array( 
                 'start', 
-                'store' 
+                'store',
+				// TODO: CLEAN UP
+				'wholesale'
             );
 
+			// TODO: Added wholesae marker list
             foreach ( $marker_locations as $location ) {
                 if ( $location == 'start' ) {
                     $marker_list .= __( 'Start location marker', 'wpsl' ) . ':';
-                } else  {
+                } elseif ($location == 'store')  {
                     $marker_list .= __( 'Store location marker', 'wpsl' ) . ':'; 
-                }
+                } else {
+					// TODO: CLEAN UP
+					$marker_list .= __( 'Wholesale location marker', 'wpsl') . ':';
+				}
 
                 if ( !empty( $marker_images ) ) {
                     $marker_list .= '<ul class="wpsl-marker-list">';
