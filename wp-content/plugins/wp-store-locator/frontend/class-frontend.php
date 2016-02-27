@@ -312,6 +312,8 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                     if ( $wpsl_settings['permalinks'] ) {
                         $store_meta['permalink'] = get_permalink( $store->ID );
                     }
+
+                    $store_meta['category_marker']    = $this->get_store_marker( $store->ID);
                 }
 
                 $all_stores[] = apply_filters( 'wpsl_store_meta', $store_meta, $store->ID );
@@ -319,7 +321,20 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
 
             return $all_stores;
         }
-        
+
+        public function get_store_marker($storeid)
+        {
+            $cats = wp_get_object_terms($storeid, 'wpsl_store_category');
+            if (!empty($cats)) {
+                $category = $cats[0];
+                $t_id = $category->term_id;
+                $term_meta = get_option("taxonomy_term_$t_id");
+                $marker = $term_meta['wpsl_category_marker'];
+                return $marker;
+            }
+            return null;
+        }
+
         /**
          * The store meta fields that are included in the json output.
          * 
@@ -1398,7 +1413,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
                 $base_settings['mapStyle'] = strip_tags( stripslashes( json_decode( $wpsl_settings['map_style'] ) ) );
             }
 
-            wp_enqueue_script( 'wpsl-js', WPSL_URL . 'js/wpsl-gmap'. $min .'.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
+            wp_enqueue_script( 'wpsl-js', WPSL_URL . 'js/wpsl-gmap.js', array( 'jquery' ), WPSL_VERSION_NUM, true );
             wp_enqueue_script( 'underscore' );    
 
             // Check if we need to include all the settings and labels or just a part of them.

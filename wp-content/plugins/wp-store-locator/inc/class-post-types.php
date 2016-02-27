@@ -91,9 +91,9 @@ if ( !class_exists( 'WPSL_Post_Types' ) ) {
          * @return void
          */
         public function register_taxonomies() {
-            
+
             global $wpsl_settings;
-                        
+
             // Enable permalinks for the taxonomy?
             if ( isset( $wpsl_settings['permalinks'] ) && $wpsl_settings['permalinks'] ) {
                 $public  = true;
@@ -116,7 +116,7 @@ if ( !class_exists( 'WPSL_Post_Types' ) ) {
 				'new_item_name'     => __( 'New Store Category Name', 'wpsl' ),
 				'menu_name'         => __( 'Store Categories', 'wpsl' ),
 			);
-                        
+
             $args = apply_filters( 'wpsl_store_category_args', array(
                     'labels'                => $labels,
                     'public'                => $public,
@@ -129,7 +129,7 @@ if ( !class_exists( 'WPSL_Post_Types' ) ) {
                 )
             );
 
-            register_taxonomy( 'wpsl_store_category', 'wpsl_stores', $args );    
+            register_taxonomy( 'wpsl_store_category', 'wpsl_stores', $args );
         }
 
         /**

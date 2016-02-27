@@ -1328,7 +1328,12 @@ function addMarker( latLng, storeId, infoWindowData, draggable, infoWindow ) {
 
 		url = markerSettings.url + wpslSettings.startMarker;
 	} else {
-		url = markerSettings.url + wpslSettings.storeMarker;
+		if(infoWindowData && infoWindowData.category_marker){
+			url = markerSettings.url + infoWindowData.category_marker;
+		}else{
+			url = markerSettings.url + wpslSettings.storeMarker;
+		}
+
 	}
 	
 	mapIcon = {

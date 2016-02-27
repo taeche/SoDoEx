@@ -24,6 +24,9 @@ function theme_enqueue_styles() {
 // Your code goes below
 //
 
+/**
+ * Store locator plugin
+ */
 // Store Locator - Adding custom template for displaying the store list
 // TODO: Is it using DMS theme?  get_template_directory() is returning DMS path.
 add_filter('wpsl_templates', 'custom_templates');
@@ -38,7 +41,99 @@ function custom_templates($templates) {
 	return $templates;
 }
 
+/**
+ * Add marker field in Categories page
+ */
+//utility
+ function get_available_markers() {
 
+    $marker_images = array();
+    $dir           = apply_filters( 'wpsl_admin_marker_dir', WPSL_PLUGIN_DIR . 'img/markers/' );
+
+    if ( is_dir( $dir ) ) {
+        if ( $dh = opendir( $dir ) ) {
+            while ( false !== ( $file = readdir( $dh ) ) ) {
+                if ( $file == '.' || $file == '..' || ( strpos( $file, '@2x' ) !== false ) ) continue;
+                $marker_images[] = $file;
+            }
+
+            closedir( $dh );
+        }
+    }
+
+    return $marker_images;
+}
+ function create_marker_html( $marker_img,$selected_value ) {
+
+    $marker_path = ( defined( 'WPSL_MARKER_URI' ) ) ? WPSL_MARKER_URI : WPSL_URL . 'img/markers/';
+    $marker_list = '';
+    if ( $selected_value == $marker_img ) {
+        $checked   = 'checked="checked"';
+        $css_class = 'class="wpsl-active-marker"';
+    } else {
+        $checked   = '';
+        $css_class = '';
+    }
+
+    $marker_list .= '<li ' . $css_class . '>';
+    $marker_list .= '<img src="' . $marker_path . $marker_img . '" />';
+    $marker_list .= '<input ' . $checked . ' type="radio" name="wpsl_category_marker"  value="' . $marker_img . '" />';
+    $marker_list .= '</li>';
+
+    return $marker_list;
+}
+
+function wpsl_taxonomy_custom_fields($tag) {
+    $t_id = $tag->term_id;
+    $term_meta = get_option( "taxonomy_term_$t_id" ); // Do the check
+    $selected_value=$term_meta['wpsl_category_marker'];
+    ?>
+
+    <tr class="form-field">
+        <th scope="row" valign="top">
+            <label for="presenter_id"><?php _e('Marker of the Category'); ?></label>
+        </th>
+        <td>
+            <?php
+            $marker_images=get_available_markers();
+            $marker_list = '<ul class="wpsl-marker-list">';
+
+            foreach ( $marker_images as $marker_img ) {
+                $marker_list .= create_marker_html( $marker_img,$selected_value);
+            }
+
+            $marker_list .= '</ul>';
+            echo $marker_list;
+
+            ?>
+        </td>
+    </tr>
+
+<?php
+}
+
+
+function save_taxonomy_custom_fields( $term_id ) {
+    if ( isset( $_POST['wpsl_category_marker'] ) ) {
+        $t_id = $term_id;
+        $term_meta = get_option( "taxonomy_term_$t_id" );
+        $term_meta['wpsl_category_marker'] = $_POST['wpsl_category_marker'];
+        update_option( "taxonomy_term_$t_id", $term_meta );
+    }
+}
+
+
+add_action( 'wpsl_store_category_edit_form_fields', 'wpsl_taxonomy_custom_fields');
+
+add_action( 'edited_wpsl_store_category', 'save_taxonomy_custom_fields');
+
+add_action( 'wpsl_store_category_add_form_fields', 'wpsl_taxonomy_custom_fields');
+
+add_action( 'created_wpsl_store_category', 'save_taxonomy_custom_fields');
+
+/**
+ * End of Store locator plugin
+ */
 
 // Add your functions below
 //Add this to remove additional information in the shop- by yong 2015-11-26
@@ -358,8 +453,9 @@ add_action('the_post', 'notify_shipping_for_bulkorder', 10);
 function notify_shipping_for_bulkorder()
 {
     global $woocommerce;
+
     if (is_cart()) {
-        $bulkorder_minimum_weight = 210720;
+        $bulkorder_minimum_weight = 19200*10;
         if ($woocommerce->cart->cart_contents_weight >= $bulkorder_minimum_weight) {
            //show alert, ninja announce plugin must be activated
             if (function_exists("ninja_annc_display")) {
