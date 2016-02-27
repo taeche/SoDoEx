@@ -230,3 +230,5 @@ wp-config.php
 /wp-content/uploads/pagelines
 /wp-content/plugins/hello.php
 /wp-content/plugins/popup-maker
+/wp-content/uploads/GeoIP.dat
+/wp-content/uploads/GeoIPv6.dat
