@@ -422,7 +422,6 @@ div elements, we disable it to prevent it from messing up the map
 #wpsl-category {
     position: relative;
     z-index: 1;
-    clear: both;
 }
 
 #wpsl-search-wrap .wpsl-dropdown div {

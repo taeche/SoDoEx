@@ -1139,7 +1139,7 @@ if ( !class_exists( 'WPSL_Frontend' ) ) {
 
             if ( count( $terms ) > 0 ) {
                 $category = '<div id="wpsl-category">' . "\r\n";
-                $category .= '<label for="wpsl-category-list">' . esc_html( $wpsl->i18n->get_translation( 'category_label', __( 'Category', 'wpsl' ) ) ) . '</label>' . "\r\n";
+                $category .= '<label for="wpsl-category-list">Category</label>' . "\r\n";
                 $category .= '<select autocomplete="off" name="wpsl-category" id="wpsl-category-list" class="wpsl-dropdown">';
                 $category .= '<option value="0">'. __( 'Any' , 'wpsl' ) .'</option>';
                 
