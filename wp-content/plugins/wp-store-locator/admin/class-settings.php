@@ -851,7 +851,7 @@ if ( !class_exists( 'WPSL_Settings' ) ) {
                 'start', 
                 'store',
 				// TODO: CLEAN UP
-				'wholesale'
+				//'wholesale'
             );
 
 			// TODO: Added wholesae marker list
