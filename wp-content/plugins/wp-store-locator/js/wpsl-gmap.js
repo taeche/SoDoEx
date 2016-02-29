@@ -1961,7 +1961,7 @@ function createDropdowns() {
 		// Listen for clicks on the 'wpsl-dropdown' div.
 		$this.$dropdownWrap.on( "click", function( e ) {
 			closeDropdowns();
-			
+
 			$( this ).toggleClass( "wpsl-active" );
 			maxHeight = 0;
 			
@@ -1981,7 +1981,7 @@ function createDropdowns() {
 		
 		// Listen for clicks on the individual dropdown items.
 		$this.$dropdownItem.on( "click", function( e ) {
-			
+
 			// Set the correct value as the selected item.
 			$this.$dropdownWrap.find( $( ".wpsl-selected-item" ) ).html( $( this ).text() ).attr( "data-value", $( this ).attr( "data-value" ) );	
 
@@ -1990,7 +1990,9 @@ function createDropdowns() {
 			$( this ).addClass( "wpsl-selected-dropdown" );
 			
 			closeDropdowns();
-			
+			//#7 Filter the stores automatically when the Category dropdown is selected instead of relying on the Search button
+			$('#wpsl-search-btn').trigger('click');
+
 			e.stopPropagation();
 		});
 	});	
