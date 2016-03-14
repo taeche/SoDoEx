@@ -39,3 +39,7 @@ Text Domain: Allinone
 .btn.btn-xs.invoice{
 	margin-left:10px;
 }
+
+.woocommerce .myaccount_user a:link{color:#0000FF}
+.woocommerce .myaccount_user a:visited {color:#0000FF }
+.woocommerce .myaccount_user a:active {color:#FF0000 }
