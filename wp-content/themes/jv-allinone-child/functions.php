@@ -465,3 +465,14 @@ function notify_shipping_for_bulkorder()
         }
     }
 }
+
+/**
+ * #12 For the completed orders, also send a separate email to the shipping company
+ */
+
+add_filter( 'woocommerce_email_recipient_customer_completed_order', 'your_email_recipient_filter_function', 10, 2);
+
+function your_email_recipient_filter_function($recipient, $object) {
+    $recipient = $recipient . ', neasycom@hotmail.com';
+    return $recipient;
+}
