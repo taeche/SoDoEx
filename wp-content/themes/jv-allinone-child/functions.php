@@ -470,12 +470,8 @@ function notify_shipping_for_bulkorder()
  * #12 For the completed orders, also send a separate email to the shipping company
  */
 
-add_filter( 'woocommerce_email_headers', 'add_recipient_to_complete_order_mail', 10, 2);
+function woo_extra_email_recipient($recipient, $object) {
+    $recipient = $recipient . ', neasycom@hotmail.com';
+    return $recipient; }
 
-function add_recipient_to_complete_order_mail( $headers, $object ) {
-    if ($object == 'customer_completed_order') {
-        $headers .= 'BCC: Yongun <neasycom@homtail.com>' . "\r\n";
-    }
-
-    return $headers;
-}
+add_filter( 'woocommerce_email_recipient_customer_completed_order', 'woo_extra_email_recipient', 10, 2);
