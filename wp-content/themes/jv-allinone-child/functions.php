@@ -471,7 +471,7 @@ function notify_shipping_for_bulkorder()
  */
 
 function woo_extra_email_recipient($recipient, $object) {
-    $recipient = $recipient . ', neasycom@hotmail.com';
+    $recipient = $recipient . ', whs@theonelogis.com, hyunkim@theonelogis.com';
     return $recipient; }
 
 add_filter( 'woocommerce_email_recipient_customer_processing_order', 'woo_extra_email_recipient', 10, 2);
