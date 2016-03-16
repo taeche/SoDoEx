@@ -114,7 +114,16 @@ class WooRolePricingLight {
 		global $post, $woocommerce;
 
 
-		$user = wp_get_current_user();
+		if(!empty($_POST['created_user_id']) && is_admin()){
+			$user = get_user_by('id', $_POST['created_user_id']);
+		}else if(!empty($_POST['order_id']) && is_admin()){
+			$order = new WC_Order( $_POST['order_id'] );
+			$user_id=$order->get_user_id();
+			$user = get_user_by('id', $user_id);
+		}else{
+			$user = wp_get_current_user();
+		}
+
 		$user_roles = $user->roles;
 		$user_role = array_shift($user_roles);
 

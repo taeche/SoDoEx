@@ -2,7 +2,9 @@
 //
 // Recommended way to include parent theme styles.
 //  (Please see http://codex.wordpress.org/Child_Themes#How_to_Create_a_Child_Theme)
-//  
+//
+
+
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -475,3 +477,16 @@ function woo_extra_email_recipient($recipient, $object) {
     return $recipient; }
 
 add_filter( 'woocommerce_email_recipient_customer_processing_order', 'woo_extra_email_recipient', 10, 2);
+
+// #10 Enable the ability to impersonate users therefore allowing ordering without the end user logging in directly to the web site #10
+
+function replace_script_for_add_order() {
+    require_once(ABSPATH . 'wp-admin/includes/screen.php');
+    $screen       = get_current_screen();
+    $suffix       = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+    if ( in_array( str_replace( 'edit-', '', $screen->id ), wc_get_order_types( 'order-meta-boxes' ) ) ) {
+        wp_dequeue_script('wc-admin-order-meta-boxes', WC()->plugin_url() . '/assets/js/admin/meta-boxes-order' . $suffix . '.js');
+        wp_enqueue_script('wc-admin-order-meta-boxes', get_stylesheet_directory_uri() . '/meta-boxes-order.js', array( 'wc-admin-meta-boxes' ), WC_VERSION);
+    }
+}
+add_action('current_screen', 'replace_script_for_add_order');
