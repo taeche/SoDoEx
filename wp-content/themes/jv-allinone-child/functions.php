@@ -473,9 +473,12 @@ function notify_shipping_for_bulkorder()
  */
 
 function woo_extra_email_recipient($recipient, $object) {
-    $wc_seq_recepients_of_order_completed_emails = get_option( 'wc_seq_recepients_of_order_completed_emails' );
-    if(!empty($wc_seq_recepients_of_order_completed_emails)){
-        $recipient = $recipient . ','.$wc_seq_recepients_of_order_completed_emails;
+    // the option stored with the id wc_seq_recepients_of_order_completed_emails,
+    // but, BE NOTICED that wc_seq is converted to woocommerce.
+    // that's why we use woocommerce_recepients_of_order_completed_emails to retrieve the value.
+    $woocommerce_recepients_of_order_completed_emails = get_option( 'woocommerce_recepients_of_order_completed_emails' );
+    if(!empty($woocommerce_recepients_of_order_completed_emails)){
+        $recipient = $recipient . ','.$woocommerce_recepients_of_order_completed_emails;
     }
 
     //$recipient = $recipient . ', whs@theonelogis.com, hyunkim@theonelogis.com';
