@@ -473,10 +473,55 @@ function notify_shipping_for_bulkorder()
  */
 
 function woo_extra_email_recipient($recipient, $object) {
-    $recipient = $recipient . ', whs@theonelogis.com, hyunkim@theonelogis.com';
+    $wc_seq_recepients_of_order_completed_emails = get_option( 'wc_seq_recepients_of_order_completed_emails' );
+    if(!empty($wc_seq_recepients_of_order_completed_emails)){
+        $recipient = $recipient . ','.$wc_seq_recepients_of_order_completed_emails;
+    }
+
+    //$recipient = $recipient . ', whs@theonelogis.com, hyunkim@theonelogis.com';
     return $recipient; }
 
 add_filter( 'woocommerce_email_recipient_customer_processing_order', 'woo_extra_email_recipient', 10, 2);
+
+function add_additional_recepients_of_order_completed_emails( $settings ) {
+
+    $updated_settings = array();
+
+    foreach ( $settings as $section ) {
+
+        // at the bottom of the General Options section
+
+        if ( isset( $section['id'] ) && 'general_options' == $section['id'] &&
+
+            isset( $section['type'] ) && 'sectionend' == $section['type'] ) {
+
+            $updated_settings[] = array(
+
+                'name'     => __( 'Order Completed Email Recepients', 'wc_seq_recepients_of_order_completed_emails' ),
+
+                'desc_tip' => __( 'Additional recepients of order completed email. Separated by comma(,) for multiple email addresses.', 'wc_seq_recepients_of_order_completed_emails' ),
+
+                'id'       => 'woocommerce_recepients_of_order_completed_emails',
+
+                'type'     => 'text',
+
+                'css'      => 'min-width:400px;',
+
+                'std'      => '',  // WC < 2.0
+
+                'default'  => '',  // WC >= 2.0
+
+                'desc'     => __( 'Example: aaa@abc.com, bbb@abc.org', 'wc_seq_recepients_of_order_completed_emails' ),
+
+            );
+
+        }
+
+        $updated_settings[] = $section;
+    }
+    return $updated_settings;
+}
+add_filter( 'woocommerce_general_settings', 'add_additional_recepients_of_order_completed_emails');
 
 // #10 Enable the ability to impersonate users therefore allowing ordering without the end user logging in directly to the web site #10
 
@@ -490,3 +535,6 @@ function replace_script_for_add_order() {
     }
 }
 add_action('current_screen', 'replace_script_for_add_order');
+
+//
+
