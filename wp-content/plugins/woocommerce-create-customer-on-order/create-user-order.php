@@ -137,7 +137,7 @@ class WC_Create_Customer_On_Order {
 		global $woocommerce, $wp_roles; ?>
 
 		<div class='create_user form-field form-field-wide'>
-			<input type="hidden" id="created_user_id" />
+			<input type="hidden" id="selected_user_id"/>
 			<p>
 				<button class='button create_user_form'>
 					<?php _e( 'Create Customer', 'create-customer-order' ); ?>

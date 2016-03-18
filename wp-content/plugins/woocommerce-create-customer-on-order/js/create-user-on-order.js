@@ -64,7 +64,7 @@ jQuery( function($){
 
 						var user_id = response.user_id;
 						var username = response.username;
-						$("#created_user_id").val(user_id);
+						$("#selected_user_id").val(user_id);
 						//alert($("#created_user_id").val());
 						// Choozen (before WC2.3)
 						if( $().chosen || $().chosen ){

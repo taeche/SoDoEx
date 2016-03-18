@@ -119,6 +119,7 @@ jQuery( function ( $ ) {
 
                 // Get user ID to load data for
                 var user_id = $( '#customer_user' ).val();
+                $( '#selected_user_id' ).val(user_id);
 
                 if ( ! user_id ) {
                     window.alert( woocommerce_admin_meta_boxes.no_customer_selected );
@@ -1039,7 +1040,7 @@ jQuery( function ( $ ) {
                         var data = {
                             action:      'woocommerce_add_order_item',
                             item_to_add: value,
-                            created_user_id: $("#created_user_id").val(),
+                            selected_user_id: $("#selected_user_id").val(),
                             order_id:    woocommerce_admin_meta_boxes.post_id,
                             security:    woocommerce_admin_meta_boxes.order_item_nonce
                         };
