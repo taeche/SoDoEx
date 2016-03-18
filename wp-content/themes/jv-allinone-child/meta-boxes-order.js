@@ -109,7 +109,7 @@ jQuery( function ( $ ) {
         change_customer_user: function() {
             if ( ! $( '#_billing_country' ).val() ) {
                 $( 'a.edit_address' ).click();
-                wc_meta_boxes_order.load_billing( true );
+               wc_meta_boxes_order.load_billing( true );
                 wc_meta_boxes_order.load_shipping( true );
             }
         },
@@ -149,17 +149,17 @@ jQuery( function ( $ ) {
                         var info = response;
 
                         if ( info ) {
-                            if(info.billing_first_name)$( 'input#_billing_first_name' ).val( info.billing_first_name ).change();
-                            if(info.billing_last_name) $( 'input#_billing_last_name' ).val( info.billing_last_name ).change();
-                            if(info.billing_company) $( 'input#_billing_company' ).val( info.billing_company ).change();
-                            if(info.billing_address_1)$( 'input#_billing_address_1' ).val( info.billing_address_1 ).change();
-                            if(info.billing_address_2)$( 'input#_billing_address_2' ).val( info.billing_address_2 ).change();
-                            if(info.billing_city) $( 'input#_billing_city' ).val( info.billing_city ).change();
-                            if(info.billing_postcode) $( 'input#_billing_postcode' ).val( info.billing_postcode ).change();
-                            if(info.billing_country) $( '#_billing_country' ).val( info.billing_country ).change();
-                            if(info.billing_state) $( '#_billing_state' ).val( info.billing_state ).change();
-                            if(info.billing_email) $( 'input#_billing_email' ).val( info.billing_email ).change();
-                            if(info.billing_phone) $( 'input#_billing_phone' ).val( info.billing_phone ).change();
+                            $( 'input#_billing_first_name' ).val( info.billing_first_name ).change();
+                            $( 'input#_billing_last_name' ).val( info.billing_last_name ).change();
+                            $( 'input#_billing_company' ).val( info.billing_company ).change();
+                            $( 'input#_billing_address_1' ).val( info.billing_address_1 ).change();
+                            $( 'input#_billing_address_2' ).val( info.billing_address_2 ).change();
+                            $( 'input#_billing_city' ).val( info.billing_city ).change();
+                            $( 'input#_billing_postcode' ).val( info.billing_postcode ).change();
+                            $( '#_billing_country' ).val( info.billing_country ).change();
+                            $( '#_billing_state' ).val( info.billing_state ).change();
+                            $( 'input#_billing_email' ).val( info.billing_email ).change();
+                            $( 'input#_billing_phone' ).val( info.billing_phone ).change();
                         }
 
                         $( 'div.edit_address' ).unblock();

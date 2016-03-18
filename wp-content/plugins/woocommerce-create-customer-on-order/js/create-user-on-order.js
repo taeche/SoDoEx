@@ -65,7 +65,6 @@ jQuery( function($){
 						var user_id = response.user_id;
 						var username = response.username;
 						$("#selected_user_id").val(user_id);
-						//alert($("#created_user_id").val());
 						// Choozen (before WC2.3)
 						if( $().chosen || $().chosen ){
 							$('select.ajax_chosen_select_customer').append(
@@ -79,9 +78,78 @@ jQuery( function($){
 
 						// Select2 (after WC2.3)
 						if( $().select2 ){
-							$(".wc-customer-search").select2({
+
+							var select2_args = {
+								allowClear:  $( ".wc-customer-search" ).data( 'allow_clear' ) ? true : false,
+								placeholder: $( ".wc-customer-search" ).data( 'placeholder' ),
+								minimumInputLength: $( ".wc-customer-search" ).data( 'minimum_input_length' ) ? $( ".wc-customer-search" ).data( 'minimum_input_length' ) : '3',
+								escapeMarkup: function( m ) {
+									return m;
+								},
 								data: [{ id: user_id, text: username }]
-							});
+								,
+								ajax: {
+									url:         wc_enhanced_select_params.ajax_url,
+									dataType:    'json',
+									quietMillis: 250,
+									data: function( term ) {
+										return {
+											term:     term,
+											action:   'woocommerce_json_search_customers',
+											security: wc_enhanced_select_params.search_customers_nonce
+										};
+									},
+									results: function( data ) {
+										var terms = [];
+										if ( data ) {
+											$.each( data, function( id, text ) {
+												terms.push({
+													id: id,
+													text: text
+												});
+											});
+										}
+										return { results: terms };
+									},
+									cache: true
+								}
+							};
+							//if ( $( this ).data( 'multiple' ) === true ) {
+							//	select2_args.multiple = true;
+							//	select2_args.initSelection = function( element, callback ) {
+							//		var data     = $.parseJSON( element.attr( 'data-selected' ) );
+							//		var selected = [];
+                            //
+							//		$( element.val().split( ',' ) ).each( function( i, val ) {
+							//			selected.push({
+							//				id: val,
+							//				text: data[ val ]
+							//			});
+							//		});
+							//		return callback( selected );
+							//	};
+							//	select2_args.formatSelection = function( data ) {
+							//		return '<div class="selected-option" data-id="' + data.id + '">' + data.text + '</div>';
+							//	};
+							//} else {
+								select2_args.multiple = false;
+								select2_args.initSelection = function( element, callback ) {
+									var data = {
+										id: user_id,
+										text: username
+									};
+									return callback( data );
+								};
+							//}
+                            //
+							//select2_args = $.extend( select2_args, getEnhancedSelectFormatString() );
+
+							$( ".wc-customer-search" ).select2( select2_args ).addClass( 'enhanced' );
+							
+							
+							//$(".wc-customer-search").select2({
+							//	data: [{ id: user_id, text: username }]
+							//});
 							$(".wc-customer-search").val( user_id ).trigger("change");
 						}
 
@@ -107,11 +175,14 @@ jQuery( function($){
 						$(".button.create_user_form").fadeIn(200);
 
 						// Prepopulate Billing and Shipping address
-						$(".edit_address input[name='_billing_first_name']").val(first_name);
-						$(".edit_address input[name='_billing_last_name']").val(last_name);
-						$(".edit_address input[name='_shipping_first_name']").val(first_name);
-						$(".edit_address input[name='_shipping_last_name']").val(last_name);
-						$(".edit_address input[name='_billing_email']").val(email_address);
+						setTimeout(function(){
+							$(".edit_address input[name='_billing_first_name']").val(first_name);
+							$(".edit_address input[name='_billing_last_name']").val(last_name);
+							$(".edit_address input[name='_shipping_first_name']").val(first_name);
+							$(".edit_address input[name='_shipping_last_name']").val(last_name);
+							$(".edit_address input[name='_billing_email']").val(email_address);
+						}, 2000);
+
 					}
 
 				}, "json");
