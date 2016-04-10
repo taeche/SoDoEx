@@ -34,10 +34,12 @@ function user_has_role( $role, $user_id = null ) {
 
     return in_array( $role, (array) $user->roles );
 }
-function HideCaseOf6($string) {
-  return strpos($string, 'caseof6') === false;
+function HideCaseOf6_500ml($string) {
+  return strpos($string, 'caseof6_500ml') === false;
 }
-
+function HideCaseOf12_300ml($string) {
+	return strpos($string, 'caseof12_300ml') === false;
+}
 global $product, $post;
 
 ?>
@@ -58,7 +60,8 @@ global $product, $post;
 
 				<?php $loop = 0; foreach ( $attributes as $name => $options ) : 
 				if(user_has_role('whole_saler') || user_has_role('distributor')){
-					$options = array_filter($options, 'HideCaseOf6');
+					$options = array_filter($options, 'HideCaseOf6_500ml');
+					$options = array_filter($options, 'HideCaseOf12_300ml');
 				}
 				$loop++; ?>
 
