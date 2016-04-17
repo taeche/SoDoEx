@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WooCommerce Create Customer on Order | Shared by yogithemes.com
+ * Plugin Name: Do Not Update!! Modified by Yong-WooCommerce Create Customer on Order | Shared by yogithemes.com
  * Description: Save time and simplify your life by having the ability to create a new Customer directly on the WooCommerce Order screen
  * Author: cxThemes
  * Author URI: http://codecanyon.net/user/cxThemes
