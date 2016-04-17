@@ -1759,8 +1759,9 @@ function createInfoWindowHtml( infoWindowData ) {
 	} else {
 		template = $( "#wpsl-info-window-template" ).html();
 	}
-
-	windowContent = _.template( template, infoWindowData ); //see http://underscorejs.org/#template
+	// Modified by YongUn as upgrading underscore library,which is a part of wordpress upgrade, has caused bug
+	var templateObj=_.template( template);
+	windowContent =templateObj(infoWindowData ); //see http://underscorejs.org/#template
 
 	return windowContent;
 }
