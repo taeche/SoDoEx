@@ -1209,11 +1209,12 @@ function makeAjaxRequest( startLatLng, resetMap, autoLoad, infoWindow ) {
 				addMarker( latLng, response[index].id, response[index], draggable, infoWindow );	
 
 				// Create the html output with help from underscore js.
-				storeData = storeData + _.template( template, response[index] );
+				// modified by Yongun - Usage of _.template has changed in Underscore 1.8.3  which causing bug in search result
+				var templateObj=_.template( template);
+				storeData = storeData + templateObj(  response[index] );
 			});
 
 			$( "#wpsl-result-list" ).off( "click", ".wpsl-directions" );
-
 			// Add the html for the store listing to the <ul>.
 			$storeList.append( storeData );
 
