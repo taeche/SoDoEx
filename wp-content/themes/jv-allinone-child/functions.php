@@ -539,5 +539,15 @@ function replace_script_for_add_order() {
 }
 add_action('current_screen', 'replace_script_for_add_order');
 
+
+function filter_plugin_updates( $value ) {
+    unset( $value->response['fedex-woocommerce-shipping-method/fedex-woocommerce-shipping.php'] );
+    unset( $value->response['wp-store-locator/wp-store-locator.php'] );
+    unset( $value->response['woocommerce-role-pricing/woo-role-pricing-light.php'] );
+    unset( $value->response['ninja-announcements/ninja_annc.php'] );
+
+    return $value;
+}
+add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
 //
 
