@@ -545,6 +545,7 @@ function filter_plugin_updates( $value ) {
     unset( $value->response['wp-store-locator/wp-store-locator.php'] );
     unset( $value->response['woocommerce-role-pricing/woo-role-pricing-light.php'] );
     unset( $value->response['ninja-announcements/ninja_annc.php'] );
+    unset( $value->response['woocommerce-create-customer-on-order/create-user-order.php'] );
 
     return $value;
 }
