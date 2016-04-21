@@ -148,7 +148,7 @@ jQuery( function ( $ ) {
                     success: function( response ) {
                         var info = response;
 
-                        if ( info ) {
+                        if ( info && !wc_meta_boxes_order.is_billing_address_empty(info)) {
                             $( 'input#_billing_first_name' ).val( info.billing_first_name ).change();
                             $( 'input#_billing_last_name' ).val( info.billing_last_name ).change();
                             $( 'input#_billing_company' ).val( info.billing_company ).change();
@@ -168,7 +168,22 @@ jQuery( function ( $ ) {
             }
             return false;
         },
+        is_billing_address_empty:function(info){
+            if( info.billing_first_name )return false;
+            if( info.billing_last_name )return false;
+            if( info.billing_company )return false;
+            if( info.billing_address_1 )return false;
+            if( info.billing_address_2 )return false;
+            if( info.billing_city )return false;
+            if( info.billing_postcode )return false;
+            if( info.billing_country )return false;
+            if( info.billing_state )return false;
+            if( info.billing_email )return false;
+            if( info.billing_phone )return false;
 
+            return true;
+
+        },
         load_shipping: function( force ) {
             if ( true === force || window.confirm( woocommerce_admin_meta_boxes.load_shipping ) ) {
 
@@ -202,7 +217,7 @@ jQuery( function ( $ ) {
                     success: function( response ) {
                         var info = response;
 
-                        if ( info ) {
+                        if ( info && !wc_meta_boxes_order.is_shipping_address_empty(info)) {
                             $( 'input#_shipping_first_name' ).val( info.shipping_first_name ).change();
                             $( 'input#_shipping_last_name' ).val( info.shipping_last_name ).change();
                             $( 'input#_shipping_company' ).val( info.shipping_company ).change();
@@ -219,6 +234,22 @@ jQuery( function ( $ ) {
                 });
             }
             return false;
+        },
+        is_shipping_address_empty:function(info){
+            if( info.shipping_first_name )return false;
+            if( info.shipping_last_name )return false;
+            if( info.shipping_company )return false;
+            if( info.shipping_address_1 )return false;
+            if( info.shipping_address_2 )return false;
+            if( info.shipping_city )return false;
+            if( info.shipping_postcode )return false;
+            if( info.shipping_country )return false;
+            if( info.shipping_state )return false;
+            if( info.shipping_email )return false;
+            if( info.shipping_phone )return false;
+
+            return true;
+
         },
 
         copy_billing_to_shipping: function() {
