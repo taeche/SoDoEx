@@ -175,13 +175,13 @@ jQuery( function($){
 						$(".button.create_user_form").fadeIn(200);
 
 						// Prepopulate Billing and Shipping address
-						setTimeout(function(){
+						//setTimeout(function(){
 							$(".edit_address input[name='_billing_first_name']").val(first_name);
 							$(".edit_address input[name='_billing_last_name']").val(last_name);
 							$(".edit_address input[name='_shipping_first_name']").val(first_name);
 							$(".edit_address input[name='_shipping_last_name']").val(last_name);
 							$(".edit_address input[name='_billing_email']").val(email_address);
-						}, 2000);
+						//}, 2000);
 
 					}
 
