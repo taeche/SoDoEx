@@ -550,5 +550,60 @@ function filter_plugin_updates( $value ) {
     return $value;
 }
 add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );
-//
 
+/**
+ * #20  Minimum Order for Retailer and Wholesaler
+ */
+add_action( 'woocommerce_check_cart_items', 'check_min_total' );
+function check_min_total() {
+    if(!is_user_logged_in())return;
+
+
+    // Only run in the Cart or Checkout pages
+    if( is_cart() || is_checkout() ) {
+
+        global $woocommerce, $product;
+
+        $total_quantity=0;
+        // Set minimum product cart total
+        $minimum_cart_product_total = 0;
+
+        //get current user's role
+        $user_role=get_user_role();
+        /**
+         * role name: actual role
+         *
+         * distributor:retailer
+         * whole_saler:wholesaler
+         **/
+        if($user_role=='distributor'){// for retailer
+            $minimum_cart_product_total=2;
+        }elseif($user_role=='whole_saler'){// for wholesaler
+            $minimum_cart_product_total=15;
+        }
+
+        //loop through all cart products
+        foreach ( $woocommerce->cart->cart_contents as $product ) :
+                //add up all items in the cart
+                $total_quantity += $product['quantity'];
+        endforeach;
+
+        if( $total_quantity < $minimum_cart_product_total ) {
+            // Display our error message
+            wc_add_notice( sprintf( 'You must have an order with a minimum of %s items to place your order, your current order total is %s items.',
+                    $minimum_cart_product_total,
+                    $total_quantity ),
+                'error' );
+        }
+    }
+
+}
+
+function get_user_role() {
+    global $current_user;
+
+    $user_roles = $current_user->roles;
+    $user_role = array_shift($user_roles);
+
+    return $user_role;
+}
