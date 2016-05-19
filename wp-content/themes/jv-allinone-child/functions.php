@@ -580,17 +580,24 @@ function check_min_total() {
             $minimum_cart_product_total=2;
         }elseif($user_role=='whole_saler'){// for wholesaler
             $minimum_cart_product_total=15;
+        }else{
+            return;
         }
 
         //loop through all cart products
         foreach ( $woocommerce->cart->cart_contents as $product ) :
                 //add up all items in the cart
-                $total_quantity += $product['quantity'];
+                $haystack = array_values($product['variation']);
+                // only check for the box items
+                if(in_array("caseof72_300ml",$haystack) || in_array("caseof48_500ml",$haystack) ){
+                    $total_quantity += $product['quantity'];
+                }
+
         endforeach;
 
         if( $total_quantity < $minimum_cart_product_total ) {
             // Display our error message
-            wc_add_notice( sprintf( 'You must have an order with a minimum of %s items to place your order, your current order total is %s items.',
+            wc_add_notice( sprintf( 'You must have an order with a minimum of %s boxes to place your order, your current order total is %s boxes.',
                     $minimum_cart_product_total,
                     $total_quantity ),
                 'error' );
@@ -607,3 +614,4 @@ function get_user_role() {
 
     return $user_role;
 }
+
